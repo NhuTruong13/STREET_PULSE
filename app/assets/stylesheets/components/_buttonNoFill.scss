@@ -1,0 +1,23 @@
+.buttonNoFill {
+  color: #49CBA9;
+  background-color: white;
+  width: 150px;
+  font-size: 15px;
+  padding: 5px;
+  border-radius: 3px;
+  text-align: center;
+  border: 1px solid #49CBA9;
+  margin-top: 30px;
+  box-sizing: border-box;
+}
+
+.buttonNoFill :visited {
+  color: #49CBA9;
+}
+.buttonNoFill :hover {
+  background-color: #fff;
+  color: #01C19A;
+  color: inherit;
+  text-decoration: none;
+  cursor: pointer;
+}
