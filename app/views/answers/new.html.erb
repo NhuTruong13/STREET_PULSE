@@ -1,8 +1,21 @@
 <div class= "container">
   <%= simple_form_for [@search, @review, @answer] do |f| %>
   <div class="row">
-    <div class="col-xs-10 col-xs-offset-1">
-      <p> <%= f.input :, :label => q1.title %> </p>
+    <% collection = ["Singles",
+      "Families with kids",
+      "Retirees",
+      "Tourists",
+      "Students",
+      "Offices/Professionals"] %>
+
+
+
+
+      <div class="col-xs-10 col-xs-offset-1">
+        input_html: {multiple: true},
+        :label => Question.find_by(number:1).title
+        %>
+      </p>
     </div>
   </div>
 
@@ -11,3 +24,5 @@
 </div>
 </div>
 </div>
+
+
