@@ -14,7 +14,11 @@ Search.destroy_all
 Answer.destroy_all
 Question.destroy_all
 Picture.destroy_all
-Commune.destroy_all
+
+c1 = Commune.where(zip_code: 1000).first
+c2 = Commune.where(zip_code: 1050).first
+c3 = Commune.where(zip_code: 1030).first
+c4 = Commune.where(zip_code: 1040).first
 
 puts "Creating new records..."
 
@@ -23,11 +27,6 @@ u2 = User.create!(email: "nhu@example.com", password: "123456", f_name: "Nhu", l
 u3 = User.create!(email: "tarig@example.com", password: "123456", f_name: "Tarig", l_name:"B")
 u4 = User.create!(email: "andrzej@example.com", password: "123456", f_name: "Andrzej", l_name:"G")
 
-
-c1 = Commune.create!(name: "Woluwe", description: "Lorem ipsum dolor sit amet", zip_code: 1200)
-c2 = Commune.create!(name: "Ixelles", description: "Lorem ipsum dolor sit amet", zip_code: 1050)
-c3 = Commune.create!(name: "Uccle", description: "Lorem ipsum dolor sit amet", zip_code: 1080)
-c4 = Commune.create!(name: "Etterbeek", description: "Lorem ipsum dolor sit amet", zip_code: 1040)
 
 s1 = Search.create!(address: "Be Central 10, Bruxelles", radius: 100, latitude: 50.9455, longitude: 4.95, user: u1, commune: c1)
 s2 = Search.create!(address: "Grand Place 1, Bruxelles", radius: 200, latitude: 50.5455, longitude: 4.55, user: u3, commune: c2)
@@ -52,7 +51,7 @@ r1 = Review.create!(street_review_title: "Review No 1",
   user: u1,
   commune: c1,
   search: s1
-)
+  )
 
 
 r2 = Review.create!(street_review_title: "Review on the street No 2",
@@ -67,7 +66,7 @@ r2 = Review.create!(street_review_title: "Review on the street No 2",
   user: u1,
   commune: c1,
   search: s2
-)
+  )
 
 r3 = Review.create!(street_review_title: "Review on the street No 3",
   street_review_content: "Super cool and very very excellent so nice!",
@@ -81,7 +80,7 @@ r3 = Review.create!(street_review_title: "Review on the street No 3",
   user: u2,
   commune: c3,
   search: s3
-)
+  )
 
 r4 = Review.create!(street_review_title: "Review on the street No 4",
   street_review_content: "Oh my God, it's so cool. Very very excellent so nice!",
@@ -95,7 +94,7 @@ r4 = Review.create!(street_review_title: "Review on the street No 4",
   user: u3,
   commune: c2,
   search: s2
-)
+  )
 
 a1 = Answer.create!(answer_text: nil, answer_range: 5, question: q1, review: r1)
 a2 = Answer.create!(answer_text: "Very wealthy", answer_range: nil, question: q2, review: r2)
