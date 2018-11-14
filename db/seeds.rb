@@ -52,7 +52,7 @@ r1 = Review.create!(street_review_title: "Review No 1",
   user: u1,
   commune: c1,
   search: s1
-)
+  )
 
 
 r2 = Review.create!(street_review_title: "Review on the street No 2",
@@ -67,21 +67,21 @@ r2 = Review.create!(street_review_title: "Review on the street No 2",
   user: u1,
   commune: c1,
   search: s2
-)
+  )
 
 r3 = Review.create!(street_review_title: "Review on the street No 3",
   street_review_content: "Super cool and very very excellent so nice!",
-  street_review_average_rating: 5,
-  commune_review_title: "Review on the commune No 2",
+        street_review_average_rating: 5,
+      commune_review_title: "Review on the commune No 2",
   commune_review_content: "Super very nice commune indeed!",
-  commune_review_average_rating: 2,
-  latitude_review: 51.8424,
-  longitude_review: 4.9,
-  no_likes: 2,
+commune_review_average_rating: 2,
+latitude_review: 51.8424,
+      longitude_review: 4.9,
+      no_likes: 2,
   user: u2,
   commune: c3,
   search: s3
-)
+  )
 
 r4 = Review.create!(street_review_title: "Review on the street No 4",
   street_review_content: "Oh my God, it's so cool. Very very excellent so nice!",
@@ -95,7 +95,7 @@ r4 = Review.create!(street_review_title: "Review on the street No 4",
   user: u3,
   commune: c2,
   search: s2
-)
+  )
 
 a1 = Answer.create!(answer_text: nil, answer_range: 5, question: q1, review: r1)
 a2 = Answer.create!(answer_text: "Very wealthy", answer_range: nil, question: q2, review: r2)
