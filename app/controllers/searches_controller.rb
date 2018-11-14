@@ -1,4 +1,6 @@
 class SearchesController < ApplicationController
+  skip_before_action :authenticate_user!
+
   def index
   end
 
@@ -7,19 +9,12 @@ class SearchesController < ApplicationController
   end
 
   def create
-    if params[:q].present?
+    @search = Search.new
+    @search.address = params[:q]
+    @search.user = current_user
+    if @search.save!
       raise
-      @search = search.new(search_params)
-      @search.address = params[:q]
-      respond_to do |format|
-        if @search.save
-          format.html { redirect_to @search, notice: 'search was successfully created.' }
-          format.json { render :show, status: :created, location: @search }
-        else
-          format.html { render :new }
-          format.json { render json: @search.errors, status: :unprocessable_entity }
-        end
-      end
+      redirect_to search_path(@search)
     else
       render :new
     end
@@ -39,6 +34,6 @@ class SearchesController < ApplicationController
   private
 
   def search_params
-    params.require(:search).permit(:radius, :address, :latitude, :longitude, :user_id, :commmune_id)
+    params.require(:search).permit(:address, :latitude, :longitude)
   end
 end
