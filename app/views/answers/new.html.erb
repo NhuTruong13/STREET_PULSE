@@ -2,19 +2,10 @@
   <%= simple_form_for [@search, @review, @answer] do |f| %>
   <div class="row">
     <div class="col-xs-10 col-xs-offset-1">
-
-
+      <p> <%= f.input :, :label => q1.title %> </p>
     </div>
   </div>
 
-
-
-  <div class="row">
-    <div class="col-xs-10 col-xs-offset-1">
-    </div>
-  </div>
-
-  >
   <%= f.button :submit, class: "" %>
   <% end  %>
 </div>
