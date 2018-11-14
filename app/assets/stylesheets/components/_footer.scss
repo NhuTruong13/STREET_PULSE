@@ -1,11 +1,13 @@
 .footer {
-  background: #F4F4F4;
+  background: #fff;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 50px;
+  height: 80px;
   padding: 0px 50px;
   color: rgba(0,0,0,0.3);
+  box-shadow: 1px 1px 2px rgba(0,0,0,0.1)
+
 }
 .footer-links {
   display: flex;
@@ -22,7 +24,7 @@
   opacity: 1;
 }
 .footer .fa-github, .fa-instagram, .fa-facebook, .fa-twitter, .fa-linkedin {
-  color: #49CBA9;
+  color: #FA5659;
 }
 .body {
   min-height: calc(100vh - 140px)
