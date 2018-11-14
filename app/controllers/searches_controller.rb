@@ -13,15 +13,14 @@ class SearchesController < ApplicationController
     @search.address = params[:q]
     @search.user = current_user
     if @search.save!
-      raise
-      redirect_to search_path(@search)
+      redirect_to @search
     else
       render :new
     end
   end
 
   def show
-    @search = search.find(params[:id])
+    @search = Search.find(params[:id])
     # @mapelement = Array.new
     # build_mapelement(@search, @mapelement)
     @marker = [

@@ -3,7 +3,7 @@ import GMaps from 'gmaps/gmaps.js';
 const mapElement = document.getElementById('map');
 if (mapElement) {
   const map = new GMaps({ el: '#map', lat: 0, lng: 0});
-  const markers = JSON.parse(mapElement.dataset.markers);
+  const markers = JSON.parse(mapElement.dataset.marker);
   console.log(markers.length); // don't try to build a map if there's no div#map to inject in
   map.addMarkers(markers);
   if (markers.length === 0) {
