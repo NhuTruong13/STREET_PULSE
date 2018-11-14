@@ -1,0 +1,30 @@
+<!-- SECTION 1 -->
+
+<!-- need to add a search bar -->
+<!-- for street -->
+
+<!-- for radius -->
+
+<!-- for the buttons -->
+
+<div class="row">
+  <div class="button">
+    <%= link_to "Save my search", new_user_session_path %>
+  </div>
+</div>
+
+<div class="row">
+  <div class="buttonNoFill">
+    <%= link_to "New Search", new_user_session_path %>
+  </div>
+</div>
+
+<div class="row">
+  <div class="buttonNoFill">
+    <%= link_to "Add a review", new_user_session_path %>
+  </div>
+</div>
+
+<!-- SECTION 2 -->
+
+<p> Your street is part of <%= @commune.name %> - <%= @commune_review_average_rating %> / 10 </p>
