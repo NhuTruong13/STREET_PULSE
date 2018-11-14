@@ -1,0 +1,32 @@
+<section id="searchdestination">
+  <div class="hero-image">
+    <!-- the search -->
+    <div class="container">
+      <div class="row justify-content-center searchBar">
+        <div class="col-10 col-lg-8">
+          <%= form_tag({controller: "searches", action: "new"}, method: "post") do %>
+              <%= label_tag(:q, "Search for:") %>
+              <%= text_field_tag(:q) %>
+              <%= submit_tag("Search") %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <div class="hero-text">
+      <h3> Get an authentic feel of </h3>
+      <h3> the neighbourhood from locals </h3>
+    </div>
+  </div>
+</section>
+
+
+
+<!--          <%= form_tag new_search_path, method: :get do %>
+         <%= text_field_tag :query,
+         params[:query],
+         class: "form-control",
+          placeholder: "Find a place"
+          %>
+          <%= submit_tag ("Discover"), class: "Search" %>
+          <%= link_to 'submit', "", :onclick => "$('#form_id').submit()" %>
+          <% end %> -->

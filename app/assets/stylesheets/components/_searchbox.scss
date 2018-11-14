@@ -1,0 +1,23 @@
+#searchdestination {
+  display: flex;
+  vertical-align: middle;
+  margin-bottom: 50px;
+  .searchBar {
+    padding: 20px 0;
+    #locSearchBox {
+      display: inline-block;
+      width: 100%;
+      font-size: 1em;
+      text-align: center;
+      border: none;
+      border-radius: 3px;
+      padding: 10px;
+      box-shadow: 0 0 15px 1px #bfa8bc;
+      transition: all 0.3s;
+      &:focus {
+        outline: none;
+        box-shadow: 5px 5px 30px 5px #bfa8bc;
+      }
+    }
+  }
+}
