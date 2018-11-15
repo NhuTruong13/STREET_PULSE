@@ -1,0 +1,34 @@
+<div class= "container">
+ <% @collection = ["Singles",
+  "Families with kids",
+  "Retirees",
+  "Tourists",
+  "Students",
+  "Offices/Professionals"] %>
+  <%= simple_form_for [@search, @review, @answer] do |f| %>
+  <div class="row">
+    <div class="col-xs-10 col-xs-offset-1">
+      <%= f.input :answer_text, collection: @collection, input_html: { multiple: true },
+      :label => Question.find_by(number:1).title
+      %>
+
+      <%= f.input :answer_text,
+      :label => Question.find_by(number:1).title,
+      :collection => ["Families","Retirees", "Tourists", "Students", "Offices"],
+      :include_blank => "Anything",
+      wrapper_html: { class: 'form-group' },
+      :as => :check_boxes,
+      include_hidden: false,
+      :input_html => {:multiple => true} %>
+
+    </p>
+  </div>
+</div>
+
+<%= f.button :submit, class: "" %>
+<% end  %>
+</div>
+</div>
+</div>
+
+

@@ -1,0 +1,29 @@
+.profile_page {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.2)), url("bannerpic.jpeg");
+  height: 80vh;
+  width: 700px;
+  background-size: cover;
+}
+
+.profile_page_infos {
+  margin-top: 20px;
+  margin-left: 700px;
+  width: 650px;
+  height: 80vh;
+  background: white;
+  box-shadow: 0 1px 5px rgba(0,0,0,0.2);
+  padding: 30px;
+  position: relative;
+}
+
+.profile_page_photo {
+  position: absolute;
+  bottom: 30px;
+  right: 40px;
+  height: 250px;
+  width: 250px;
+  border-radius: 50%;
+  box-shadow: 0 1px 5px rgba(0,0,0,0.2);
+  background-size: cover;
+}
+
