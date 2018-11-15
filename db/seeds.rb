@@ -28,9 +28,9 @@ u3 = User.create!(email: "tarig@example.com", password: "123456", f_name: "Tarig
 u4 = User.create!(email: "andrzej@example.com", password: "123456", f_name: "Andrzej", l_name:"G")
 
 
-s1 = Search.create!(address: "Be Central 10, Bruxelles", radius: 100, latitude: 50.9455, longitude: 4.95, user: u1, commune: c1)
-s2 = Search.create!(address: "Grand Place 1, Bruxelles", radius: 200, latitude: 50.5455, longitude: 4.55, user: u3, commune: c2)
-s3 = Search.create!(address: "Ave de Tervuren, Bruxelles", radius: 250, latitude: 50.2455, longitude: 4.25, user: u2, commune: c3)
+s1 = Search.create!(address: "Be Central 10, Bruxelles", radius: 100, latitude: 50.9455, longitude: 4.95, user: u1)
+s2 = Search.create!(address: "Grand Place 1, Bruxelles", radius: 200, latitude: 50.5455, longitude: 4.55, user: u3)
+s3 = Search.create!(address: "Ave de Tervuren, Bruxelles", radius: 250, latitude: 50.2455, longitude: 4.25, user: u2)
 
 
 q1 = Question.create!(title: "How friendly are the neighbours?", category: "friendliness", answer_type: "type01")

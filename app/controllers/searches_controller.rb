@@ -1,4 +1,6 @@
 class SearchesController < ApplicationController
+  skip_before_action :authenticate_user!
+
   def index
   end
 
@@ -9,7 +11,7 @@ class SearchesController < ApplicationController
   def create
     # save to the DB only if user logged in
     if user_signed_in?
-      @search = Search.new(reviews_params)
+      @search = Search.new(search_params)
       @search.user = current_user
       # long & latit will be added by geocoder based on address while saving
       if @search.save
@@ -38,20 +40,30 @@ class SearchesController < ApplicationController
     @reviews_in_radius = []
     # iterate thru all reviews, check if location in radius (via review.search)
     # Review.all do |r|
-      # r.search.near(@search.address, @search.radius)
+    # r.search.near(@search.address, @search.radius)
     # end
 
     # prepare markers to be displayed on the map (in a hash)
-
 
     # calculate necessary averages from the reviews
 
     # and render the view
   end
 
+  def show
+    @search = Search.find(params[:id])
+    # @mapelement = Array.new
+    # build_mapelement(@search, @mapelement)
+    @marker = [
+      {
+        lat: @search.latitude,
+        lng: @search.longitude
+      }]
+  end
+
   private
 
-  def reviews_params
-    params.require(:review).permit(:address, :radius)
+  def search_params
+    params.require(:search).permit(:address, :radius, :latitude, :longitude)
   end
 end
