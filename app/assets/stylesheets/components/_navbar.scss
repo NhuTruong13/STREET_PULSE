@@ -11,7 +11,16 @@
   position: relative;
   box-shadow: 1px 1px 2px rgba(0,0,0,0.1)
 }
-
+.navbar-home{
+  background: transparent;
+  box-shadow: none;
+  position: absolute;
+  width: 100%;
+  .navbar-wagon-link {
+    color: white;
+    font-weight: bold;
+  }
+}
 /* Logo */
 .navbar-wagon-brand img {
   height: 55px;
