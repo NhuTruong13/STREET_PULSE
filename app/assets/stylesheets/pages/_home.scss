@@ -1,4 +1,4 @@
-// Specific CSS for your home-page
+  // Specific CSS for your home-page
 /* The hero image */
 .hero-image {
     /* Use "linear-gradient" to add a darken background effect to the image (photographer.jpg). This will make the text easier to read */
@@ -6,7 +6,7 @@
       rgba(0, 0, 0, 0.4)), url("main_photo.jpg");
 
     /* Set a specific height */
-    height: 80vh;
+    height: 100vh;
 
     /* Position and center the image to scale nicely on all screens */
     background-position: center;
@@ -43,7 +43,7 @@
 }
 
 .banner {
-  height: 80vh;
+  height: 100vh;
 }
 
 
