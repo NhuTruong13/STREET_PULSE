@@ -10,7 +10,7 @@ class SearchesController < ApplicationController
 
   def create
     @search = Search.new
-    @search.address = params[:q]
+    @search.address = params[:search]
     @search.user = current_user
     if @search.save!
       redirect_to @search

@@ -1,13 +1,15 @@
 <!-- SECTION 1 -->
-<%= @search.address %>
 
 <!-- need to add a search bar -->
 <section id="searchdestination">
+  <h1><%= @search.address %></h1>
   <div class="container">
     <div class="row justify-content-center searchBar">
       <div class="col-10 col-lg-8">
-
-        <input type="text" name="locSearchBox" id="locSearchBox">
+        <%= form_tag(controller: "searches", action: "create", method: "post") do %>
+          <%= text_field_tag(:search) %>
+          <%= submit_tag("Search") %>
+        <% end %>
       </div>
     </div>
   </div>
