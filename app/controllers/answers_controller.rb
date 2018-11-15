@@ -14,6 +14,7 @@ class AnswersController < ApplicationController
     @search = Search.find(params[:search_id])
     @review = Review.find(params[:review_id])
     @answer = Answer.new(answer_params)
+    @answer.review = @review
     if @answer.save!
       redirect_to searches_path
     else
