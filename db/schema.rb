@@ -10,19 +10,33 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_14_184112) do
+ActiveRecord::Schema.define(version: 2018_11_15_144032) do
+
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "answers", force: :cascade do |t|
-    t.integer "answer_range"
-    t.string "answer_text"
+    t.string "q5"
+    t.string "q6"
     t.bigint "review_id"
-    t.bigint "question_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["question_id"], name: "index_answers_on_question_id"
+    t.integer "q7"
+    t.integer "q8"
+    t.integer "q9"
+    t.integer "q10"
+    t.integer "q11"
+    t.integer "q12"
+    t.integer "q13"
+    t.integer "q14"
+    t.integer "q15"
+    t.integer "q16"
+    t.integer "q17"
+    t.integer "q18"
+    t.integer "q19"
+    t.integer "q20"
+    t.integer "q21"
     t.index ["review_id"], name: "index_answers_on_review_id"
   end
 
@@ -40,15 +54,6 @@ ActiveRecord::Schema.define(version: 2018_11_14_184112) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["review_id"], name: "index_pictures_on_review_id"
-  end
-
-  create_table "questions", force: :cascade do |t|
-    t.string "title"
-    t.string "category"
-    t.string "answer_type"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.integer "number"
   end
 
   create_table "reviews", force: :cascade do |t|
@@ -98,7 +103,6 @@ ActiveRecord::Schema.define(version: 2018_11_14_184112) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "answers", "questions"
   add_foreign_key "answers", "reviews"
   add_foreign_key "pictures", "reviews"
   add_foreign_key "reviews", "communes"
