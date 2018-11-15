@@ -8,8 +8,10 @@
         <p><strong>Last name:</strong> <%= current_user.l_name %> </p>
         <p><strong>Email:</strong> <%= current_user.email %> </p>
 
+
+
         <!-- add edit profile button -->
-        <%= link_to "Edit profile", edit_user_registration_path(current_user), class: "btn btn-primary" %>
+        <%= link_to "Edit profile", edit_user_registration_path(current_user), class: "buttonNoFill" %>
         <div class="profile_page_photo" style="background-image: url('<%= current_user.photo %>')"> </div>
       </div>
     </div>

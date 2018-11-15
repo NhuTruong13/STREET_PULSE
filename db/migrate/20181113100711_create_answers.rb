@@ -4,7 +4,6 @@ class CreateAnswers < ActiveRecord::Migration[5.2]
       t.integer :answer_range
       t.string :answer_text
       t.references :review, foreign_key: true
-      t.references :question, foreign_key: true
 
       t.timestamps
     end

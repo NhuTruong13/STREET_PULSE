@@ -1,57 +1,58 @@
 <div class= "container">
-  <p>Your Review Is Precious For The Others!!!</p>
-  <%= simple_form_for [@search, @review] do |f| %>
   <div class="row">
     <div class="col-xs-10 col-xs-offset-1">
-      <p> <%= f.input :street_review_average_rating, collection: 0..10, :label => "Your general appreciation of the street" %> </p>
-      <p> <%= f.input :commune_review_average_rating, collection: 0..10, :label => "Your appreciation of the commune" %> </p>
-    </div>
-  </div>
 
-<!--   <div class="row">
-    <div style="background-color: blue" class="col-xs-10 col-xs-offset-1">
-      <div class="row">
-        <div style="background-color: red" class="col-md-5 col-md-offsetc-1">
-          joiv,oisjivcpesvceos
-        </div>
-        <div class="row">
-          <div style="background-color: green" class="col-md-5 col-md-offset-1">
-            cjhioshoihjiojo
-          </div>
-        </div>
+      <div class="review-title">
+        <h3> <strong> Your review is precious for the others! </strong> </h3>
       </div>
+
+      <div class="review-rating">
+       <%= simple_form_for [@search, @review] do |f| %>
+
+
+    <!--   <div class="row">
+    <div style="background-color: blue" class="col-xs-10 col-xs-offset-1">
+    <div class="row">
+    <div style="background-color: red" class="col-md-5 col-md-offsetc-1">
+    joiv,oisjivcpesvceos
+    </div>
+    <div class="row">
+    <div style="background-color: green" class="col-md-5 col-md-offset-1">
+    cjhioshoihjiojo
+    </div>
+    </div>
+    </div>
     </div>
   </div> -->
 
 
 
-  <div class="row">
-    <div class="col-xs-10 col-xs-offset-1">
-      <div style="display: flex; margin:15px;">
-        <div style="width: 50%; padding:15px;">
-          <h5>Your review regarding the street</h5>
-          <p> <%= f.input :street_review_title, :label => "Review Title" %> </p>
-          <p> <%= f.input :street_review_content, :label => "Your Review" %> </p>
-
-        </div>
-        <div style="width: 50%; padding:15px;">
-          <h5>Your review regarding the commune</h5>
-          <p> <%= f.input :commune_review_average_rating, :label => "Review Title" %> </p>
-          <p> <%= f.input :commune_review_content, :label => "Your Review" %> </p>
-
-        </div>
+  <div class="review-content", style="display: flex; margin:15px">
+    <div style="width: 50%; padding:15px">
+      <div class="color-street">
+        <h5>Regarding the street...</h5>
       </div>
+      <p> <%= f.input :street_review_average_rating, collection: 0..10, :label => "Your General Appreciation" %> </p>
+      <p> <%= f.input :street_review_title, :label => "Your Review Title" %> </p>
+      <p> <%= f.input :street_review_content, :label => "Your Review" %> </p>
+    </div>
+
+    <div style="width: 50%; padding:15px">
+      <div class="color-commune">
+        <h5>Regarding the commune...</h5>
+      </div>
+      <p> <%= f.input :commune_review_average_rating, collection: 0..10, :label => "Your General Appreciation" %> </p>
+      <p> <%= f.input :commune_review_average_rating, :label => "Your Review Title" %> </p>
+      <p> <%= f.input :commune_review_content, :label => "Your Review" %> </p>
     </div>
   </div>
+</div>
+</div>
+</div>
 
-  <div class="row">
-    <div class="col-xs-10 col-xs-offset-1">
-    </div>
-  </div>
-
-  >
-  <%= f.button :submit, class: "" %>
+<div class="confirm">
+  <%= f.button :submit, "Confirm - Next > ", class: "btn btn-primary" %>
   <% end  %>
 </div>
-</div>
+
 </div>

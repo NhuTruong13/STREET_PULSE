@@ -12,7 +12,6 @@ User.destroy_all
 Review.destroy_all
 Search.destroy_all
 Answer.destroy_all
-Question.destroy_all
 Picture.destroy_all
 
 c1 = Commune.where(zip_code: 1000).first
@@ -32,11 +31,6 @@ s1 = Search.create!(address: "Be Central 10, Bruxelles", radius: 100, latitude: 
 s2 = Search.create!(address: "Grand Place 1, Bruxelles", radius: 200, latitude: 50.5455, longitude: 4.55, user: u3)
 s3 = Search.create!(address: "Ave de Tervuren, Bruxelles", radius: 250, latitude: 50.2455, longitude: 4.25, user: u2)
 
-
-q1 = Question.create!(title: "How friendly are the neighbours?", category: "friendliness", answer_type: "type01")
-q2 = Question.create!(title: "How wealthy are your neighbours?", category: "wealth", answer_type: "type01")
-q3 = Question.create!(title: "What are the 3 best strees in your neighbourhood?", category: "category2", answer_type: "type02")
-q4 = Question.create!(title: "Are there a lot of activities in the hood?", category: "category3", answer_type: "type01")
 
 
 r1 = Review.create!(street_review_title: "Review No 1",
@@ -96,11 +90,6 @@ r4 = Review.create!(street_review_title: "Review on the street No 4",
   search: s2
   )
 
-a1 = Answer.create!(answer_text: nil, answer_range: 5, question: q1, review: r1)
-a2 = Answer.create!(answer_text: "Very wealthy", answer_range: nil, question: q2, review: r2)
-a3 = Answer.create!(answer_text: nil, answer_range: 7, question: q3, review: r3)
-a4 = Answer.create!(answer_text: "Very wealthy", answer_range: nil, question: q4, review: r4)
 
 
 puts "Done populating the DB..."
-
