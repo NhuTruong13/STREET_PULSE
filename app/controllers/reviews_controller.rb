@@ -35,7 +35,7 @@ class ReviewsController < ApplicationController
   private
 
   def set_search
-    @search = Search.find(params[:id])
+    @search = Search.find(params[:search_id])
   end
 
   def reviews_params
