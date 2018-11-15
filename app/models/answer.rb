@@ -1,6 +1,5 @@
 class Answer < ApplicationRecord
   belongs_to :review
-  belongs_to :question
   # open questions (cfr 1 thru 4) sit in the Review model, all other questions are to be found right below!
   QUESTIONS = {
     :q5 => {:title => "What kind of people live in your area?", :category => "text"},
