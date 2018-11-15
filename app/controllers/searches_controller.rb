@@ -13,7 +13,7 @@ class SearchesController < ApplicationController
     @search.address = params[:search]
     @search.user = current_user
     if @search.save!
-      redirect_to @search
+      redirect_to search_path(@search)
     else
       render :new
     end
