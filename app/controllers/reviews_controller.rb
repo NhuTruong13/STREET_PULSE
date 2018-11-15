@@ -14,12 +14,12 @@ class ReviewsController < ApplicationController
   end
 
   def create
-
-    if @review.save
-      redirect_to search_reviews_path
-    else
-      render :new
-    end
+    redirect_to new_search_review_answer_path
+    # if @review.save
+    #   redirect_to search_reviews_path
+    # else
+    #   render :new
+    # end
   end
 
   # let's assume we don't mess with those for now
