@@ -75,14 +75,14 @@ q7 = Question.create!(
 
 q8 = Question.create!(
   number: 8,
-  title: "Are they lots of activities and community events?",
+  title: "Are there lots of activities and community events?",
   category: "Community / neighbours spirit",
   answer_type: "range"
   )
 
 q9 = Question.create!(
   number: 9,
-  title: "Do you want to stay more than 5+ years in this area?",
+  title: "Would you like to spend more than 5 years in this area?",
   category: "Community / neighbours spirit",
   answer_type: "range"
   )
@@ -96,7 +96,7 @@ q10 = Question.create!(
 
 q11 = Question.create!(
   number: 11,
-  title: "Is your place green? In other words, are there lots of trees/parks in the area?",
+  title: "would you say htat this place is green? In other words, are there lots of trees/parks in the area?",
   category: "Environment",
   answer_type: "range"
   )
@@ -110,7 +110,7 @@ q12 = Question.create!(
 
 q13 = Question.create!(
   number: 13,
-  title: "Is it easy to park?",
+  title: "Is it easy to find a parking spot?",
   category: "Facilities",
   answer_type: "range"
   )
@@ -173,4 +173,3 @@ q21 = Question.create!(
 
 
 puts "Done creating questions in the DB..."
-
