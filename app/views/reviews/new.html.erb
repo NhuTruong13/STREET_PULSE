@@ -29,16 +29,18 @@
 
   <div class="review-content", style="display: flex; margin:15px">
     <div style="width: 50%; padding:15px">
-      <h5>Regarding the street...</h5>
-
+      <div class="color-street">
+        <h5>Regarding the street...</h5>
+      </div>
       <p> <%= f.input :street_review_average_rating, collection: 0..10, :label => "Your General Appreciation" %> </p>
       <p> <%= f.input :street_review_title, :label => "Your Review Title" %> </p>
       <p> <%= f.input :street_review_content, :label => "Your Review" %> </p>
     </div>
 
     <div style="width: 50%; padding:15px">
-      <h5>Regarding the commune...</h5>
-
+      <div class="color-commune">
+        <h5>Regarding the commune...</h5>
+      </div>
       <p> <%= f.input :commune_review_average_rating, collection: 0..10, :label => "Your General Appreciation" %> </p>
       <p> <%= f.input :commune_review_average_rating, :label => "Your Review Title" %> </p>
       <p> <%= f.input :commune_review_content, :label => "Your Review" %> </p>
