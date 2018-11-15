@@ -34,15 +34,6 @@ ActiveRecord::Schema.define(version: 2018_11_14_184112) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "destinations", force: :cascade do |t|
-    t.string "name"
-    t.string "address"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.float "latitude"
-    t.float "longitude"
-  end
-
   create_table "pictures", force: :cascade do |t|
     t.string "url"
     t.bigint "review_id"
