@@ -1,14 +1,31 @@
- <% content_for(:navbar_class,"navbar-home") %>
 
- <div class="hero-image">
-  <div class="hero-text">
-    <h3> Get an authentic feel of </h3>
-    <h3> the neighbourhood from locals </h3>
-    <div class="btn btn-primary">
-      <p> Discover </p>
+<% content_for(:navbar_class,"navbar-home") %>
+
+<div class="hero-image">
+  <section id="searchdestination">
+    <div class="hero-text">
+      <h3> Get an authentic feel of </h3>
+      <h3> the neighbourhood from locals </h3>
+      <div class="btn btn-primary">
+        <p> Discover </p>
+      </div>
+    </div>
+    <!-- the search -->
+    <div class="container">
+      <div class="row justify-content-center searchBar">
+        <div class="col-10 col-lg-8">
+         <%= form_tag search_path, method: :get do %>
+         <%= text_field_tag :query,
+         params[:query],
+         class: "form-control",
+          placeholder: "Find a place"
+          %>
+          <% end %>
+          <input type="text" name="locSearchBox" id="locSearchBox">
+        </div>
+      </div>
+
     </div>
   </div>
-  <!-- the search -->
-
-</div>
+</section>
 

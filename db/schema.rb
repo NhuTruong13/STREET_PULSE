@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_14_151000) do
+ActiveRecord::Schema.define(version: 2018_11_14_184112) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,6 +32,15 @@ ActiveRecord::Schema.define(version: 2018_11_14_151000) do
     t.integer "zip_code"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "destinations", force: :cascade do |t|
+    t.string "name"
+    t.string "address"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.float "latitude"
+    t.float "longitude"
   end
 
   create_table "pictures", force: :cascade do |t|
@@ -77,10 +86,8 @@ ActiveRecord::Schema.define(version: 2018_11_14_151000) do
     t.float "latitude"
     t.float "longitude"
     t.bigint "user_id"
-    t.bigint "commune_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["commune_id"], name: "index_searches_on_commune_id"
     t.index ["user_id"], name: "index_searches_on_user_id"
   end
 
@@ -106,6 +113,5 @@ ActiveRecord::Schema.define(version: 2018_11_14_151000) do
   add_foreign_key "reviews", "communes"
   add_foreign_key "reviews", "searches"
   add_foreign_key "reviews", "users"
-  add_foreign_key "searches", "communes"
   add_foreign_key "searches", "users"
 end
