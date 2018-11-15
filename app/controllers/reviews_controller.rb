@@ -14,7 +14,8 @@ class ReviewsController < ApplicationController
   end
 
   def create
-
+    @review = Review.new(reviews_params)
+    @search.review = @review
     if @review.save
       redirect_to search_reviews_path
     else
@@ -35,7 +36,7 @@ class ReviewsController < ApplicationController
   private
 
   def set_search
-    @search = Search.find(params[:id])
+    @search = Search.find(params[:search_id])
   end
 
   def reviews_params
