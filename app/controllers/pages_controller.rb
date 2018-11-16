@@ -5,6 +5,7 @@ class PagesController < ApplicationController
   end
 
   def main_page
+    @address = params[:search]
   end
 
 end

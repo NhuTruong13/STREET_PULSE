@@ -1,12 +1,26 @@
+<% content_for(:navbar_class,"navbar-home") %>
+
 <div class="hero-image">
   <div class="hero-text">
+
     <h3> Get an authentic feel of </h3>
-    <h3> the neighbourhood from locals </h3>
-    <div class="btn btn-primary">
-      <p> Discover </p>
+    <h3> the neighbourhood from locals with </h3>
+    <h2> -- Street Pulse -- </h2>
+  </div>
+
+  <!-- the search -->
+  <div id="searchdestination">
+    <div class="col-10 col-lg-8">
+      <div class="searchBar">
+        <%= form_tag(controller: "searches", action: "create", method: "post") do %>
+        <%= text_field_tag(:search) %>
+      </div>
+      <div class="submit-search">
+        <%= submit_tag "Discover", class: "btn btn-primary" %>
+      </div>
+
+      <% end %>
     </div>
   </div>
-  <!-- the search -->
-
 </div>
 
