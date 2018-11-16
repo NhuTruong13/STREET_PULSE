@@ -1,7 +1,80 @@
-<div>
-  <!-- Partial is located in Views/Shared -->
-  <!-- <%= render '...' %> -->
+<div class="container">
+  <div class="row">
+    <div class="col-10 col-lg-8">
+
+      <h4> Define your neighbourhood... playing with the radius </h4>
+
+      <div class="searchLine">
+
+        <div class="searchBarAddress">
+          <div style="padding:15px">
+            <%= form_tag(controller: "searches", action: "create", method: "post") do %>
+            <%= text_field_tag 'search', nil, placeholder: @address   %>
+            <% end %>
+          </div>
+        </div>
+
+        <!-- STILL TO CHANGE!!!!!!!!!!!!!! -->
+        <div class="searchRadius">
+          <div style="padding:15px">
+            <%= form_tag(controller: "searches", action: "create", method: "post") do %>
+            <%= text_field_tag 'search', nil, placeholder: 'type a radius'   %>
+            <% end %>
+          </div>
+        </div>
+        <!-- STILL TO CHANGE!!!!!!!!!!!!!! -->
+
+        <div class="btn btn-primary", style="margin:15px">
+          <%= link_to "Save Search", new_user_session_path %>
+        </div>
+
+        <div class="btn btn-primary", style="margin:15px">
+          <%= link_to "New Search", new_user_session_path %>
+        </div>
+
+        <div class="btn btn-success", style="margin:15px">
+          <%= link_to "Add Review", new_user_session_path %>
+        </div>
+
+      </div>
+
+
+      <h4> Let's locate your search: </h4>
+
+      <div class="cardMap">
+        <!-- Partial is located in Views/Shared -->
+        <%= render 'shared/mapradius' %>
+      </div>
+
+
+      <h4> Your neightbourhood in pictures: </h4>
+      <div class="cardReview">
+
+        <!-- space for the pictures -->
+
+        <!-- space for the commune review and description -->
+
+      </div>
+
+      <h4> Read what Locals think about: </h4>
+      <div class="cardStat">
+
+
+      </div>
+
+      <h4> Reviews by Locals: </h4>
+      <div class="cardStat">
+
+
+      </div>
+
+    </div>
+  </div>
 </div>
+
+
+
+<!-- TO DO and DISPLAY
 
 1. Partial with the map with markers and radius (w/o reviews) => A
 
@@ -13,7 +86,7 @@ if no street => static map
 
 3. Statistics Reviews => based on a computation => M
 
-4. Reviews of the neigbourhood put in a card
+4. Reviews of the neigbourhood put in a card -->
 
 
 
