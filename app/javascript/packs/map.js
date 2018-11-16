@@ -8,6 +8,20 @@ if (mapElement) {
   const markers = JSON.parse(mapElement.dataset.marker);
   console.log(markers.length); // don't try to build a map if there's no div#map to inject in
   const marker_main = markers.shift();
+  // const radius = mapElement.dataset.radius;
+  const radius = 1000;
+
+  map.drawCircle({
+    lat: marker_main,
+    lng: marker_main,
+    radius: radius,
+    fillColor: 'yellow',
+    fillOpacity: 0.3,
+    strokeWeight: 0.3,
+    strokeColor: 'black',
+    strokeOpacity: 0.5,
+  });
+
   // add markers (reviews in the radius)
   map.addMarkers(markers);
   // add the main marker (user typed address)
@@ -15,7 +29,7 @@ if (mapElement) {
    lat: marker_main,
    lng: marker_main,
    icon: 'http://maps.google.com/mapfiles/ms/icons/green-dot.png',
-   animation: google.maps.Animation.DROP,
+   animation: google.maps.Animation.DROP
   });
   markers.unshift(marker_main);
   if (markers.length === 0) {
