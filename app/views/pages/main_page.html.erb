@@ -2,12 +2,11 @@
   <div class="row">
     <div class="col-10 col-lg-8">
 
-
       <h4> Define your neighbourhood... playing with the radius </h4>
 
       <div class="searchLine">
 
-        <div class="searchBar">
+        <div class="searchBarAddress">
           <div style="padding:15px">
             <%= form_tag(controller: "searches", action: "create", method: "post") do %>
             <%= text_field_tag 'search', nil, placeholder: @address   %>
