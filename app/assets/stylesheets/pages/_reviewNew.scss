@@ -1,24 +1,46 @@
+.container {
+  position: relative;
+}
 .review-title {
   margin-left: 10px;
   margin: 40px;
   text-align: center;
 }
-
-.container {
-  position: relative;
+.review-rating {
+  display: flex;
+  grid-template-rows: 100%;
+  grid-template-columns: 50% 50%;
 }
-
 .confirm {
-  position: absolute;
-  right: 145px;
+  padding: 40px;
+  margin-left: 740px;
 }
-
 .color-street {
   color: #FA5659;
   margin-bottom: 40px;
 }
-
 .color-commune {
   color: #32B796;
   margin-bottom: 40px;
 }
+.cards{
+  display: flex;
+  justify-content: space-between;
+}
+.card-Review-Street {
+  padding: 10px;
+  margin: 20px;
+  width: 400px;
+  height: 400px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.6);
+  background-size: cover !important;
+}
+.card-Review-Commune {
+  padding: 10px;
+  margin: 20px;
+  width: 400px;
+  height: 400px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.6);
+  background-size: cover !important;
+}
+
