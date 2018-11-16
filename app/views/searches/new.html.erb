@@ -1,19 +1,20 @@
-  <div class="hero-image">
-    <div id="searchdestination">
-      <!-- the search -->
-      <div class="container">
-        <div class="row justify-content-center searchBar">
-          <div class="col-10 col-lg-8">
-            <%= form_tag(controller: "searches", action: "create", method: "post") do %>
-            <%= text_field_tag(:search) %>
-            <%= submit_tag("Search") %>
-            <% end %>
-          </div>
-        </div>
-      </div>
-      <div class="hero-text">
-        <h3> Get an authentic feel of </h3>
-        <h3> the neighbourhood from locals </h3>
+<div id="searchdestination">
+  <!-- the search -->
+  <div class="container">
+    <div class="row">
+      <div>
+
+        <br><br><br><hr><hr><hr>
+
+        <!-- address search input -->
+        <%= form_tag(controller: "searches", action: "create", method: "post") do %>
+        <%= text_field_tag(:search, nil, placeholder: 'Enter address here...') %>
+        <%= submit_tag("Search") %>
+        <% end %>
+
       </div>
     </div>
+
+
   </div>
+</div>
