@@ -6,6 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+# before running rails db:seed MUST RUN: rails db:seed:seedcommunes
 puts "Deleting existing records..."
 
 User.destroy_all
@@ -26,25 +27,26 @@ u2 = User.create!(email: "nhu@example.com", password: "123456", f_name: "Nhu", l
 u3 = User.create!(email: "tarig@example.com", password: "123456", f_name: "Tarig", l_name:"B")
 u4 = User.create!(email: "andrzej@example.com", password: "123456", f_name: "Andrzej", l_name:"G")
 
+# in searches instances long/latit shhould be added by Geocoder gem while saving
+s1 = Search.create!(address: "Cantersteen 12, 1000 Bruxelles", radius: 1.500, user: u1)
+s2 = Search.create!(address: "Avenue de Tervueren, Etterbeek", radius: 5.000, user: u3)
+s3 = Search.create!(address: "Grand-Place, Brussels", radius: 3.250, user: u2)
+s4 = Search.create!(address: "Ambiorixsquare, 1000 Brussel", radius: 2.500, user: u2)
 
-s1 = Search.create!(address: "Be Central 10, Bruxelles", radius: 100, latitude: 50.9455, longitude: 4.95, user: u1)
-s2 = Search.create!(address: "Grand Place 1, Bruxelles", radius: 200, latitude: 50.5455, longitude: 4.55, user: u3)
-s3 = Search.create!(address: "Ave de Tervuren, Bruxelles", radius: 250, latitude: 50.2455, longitude: 4.25, user: u2)
 
 
-
+# in reviews instances long/latit shhould be added by Geocoder gem while saving
 r1 = Review.create!(street_review_title: "Review No 1",
   street_review_content: "Excellet so nice!",
   street_review_average_rating: 6,
   commune_review_title: "Review on the commune No 1",
   commune_review_content: "Very nice commune indeed!",
   commune_review_average_rating: 5,
-  latitude_review: 50.8424,
-  longitude_review: 4.345,
   no_likes: 2,
   user: u1,
   commune: c1,
-  search: s1
+  search: s1,
+  address: s1.address
   )
 
 
@@ -54,12 +56,11 @@ r2 = Review.create!(street_review_title: "Review on the street No 2",
   commune_review_title: "Review on the commune No 2",
   commune_review_content: "Super very nice commune indeed!",
   commune_review_average_rating: 8,
-  latitude_review: 51.8424,
-  longitude_review: 4.9,
   no_likes: 2,
   user: u1,
   commune: c1,
-  search: s2
+  search: s2,
+  address: s2.address
   )
 
 r3 = Review.create!(street_review_title: "Review on the street No 3",
@@ -68,12 +69,11 @@ r3 = Review.create!(street_review_title: "Review on the street No 3",
   commune_review_title: "Review on the commune No 2",
   commune_review_content: "Super very nice commune indeed!",
   commune_review_average_rating: 2,
-  latitude_review: 51.8424,
-  longitude_review: 4.9,
   no_likes: 2,
   user: u2,
   commune: c3,
-  search: s3
+  search: s3,
+  address: s3.address
   )
 
 r4 = Review.create!(street_review_title: "Review on the street No 4",
@@ -82,12 +82,11 @@ r4 = Review.create!(street_review_title: "Review on the street No 4",
   commune_review_title: "Review on the commune No 2",
   commune_review_content: "Super very nice commune indeed!",
   commune_review_average_rating: 8,
-  latitude_review: 51.8424,
-  longitude_review: 4.9,
   no_likes: 2,
   user: u3,
   commune: c2,
-  search: s2
+  search: s4,
+  address: s4.address
   )
 
 

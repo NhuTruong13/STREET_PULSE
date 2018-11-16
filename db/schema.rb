@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_15_144032) do
+ActiveRecord::Schema.define(version: 2018_11_15_200035) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -73,14 +73,15 @@ ActiveRecord::Schema.define(version: 2018_11_15_144032) do
     t.string "commune_review_title"
     t.integer "street_review_average_rating"
     t.integer "commune_review_average_rating"
-    t.float "latitude_review"
-    t.float "longitude_review"
+    t.float "latitude"
+    t.float "longitude"
     t.integer "no_likes"
     t.bigint "user_id"
     t.bigint "commune_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "search_id"
+    t.string "address"
     t.index ["commune_id"], name: "index_reviews_on_commune_id"
     t.index ["search_id"], name: "index_reviews_on_search_id"
     t.index ["user_id"], name: "index_reviews_on_user_id"
