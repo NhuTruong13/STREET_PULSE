@@ -9,7 +9,6 @@
         <!-- address search input -->
         <%= form_tag(controller: "searches", action: "create", method: "post") do %>
         <%= text_field_tag(:search, nil, placeholder: 'Enter address here...') %>
-        <%= number_field_tag(:radius, nil, min: 100, max: 3000, step: 100, placeholder: 'Radius') %>
         <%= submit_tag("Search") %>
         <% end %>
 
