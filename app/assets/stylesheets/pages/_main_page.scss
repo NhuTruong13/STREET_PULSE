@@ -1,0 +1,40 @@
+.searchTitle {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.searchLine {
+  margin-left: 190px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.cardMap {
+  margin-left: 190px;
+  padding: 20px;
+  margin: 20px;
+  height: 270px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.6);
+  background-size: cover !important;
+}
+.cardReview {
+  margin-left: 190px;
+  padding: 20px;
+  margin: 20px;
+  height: 270px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.6);
+  background-size: cover !important;
+}
+.cardStat {
+  margin-left: 190px;
+  padding: 20px;
+  margin: 20px;
+  height: 270px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.6);
+  background-size: cover !important;
+}
+.btn-success a {
+  color: white
+}

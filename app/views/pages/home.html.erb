@@ -12,14 +12,15 @@
   <div id="searchdestination">
     <div class="col-10 col-lg-8">
       <div class="searchBar">
-       <%= form_tag(controller: "searches", action: "create", method: "post") do %>
-       <%= text_field_tag(:search) %>
-     </div>
-     <div class="submit-search">
-      <%= submit_tag "Discover", class: "btn btn-primary" %>
+        <%= form_tag(controller: "searches", action: "create", method: "post") do %>
+        <%= text_field_tag(:search) %>
+      </div>
+      <div class="submit-search">
+        <%= submit_tag "Discover", class: "btn btn-primary" %>
+      </div>
+
+      <% end %>
     </div>
-    <% end %>
   </div>
-</div>
 </div>
 

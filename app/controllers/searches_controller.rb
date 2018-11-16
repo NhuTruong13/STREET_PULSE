@@ -13,7 +13,7 @@ class SearchesController < ApplicationController
     @search.address = params[:search]
     @search.user = current_user
     if @search.save!
-      redirect_to @search
+      redirect_to main_page_path(:search => params[:search])
     else
       render :new
     end
@@ -28,11 +28,11 @@ class SearchesController < ApplicationController
         lat: @search.latitude,
         lng: @search.longitude
       }]
-  end
+    end
 
-  private
+    private
 
-  def search_params
-    params.require(:search).permit(:address, :latitude, :longitude)
+    def search_params
+      params.require(:search).permit(:address, :latitude, :longitude)
+    end
   end
-end
