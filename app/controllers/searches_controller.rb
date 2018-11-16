@@ -6,7 +6,11 @@ class SearchesController < ApplicationController
   end
 
   def create
+    # if radius empty - set the radius to default = 1 for example
+    params[:radius] = 1 unless params[:radius]
+
     @search = Search.new({ :address => params[:search], :radius => params[:radius] })
+
     # save to the DB only if user logged in
     if user_signed_in?
       @search.user = current_user
@@ -17,14 +21,6 @@ class SearchesController < ApplicationController
     # check if params are empty?
     # if address field empty the re-render the page
     render :new unless params[:search]
-    # if radius empty - set the radius to default = 1 for example
-    params[:radius] = 1 unless params[:radius]
-
-    # redirect_to main_page_path(
-    #   { :search => params[:search], :radius => params[:radius] },
-    #   @reviews_in_radius, @stats,
-    #   @markers
-    # )
 
     # call main method which will render the main page
     main
@@ -47,7 +43,6 @@ class SearchesController < ApplicationController
 
     # @statistics is a hash with necessary stats calculated
     @stats = stats(@reviews_in_radius)
-
     # and render the view
     render :main
   end
