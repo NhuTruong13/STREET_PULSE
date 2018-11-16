@@ -10,22 +10,32 @@ class SearchesController < ApplicationController
     # save to the DB only if user logged in
     if user_signed_in?
       @search.user = current_user
-      # long & latit will be added by geocoder based on address while saving
+      # long & latit will be added to @search by geocoder based on address while saving
       render :new unless @search.save
     end
-    # call the method main (to prepare @reviews_in_radius and @markers)
+
+    # check if params are empty?
+    # if address field empty the re-render the page
+    render :new unless params[:search]
+    # if radius empty - set the radius to default = 1 for example
+    params[:radius] = 1 unless params[:radius]
+
+    # redirect_to main_page_path(
+    #   { :search => params[:search], :radius => params[:radius] },
+    #   @reviews_in_radius, @stats,
+    #   @markers
+    # )
+
+    # call main method which will render the main page
     main
   end
 
   def main
-    # here is the query from the user (address and radius)
+    # @search has the input from the user (address and radius)
     # @search = @search
 
-    # reviews within radius of address
+    # get the reviews within radius of address
     @reviews_in_radius = Review.near(@search.address, @search.radius)
-
-    # @statistics is a hash with necessary stats calculated
-    @stats = stats(@reviews_in_radius)
 
     # prepare markers to be displayed on the map (in a hash)
     @markers = @reviews_in_radius.map do |r|
@@ -34,16 +44,15 @@ class SearchesController < ApplicationController
         lng: r.longitude
       }
     end
+
+    # @statistics is a hash with necessary stats calculated
+    @stats = stats(@reviews_in_radius)
+
     # and render the view
     render :main
   end
 
   private
-
-  def search_params
-    # params.require(:search).permit(:address, :radius, :latitude, :longitude)
-    params.permit!
-  end
 
   def stats(reviews)
     # return a hash with necessary statistics calculated
@@ -51,5 +60,9 @@ class SearchesController < ApplicationController
     # return {
     #   :avg_rating1 => s1
     # }
+  end
+
+  def search_params
+    params.require(:search).permit(:address, :latitude, :longitude)
   end
 end

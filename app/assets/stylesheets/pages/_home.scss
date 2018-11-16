@@ -26,7 +26,7 @@
   left: 150px;
 }
 .hero-text h2 {
-  color: #F9F9F9;
+  color: #FFEEEE;
   font-weight: bold;
 }
 
@@ -43,6 +43,11 @@
 
 .btn-primary{
   margin-top: 5px;
+}
+
+.btn-primary a {
+  color: white;
+  text-decoration: none;
 }
 
 .banner {
