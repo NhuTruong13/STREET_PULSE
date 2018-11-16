@@ -1,20 +1,21 @@
-    <div id="searchdestination">
-      <!-- the search -->
-      <div class="container">
-        <div class="row">
-          <div>
+<div id="searchdestination">
+  <!-- the search -->
+  <div class="container">
+    <div class="row">
+      <div>
 
-            <br><br><br><hr><hr><hr>
+        <br><br><br><hr><hr><hr>
 
-            <%= form_tag(controller: "searches", action: "create", method: "post") do %>
-            <%= text_field_tag(:search, nil, placeholder: 'Enter address here...') %>
-            <%= number_field_tag(:radius, nil, min: 1, max: 50, step: 1, placeholder: 'Radius') %>
-            <%= submit_tag("Search") %>
-            <% end %>
-
-          </div>
-        </div>
-
+        <!-- address search input -->
+        <%= form_tag(controller: "searches", action: "create", method: "post") do %>
+        <%= text_field_tag(:search, nil, placeholder: 'Enter address here...') %>
+        <%= number_field_tag(:radius, nil, min: 100, max: 3000, step: 100, placeholder: 'Radius') %>
+        <%= submit_tag("Search") %>
+        <% end %>
 
       </div>
     </div>
+
+
+  </div>
+</div>

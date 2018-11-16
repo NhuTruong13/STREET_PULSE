@@ -1,9 +1,6 @@
 class SearchesController < ApplicationController
   skip_before_action :authenticate_user!
 
-  def index
-  end
-
   def new
     @search = Search.new
   end
@@ -14,47 +11,31 @@ class SearchesController < ApplicationController
     if user_signed_in?
       @search.user = current_user
       # long & latit will be added by geocoder based on address while saving
-      if @search.save
-        # redirect to MAIN method
-        # render :main
-        # main(@search)
-      else
-        render :new
-      end
+      render :new unless @search.save
     end
-    # do not save this search and redirect to MAIN method
-    # raise
+    # call the method main (to prepare @reviews_in_radius and @markers)
     main
-    render :main
   end
 
   def main
-    # @search = search
-    # @reviews_in_radius = []
-    # venues within radius of address
+    # here is the query from the user (address and radius)
+    # @search = @search
+
+    # reviews within radius of address
     @reviews_in_radius = Review.near(@search.address, @search.radius)
 
+    # @statistics is a hash with necessary stats calculated
+    @stats = stats(@reviews_in_radius)
+
     # prepare markers to be displayed on the map (in a hash)
-    # raise
     @markers = @reviews_in_radius.map do |r|
       {
         lat: r.latitude,
         lng: r.longitude
       }
     end
-    # calculate necessary averages from the reviews
     # and render the view
-  end
-
-  def show
-    @search = Search.find(params[:id])
-    # @mapelement = Array.new
-    # build_mapelement(@search, @mapelement)
-    @marker = [
-      {
-        lat: @search.latitude,
-        lng: @search.longitude
-      }]
+    render :main
   end
 
   private
@@ -62,5 +43,13 @@ class SearchesController < ApplicationController
   def search_params
     # params.require(:search).permit(:address, :radius, :latitude, :longitude)
     params.permit!
+  end
+
+  def stats(reviews)
+    # return a hash with necessary statistics calculated
+    # s1 = "average xxxxx"
+    # return {
+    #   :avg_rating1 => s1
+    # }
   end
 end
