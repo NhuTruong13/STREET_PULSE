@@ -41,10 +41,19 @@ class SearchesController < ApplicationController
       }
     end
 
+    # manually add marker for user input address
+    @markers.unshift({
+        lat: @search.latitude,
+        lng: @search.longitude
+    })
+
     # @statistics is a hash with necessary stats calculated
     @stats = stats(@reviews_in_radius)
+
     # and render the view
-    render :main
+    # render :main
+    # raise
+    render :main_test
   end
 
   private
