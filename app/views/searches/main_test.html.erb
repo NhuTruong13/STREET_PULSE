@@ -24,11 +24,13 @@
           <%= link_to "Save Search", new_user_session_path %>
         </div>
 
+        <!-- corrected button-link to New search -->
         <div>
           <%= submit_tag("New Search", :class=>"btn btn-primary", :style=>"margin:15px") %>
           <% end %>
         </div>
 
+        <!-- corrected link to posting new review -->
         <div class="btn btn-success", style="margin:15px">
           <%= link_to "Add Review", new_search_review_path(:search_id => @search.id) %>
         </div>
@@ -37,8 +39,9 @@
 
 
 
-
+      <!-- fetch zip code based on lat/lng and geocoder -->
       <% zip_code = Geocoder.search([@search.latitude, @search.longitude]).first.postal_code %>
+
       <h4>Address: <%= @search.address %> (<%= zip_code %>)</h4>
       <p>Radius <%= @search.radius / 1000.0 %> km</p>
 
