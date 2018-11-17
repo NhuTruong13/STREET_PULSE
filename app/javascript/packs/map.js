@@ -6,15 +6,10 @@ const mapElement = document.getElementById('map');
 if (mapElement) {
   const map = new GMaps({ el: '#map', lat: 0, lng: 0});
   const markers = JSON.parse(mapElement.dataset.marker);
-  console.log(markers.length); // don't try to build a map if there's no div#map to inject in
   const marker_main = markers.shift();
-  // console.log("Value of 'mapElement.dataset.marker' = " + mapElement.dataset.marker);
-  // console.log("Value of 'mapElement.dataset.radius' = " + mapElement.dataset.radius);
-  const radius = mapElement.dataset.radius * 1000;
-  // const radius = 1000;
-  console.log("Value of radius = " + radius);
+  const radius = parseInt(mapElement.dataset.radius);
 
-  map.drawCircle({
+  const circle = map.drawCircle({
     lat: marker_main,
     lng: marker_main,
     radius: radius,
@@ -38,13 +33,16 @@ if (mapElement) {
 
   markers.unshift(marker_main);
 
+  // set zoom
   if (markers.length === 0) {
     map.setZoom(2);
   } else if (markers.length === 1) {
     map.setCenter(marker_main.lat, marker_main.lng);
     map.setZoom(14);
   } else {
-    map.fitLatLngBounds(markers);
+    // 2 possible zoom versions:
+    // map.fitLatLngBounds(markers);
+    map.fitBounds(circle.getBounds());
   }
 }
 

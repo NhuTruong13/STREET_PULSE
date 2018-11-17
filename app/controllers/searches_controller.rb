@@ -6,8 +6,8 @@ class SearchesController < ApplicationController
   end
 
   def create
-    # if radius empty - set the radius to default = 1 for example
-    params[:radius] = 1 unless params[:radius]
+    # if radius empty - set the radius to default = 1km for example
+    params[:radius] = 1000 unless params[:radius]
 
     @search = Search.new({ :address => params[:search], :radius => params[:radius] })
 
@@ -30,7 +30,8 @@ class SearchesController < ApplicationController
     # @search has the input from the user (address and radius)
 
     # get the reviews within radius of address
-    @reviews_in_radius = Review.near(@search.address, @search.radius)
+    radius_km = @search.radius / 1000.0
+    @reviews_in_radius = Review.near(@search.address, radius_km)
 
     # prepare markers to be displayed on the map (in a hash)
     @markers = @reviews_in_radius.map do |r|
