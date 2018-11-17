@@ -28,7 +28,6 @@ class SearchesController < ApplicationController
 
   def main
     # @search has the input from the user (address and radius)
-    # @search = @search
 
     # get the reviews within radius of address
     @reviews_in_radius = Review.near(@search.address, @search.radius)
@@ -51,8 +50,6 @@ class SearchesController < ApplicationController
     @stats = stats(@reviews_in_radius)
 
     # and render the view
-    # render :main
-    # raise
     render :main_test
   end
 

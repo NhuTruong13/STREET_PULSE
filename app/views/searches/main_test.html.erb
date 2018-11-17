@@ -2,16 +2,51 @@
   <div class="row">
     <div class="col-xs-10 col-xs-offset-1">
 
+
+      <div class="searchLine">
+
+        <div class="searchBarAddress">
+          <div style="padding:15px">
+            <%= form_tag(controller: "searches", action: "create", method: "post") do %>
+            <%= text_field_tag :search, @search.address  %>
+          </div>
+        </div>
+
+        <!-- STILL TO CHANGE!!!!!!!!!!!!!! -->
+        <div class="searchRadius">
+          <div style="padding:15px">
+            <%= number_field_tag(:radius, @search.radius ) %>
+          </div>
+        </div>
+        <!-- STILL TO CHANGE!!!!!!!!!!!!!! -->
+
+        <div class="btn btn-primary", style="margin:15px">
+          <%= link_to "Save Search", new_user_session_path %>
+        </div>
+
+        <div>
+          <%= submit_tag("New Search", :class=>"btn btn-primary", :style=>"margin:15px") %>
+          <% end %>
+        </div>
+
+        <div class="btn btn-success", style="margin:15px">
+          <%= link_to "Add Review", new_user_session_path %>
+        </div>
+
+      </div>
+
+
+
+
       <h4>Address: <%= @search.address %></h4>
       <p>Radius <%= @search.radius %> km</p>
 
       <!-- The map with the result -->
-      <section id="searchdestination">
-        <div id="map" style="width: 100%; height: 400px;"
-        data-marker="<%= @markers.to_json %>" data-radius="@search.radius" >
+      <div id="map" style="width: 100%; height: 400px; padding-bottom: 25px;"
+        data-marker="<%= @markers.to_json %>" data-radius="<%= @search.radius %>" >
       </div>
-    </section>
 
+    <hr>
     <!-- show the list of reviews in radius -->
     <ul>
       <% @reviews_in_radius.each do |r| %>

@@ -8,8 +8,11 @@ if (mapElement) {
   const markers = JSON.parse(mapElement.dataset.marker);
   console.log(markers.length); // don't try to build a map if there's no div#map to inject in
   const marker_main = markers.shift();
-  // const radius = mapElement.dataset.radius;
-  const radius = 1000;
+  // console.log("Value of 'mapElement.dataset.marker' = " + mapElement.dataset.marker);
+  // console.log("Value of 'mapElement.dataset.radius' = " + mapElement.dataset.radius);
+  const radius = mapElement.dataset.radius * 1000;
+  // const radius = 1000;
+  console.log("Value of radius = " + radius);
 
   map.drawCircle({
     lat: marker_main,
@@ -24,6 +27,7 @@ if (mapElement) {
 
   // add markers (reviews in the radius)
   map.addMarkers(markers);
+
   // add the main marker (user typed address)
   map.addMarker({
    lat: marker_main,
@@ -31,7 +35,9 @@ if (mapElement) {
    icon: 'http://maps.google.com/mapfiles/ms/icons/green-dot.png',
    animation: google.maps.Animation.DROP
   });
+
   markers.unshift(marker_main);
+
   if (markers.length === 0) {
     map.setZoom(2);
   } else if (markers.length === 1) {
@@ -44,12 +50,3 @@ if (mapElement) {
 
 autocomplete();
 
-
-// polygon = map.drawPolygon({
-//   paths: path, // pre-defined polygon shape
-//   strokeColor: '#BBD8E9',
-//   strokeOpacity: 1,
-//   strokeWeight: 3,
-//   fillColor: '#BBD8E9',
-//   fillOpacity: 0.6
-// });
