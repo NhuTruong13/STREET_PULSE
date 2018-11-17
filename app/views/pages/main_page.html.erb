@@ -1,75 +1,103 @@
-<div class="container">
-  <div class="row">
-    <div class="col-10 col-lg-8">
+<div class="row">
+  <div class="col-xs-12">
 
-      <h4> Define your neighbourhood... playing with the radius </h4>
+    <div class="cardMap", style="display: flex">
+      <%= render 'shared/mapradius' %>
 
-      <div class="searchLine">
+      <div class="MapInfos">
 
-        <div class="searchBarAddress">
-          <div style="padding:15px">
+        <div class="searchBarTitle">
+          <h4> Decide of your neighbourhood... </h4>
+          <div class="searchBarAddress">
             <%= form_tag(controller: "searches", action: "create", method: "post") do %>
             <%= text_field_tag 'search', nil, placeholder: @address   %>
             <% end %>
           </div>
         </div>
 
-        <!-- STILL TO CHANGE!!!!!!!!!!!!!! -->
-        <div class="searchRadius">
-          <div style="padding:15px">
+        <div class="searchRadiusTitle">
+          <h4> playing with the radius </h4>
+          <div class="searchRadius">
             <%= form_tag(controller: "searches", action: "create", method: "post") do %>
             <%= text_field_tag 'search', nil, placeholder: 'type a radius'   %>
             <% end %>
           </div>
         </div>
-        <!-- STILL TO CHANGE!!!!!!!!!!!!!! -->
 
-        <div class="btn btn-primary", style="margin:15px">
-          <%= link_to "Save Search", new_user_session_path %>
+        <div class="buttonsMapInfos">
+
+          <div class="btn btn-primary">
+            <%= link_to "Save Search", new_user_session_path %>
+          </div>
+
+          <div class="btn btn-primary">
+            <%= link_to "New Search", new_user_session_path %>
+          </div>
+
+          <div class="btn btn-success", style="margin-top: 15px">
+            <%= link_to "Add Review", new_user_session_path %>
+          </div>
         </div>
-
-        <div class="btn btn-primary", style="margin:15px">
-          <%= link_to "New Search", new_user_session_path %>
-        </div>
-
-        <div class="btn btn-success", style="margin:15px">
-          <%= link_to "Add Review", new_user_session_path %>
-        </div>
-
       </div>
+    </div>
 
+    <br><br><br><br><br><br>
 
-      <h4> Let's locate your search: </h4>
+    <div class="row">
+      <div class="col-xs-12">
 
-      <div class="cardMap">
-        <!-- Partial is located in Views/Shared -->
-        <%= render 'shared/mapradius' %>
-      </div>
+        <div class="cardPicture">
 
-
-      <h4> Your neightbourhood in pictures: </h4>
-      <div class="cardReview">
+         <!-- space for the commune review and description -->
+         <div class="cardPictureCommune">
+          <h4> The street is part of "Commune" </h4>
+          <h4> + Add the rating </h4>
+          <p> Description of the commune </p>
+          <%= link_to "Read more..." %>
+        </div>
 
         <!-- space for the pictures -->
 
-        <!-- space for the commune review and description -->
+        <div class="smallcardPictureNeightbourhood">
+
+          <div class="Pic1">
+            <p> Your Neighbourhood in picture </p>
+          </div>
+          <div class="Pic2">
+          </div>
+          <div class="Pic3">
+          </div>
+          <div class="LinkPic">
+            <%= link_to "See more..." %>
+          </div>
+        </div>
+
+        <div class="bigcardPictureNeighbourhood">
+          <p>  @search.address </p>
+          <p>  + Add the rating </p>
+        </div>
 
       </div>
-
-      <h4> Read what Locals think about: </h4>
-      <div class="cardStat">
-
-
-      </div>
-
-      <h4> Reviews by Locals: </h4>
-      <div class="cardStat">
-
-
-      </div>
-
     </div>
   </div>
+
+  <br><br><br><br><br><br>
+
+
+  <h4> Read what Locals think about: </h4>
+  <div class="cardStat">
+
+
+  </div>
+
+  <h4> Reviews by Locals: </h4>
+  <div class="cardStat">
+
+
+  </div>
+
+</div>
+</div>
 </div>
 
 
