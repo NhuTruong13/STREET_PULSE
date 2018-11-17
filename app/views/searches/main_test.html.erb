@@ -1,0 +1,67 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-10 col-xs-offset-1">
+
+
+      <div class="searchLine">
+
+        <div class="searchBarAddress">
+          <div style="padding:15px">
+            <%= form_tag(controller: "searches", action: "create", method: "post") do %>
+            <%= text_field_tag :search, @search.address  %>
+          </div>
+        </div>
+
+        <!-- STILL TO CHANGE!!!!!!!!!!!!!! -->
+        <div class="searchRadius">
+          <div style="padding:15px">
+            <%= number_field_tag(:radius, @search.radius, min: 100, max: 2500, step: 100 ) %>
+          </div>
+        </div>
+        <!-- STILL TO CHANGE!!!!!!!!!!!!!! -->
+
+        <div class="btn btn-primary", style="margin:15px">
+          <%= link_to "Save Search", new_user_session_path %>
+        </div>
+
+        <div>
+          <%= submit_tag("New Search", :class=>"btn btn-primary", :style=>"margin:15px") %>
+          <% end %>
+        </div>
+
+        <div class="btn btn-success", style="margin:15px">
+          <%= link_to "Add Review", new_search_review_path(:search_id => @search.id) %>
+        </div>
+
+      </div>
+
+
+
+
+      <% zip_code = Geocoder.search([@search.latitude, @search.longitude]).first.postal_code %>
+      <h4>Address: <%= @search.address %> (<%= zip_code %>)</h4>
+      <p>Radius <%= @search.radius / 1000.0 %> km</p>
+
+      <!-- The map with the result -->
+      <div id="map" style="width: 100%; height: 400px; padding-bottom: 25px;"
+        data-marker="<%= @markers.to_json %>" data-radius="<%= @search.radius.to_i %>" >
+      </div>
+
+    <hr>
+    <!-- show the list of reviews in radius -->
+    <ul>
+      <% @reviews_in_radius.each do |r| %>
+      <li>
+        <strong>Title: <%= r.street_review_title %></strong>
+        <p>Address: <%= r.address %> (<%= '%.02f' % r.distance_from(@search.address) %> km away)</p>
+        <% zip_code = Geocoder.search([r.latitude, r.longitude]).first.postal_code %>
+        <p>Post code: <%= zip_code %> (<%= Commune.where(zip_code: zip_code).first.name %>) </p>
+        <p>Review Street: <%= r.street_review_content %></p>
+        <p>User: <%= r.user.email %></p>
+      </li>
+      <% end %>
+    </ul>
+
+  </div>
+</div>
+</div>
