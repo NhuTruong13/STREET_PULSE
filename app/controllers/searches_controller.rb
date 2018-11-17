@@ -8,6 +8,7 @@ class SearchesController < ApplicationController
   def create
     # if radius empty - set the radius to default = 1km for example
     params[:radius] = 1000 unless params[:radius]
+    params[:search] = "Brussels, Belgium" if params[:search] == ""
 
     @search = Search.new({ :address => params[:search], :radius => params[:radius] })
 
@@ -18,10 +19,6 @@ class SearchesController < ApplicationController
       render :new unless @search.save
     end
 
-    # check if params are empty?
-    # if address field empty the re-render the page
-    render :new unless params[:search]
-
     # call main method which will render the main page
     main
   end
@@ -29,7 +26,7 @@ class SearchesController < ApplicationController
   def main
     # @search has the input from the user (address and radius)
 
-    # get the reviews within radius of address
+    # get the reviews within radius(meters) of address
     radius_km = @search.radius / 1000.0
     @reviews_in_radius = Review.near(@search.address, radius_km)
 

@@ -34,16 +34,16 @@ if (mapElement) {
   markers.unshift(marker_main);
 
   // set zoom
-  if (markers.length === 0) {
-    map.setZoom(2);
-  } else if (markers.length === 1) {
+  if (markers.length === 1) {
     map.setCenter(marker_main.lat, marker_main.lng);
-    map.setZoom(14);
-  } else {
+    map.fitBounds(circle.getBounds());
+  }
+  else {
     // 2 possible zoom versions:
     // map.fitLatLngBounds(markers);
     map.fitBounds(circle.getBounds());
   }
+
 }
 
 autocomplete();
