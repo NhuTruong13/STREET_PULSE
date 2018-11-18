@@ -1,3 +1,6 @@
+<br>
+<!-- SECTION 1: MAP + SEARCH BAR ADDRESS & RADIUS -->
+
 <div class="row">
   <div class="col-xs-12">
 
@@ -25,80 +28,181 @@
         </div>
 
         <div class="buttonsMapInfos">
-
           <div class="btn btn-primary">
             <%= link_to "Save Search", new_user_session_path %>
           </div>
-
           <div class="btn btn-primary">
             <%= link_to "New Search", new_user_session_path %>
           </div>
-
           <div class="btn btn-success", style="margin-top: 15px">
             <%= link_to "Add Review", new_user_session_path %>
           </div>
         </div>
-      </div>
-    </div>
-
-    <br><br><br><br><br><br>
-
-    <div class="row">
-      <div class="col-xs-12">
-
-        <div class="cardPicture">
-
-         <!-- space for the commune review and description -->
-         <div class="cardPictureCommune">
-          <h4> The street is part of "Commune" </h4>
-          <h4> + Add the rating </h4>
-          <p> Description of the commune </p>
-          <%= link_to "Read more..." %>
-        </div>
-
-        <!-- space for the pictures -->
-
-        <div class="smallcardPictureNeightbourhood">
-
-          <div class="Pic1">
-            <p> Your Neighbourhood in picture </p>
-          </div>
-          <div class="Pic2">
-          </div>
-          <div class="Pic3">
-          </div>
-          <div class="LinkPic">
-            <%= link_to "See more..." %>
-          </div>
-        </div>
-
-        <div class="bigcardPictureNeighbourhood">
-          <p>  @search.address </p>
-          <p>  + Add the rating </p>
-        </div>
 
       </div>
     </div>
   </div>
+</div>
 
-  <br><br><br><br><br><br>
+<br><br><br><br><br><br>
 
+<!-- SECTION 2: PICTURES + INFOS ON COMMUNE -->
+<div class="row">
+  <div class="col-xs-12">
 
-  <h4> Read what Locals think about: </h4>
-  <div class="cardStat">
+    <div class="cardGridPicture">
+
+     <!-- space for the commune review and description -->
+     <div class="cardPictureCommune">
+      <h4> The street is part of "Commune" </h4>
+      <h4> + Add the rating </h4>
+      <p> Description of the commune </p>
+      <!-- MODAL START -->
+      <div class="commune-modal">
+        <!-- Button to Open the Modal -->
+        <button type="button" class="buttonNoFill" data-toggle="modal" data-target="#myModal">
+          Read more...
+        </button>
+
+        <!-- The Modal -->
+        <div class="modal fade" id="myModal">
+          <div class="modal-dialog">
+            <div class="modal-content">
+
+              <!-- Modal Header -->
+              <div class="modal-header">
+                <h4 class="modal-title">More infos on...</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+              </div>
+
+              <!-- Modal body -->
+              <div class="modal-body">
+                Modal body..
+              </div>
+
+              <!-- Modal footer -->
+              <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <!-- MODAL END -->
+    </div>
+
+    <!-- space for the pictures -->
+    <div class="smallcardPictureNeightbourhood">
+
+      <div class="Pic1">
+        <p> Your Neighbourhood in picture </p>
+      </div>
+
+      <div class="Pic2">
+      </div>
+
+      <div class="Pic3">
+      </div>
+
+      <!-- MODAL START <-->
+      <div class="pictures-modal">
+        <!-- Button to Open the Modal -->
+        <button type="button" class="buttonNoFill" data-toggle="modal" data-target="#myModal">
+          More pictures...
+        </button>
+
+        <!-- The Modal -->
+        <div class="modal fade" id="myModal">
+          <div class="modal-dialog">
+            <div class="modal-content">
+
+              <!-- Modal Header -->
+              <div class="modal-header">
+                <h4 class="modal-title">Your neighbourhood in pictures...</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+              </div>
+
+              <!-- Modal body -->
+              <div class="modal-body">
+                Modal body..
+              </div>
+
+              <!-- Modal footer -->
+              <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <!-- MODAL END -->
+    </div>
+
+    <div class="bigcardPictureNeighbourhood">
+      <p>  @search.address </p>
+      <p>  + Add the rating </p>
+    </div>
 
 
   </div>
+</div>
+</div>
 
-  <h4> Reviews by Locals: </h4>
-  <div class="cardStat">
+<br><br><br><br><br><br>
+<!-- SECTION 3: STATISTICS -->
+<div class="row">
+  <div class="col-xs-12">
+    <div class="StatTitle">
+      <h4> Read what Locals think about: </h4>
+    </div>
+    <div class="cardStat", style="display: flex">
+      <div class="community">
+        <h3> Category</h3>
+        <p> <strong> 80% </strong> "Friendly neighbours" <%= image_tag "main_page_hands.png" %></p>
+        <p> <strong> 80% </strong> "Activity and events organised" <%= image_tag "main_page_event.png" %></p>
+        <p> <strong> 80% </strong> "Plan to stay >5y" <%= image_tag "main_page_5years.png" %></p>
+      </div>
+      <div class="environment">
+       <h3> Category</h3>
+       <p> <strong> 80% </strong> "Quiet place" <%= image_tag "main_page_quiet.png" %></p>
+       <p> <strong> 80% </strong> "Green place" <%= image_tag "question_environment.png" %></p>
+       <p> <strong> 80% </strong> "Clean place" <%= image_tag "main_page_clean.png" %></p>
+     </div>
+     <div class="facilities">
+       <h3> Category</h3>
+       <p> <strong> 80% </strong> "Easy to park" <%= image_tag "main_page_car.png" %></p>
+       <p> <strong> 80% </strong> "Parking for cars" <%= image_tag "main_page_parking.png" %></p>
+       <p> <strong> 80% </strong> "Parking for bikes" <%= image_tag "main_page_bike.png" %></p>
+       <p> <strong> 80% </strong> "Public transport" <%= image_tag "main_page_tram.png" %></p>
+       <p> <strong> 80% </strong> "Bike lanes" <%= image_tag "main_page_bikepath.png" %></p>
+     </div>
+     <div class="comfort">
+       <h3> Category</h3>
+       <p> <strong> 80% </strong> "Pavement well maintained" <%= image_tag "main_page_street.png" %></p>
+       <p> <strong> 80% </strong> "Street well illuminated" <%= image_tag "main_page_light.png" %></p>
+       <p> <strong> 80% </strong> "Nice playground" <%= image_tag "main_page_playground.png" %></p>
+       <p> <strong> 80% </strong> "Dog friendly" <%= image_tag "main_page_dog.png" %></p>
+     </div>
+   </div>
+ </div>
+</div>
+<br><br><br><br><br><br>
+<!-- SECTION 4: Review of the locals -->
+<div class="row">
+  <div class="col-xs-12">
+    <h4> Reviews by Locals: </h4>
+    <div class="cardReviewsLocals">
 
+
+    </div>
 
   </div>
+</div>
 
-</div>
-</div>
-</div>
 
 
 
