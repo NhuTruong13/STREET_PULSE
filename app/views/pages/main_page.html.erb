@@ -10,7 +10,7 @@
       <div class="MapInfos">
 
         <div class="searchBarTitle">
-          <h4> Decide of your neighbourhood... </h4>
+          <h3> <strong> Your neighbourhood... </strong> </h3>
           <div class="searchBarAddress">
             <%= form_tag(controller: "searches", action: "create", method: "post") do %>
             <%= text_field_tag 'search', nil, placeholder: @address   %>
@@ -34,7 +34,7 @@
           <div class="btn btn-primary">
             <%= link_to "New Search", new_user_session_path %>
           </div>
-          <div class="btn btn-success", style="margin-top: 15px">
+          <div class="btn btn-success">
             <%= link_to "Add Review", new_user_session_path %>
           </div>
         </div>
@@ -54,7 +54,7 @@
 
      <!-- space for the commune review and description -->
      <div class="cardPictureCommune">
-      <h4> The street is part of "Commune" </h4>
+      <h4> <strong> The street is part of "Commune" </strong> </h4>
       <h4> + Add the rating </h4>
       <p> Description of the commune </p>
       <!-- MODAL START -->
@@ -157,14 +157,14 @@
 <div class="row">
   <div class="col-xs-12">
     <div class="StatTitle">
-      <h4> Read what Locals think about: </h4>
+      <h3> <strong> Read what Locals think about: </strong> </h3>
     </div>
     <div class="cardStat", style="display: flex">
       <div class="community">
         <h3> Category</h3>
         <p> <strong> 80% </strong> "Friendly neighbours" <%= image_tag "main_page_hands.png" %></p>
         <p> <strong> 80% </strong> "Activity and events organised" <%= image_tag "main_page_event.png" %></p>
-        <p> <strong> 80% </strong> "Plan to stay >5y" <%= image_tag "main_page_5years.png" %></p>
+        <p> <strong> 80% </strong> "Plan to stay >5 years" <%= image_tag "main_page_5years.png" %></p>
       </div>
       <div class="environment">
        <h3> Category</h3>
@@ -194,10 +194,57 @@
 <!-- SECTION 4: Review of the locals -->
 <div class="row">
   <div class="col-xs-12">
-    <h4> Reviews by Locals: </h4>
+    <div class="reviewTitle">
+      <h3> <strong> Reviews by Locals: </strong> </h3>
+    </div>
     <div class="cardReviewsLocals">
+      <div class="review1">
 
+      </div>
+      <div class="review2">
 
+      </div>
+      <div class="review3">
+
+      </div>
+      <div class="review3">
+
+      </div>
+
+      <!-- MODAL START <-->
+      <div class="reviews-modal">
+        <!-- Button to Open the Modal -->
+        <button type="button" class="buttonNoFill" data-toggle="modal" data-target="#myModal">
+          More reviews...
+        </button>
+
+        <!-- The Modal -->
+        <div class="modal fade" id="myModal">
+          <div class="modal-dialog">
+            <div class="modal-content">
+
+              <!-- Modal Header -->
+              <div class="modal-header">
+                <h4 class="modal-title">More reviews...</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+              </div>
+
+              <!-- Modal body -->
+              <div class="modal-body">
+                Modal body..
+              </div>
+
+              <!-- Modal footer -->
+              <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <!-- MODAL END -->
     </div>
 
   </div>
