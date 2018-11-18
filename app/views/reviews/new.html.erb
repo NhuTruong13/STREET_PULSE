@@ -7,6 +7,12 @@
         <h3> <strong> Your review is precious for the others! </strong> </h3>
       </div>
 
+      <!-- add static image - a map centered to address given by user -->
+      <div>
+        <%= image_tag @staticmap, :alt => @search.address %>
+      </div>
+
+
       <div class="review-rating">
         <%= simple_form_for [@search, @review] do |f| %>
         <div class="cards">

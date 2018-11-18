@@ -47,8 +47,8 @@
 
       <!-- The map with the result -->
       <div id="map" style="width: 100%; height: 400px; padding-bottom: 25px;"
-        data-marker="<%= @markers.to_json %>" data-radius="<%= @search.radius.to_i %>" >
-      </div>
+      data-marker="<%= @markers.to_json %>" data-radius="<%= @search.radius.to_i %>" >
+    </div>
 
     <hr>
     <!-- show the list of reviews in radius -->
@@ -66,25 +66,24 @@
     </ul>
 
 
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
-        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
-      </div>
-      <div class="modal-body">
-        ...
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+    <!-- MODAL TEST: -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+            <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+          </div>
+          <div class="modal-body">
+            ...
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Save changes</button>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-</div>
-
-
 
 
   </div>

@@ -8,6 +8,7 @@ class ReviewsController < ApplicationController
   def new
     @search = Search.find(params[:search_id])
     @review = Review.new
+    @staticmap = static_map_for(@search)
   end
 
   def create
@@ -33,6 +34,23 @@ class ReviewsController < ApplicationController
 
   # def destroy
   # end
+
+  def static_map_for(location)
+    params = {
+      :center => [location.latitude, location.longitude].join(","),
+      :zoom => 16,
+      :size => "350x300",
+      :markers => [location.latitude, location.longitude].join(","),
+      :key => ENV['GOOGLE_API_SERVER_KEY']
+      }
+    query_string = params.map { |k, v| "#{k}=#{v}" }.join("&")
+    "https://maps.googleapis.com/maps/api/staticmap?center=" + query_string
+
+    # https://maps.googleapis.com/maps/api/staticmap?center=Brooklyn+Bridge,New+York,NY&zoom=13&size=600x300&maptype=roadmap
+    # &markers=color:blue%7Clabel:S%7C40.702147,-74.015794&markers=color:green%7Clabel:G%7C40.711614,-74.012318
+    # &markers=color:red%7Clabel:C%7C40.718217,-73.998284
+    # &key=YOUR_API_KEY
+  end
 
   private
 

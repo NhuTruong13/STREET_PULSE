@@ -32,7 +32,12 @@ if (mapElement) {
     animation: google.maps.Animation.DROP,
     click: function(){
       // alert("Hello from the main marker");
-      $('#myModal').modal('show');
+      // const myModal = document.getElementById('myModal');
+      // myModal.modal('show');
+      // console.log(document.getElementById('myModal'));
+      // document.getElementById('myModal').modal('show');
+      // $('#myModal').modal();
+      $('#myModal').modal();
     }
   });
 
