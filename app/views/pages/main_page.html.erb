@@ -1,79 +1,316 @@
-<div class="container">
-  <div class="row">
-    <div class="col-10 col-lg-8">
+<div class="main_page-hero-image1">
+  <div class="main_page-title">
+    <h3> <strong> Discover your future neighbourhood ! </strong> </h3>
+  </div>
+</div>
+<br>
+<!-- SECTION 1: MAP + SEARCH BAR ADDRESS & RADIUS -->
 
-      <h4> Define your neighbourhood... playing with the radius </h4>
+<div class="row">
+  <div class="col-xs-12">
 
-      <div class="searchLine">
+    <div class="cardMap", style="display: flex">
+      <%= render 'shared/mapradius' %>
 
-        <div class="searchBarAddress">
-          <div style="padding:15px">
+      <div class="MapInfos">
+
+        <div class="searchBarTitle">
+          <h3> <strong> Your neighbourhood... </strong> </h3>
+          <div class="searchBarAddress">
             <%= form_tag(controller: "searches", action: "create", method: "post") do %>
             <%= text_field_tag 'search', nil, placeholder: @address   %>
             <% end %>
           </div>
         </div>
 
-        <!-- STILL TO CHANGE!!!!!!!!!!!!!! -->
-        <div class="searchRadius">
-          <div style="padding:15px">
+        <div class="searchRadiusTitle">
+          <h4> playing with the radius </h4>
+          <div class="searchRadius">
             <%= form_tag(controller: "searches", action: "create", method: "post") do %>
             <%= text_field_tag 'search', nil, placeholder: 'type a radius'   %>
             <% end %>
           </div>
         </div>
-        <!-- STILL TO CHANGE!!!!!!!!!!!!!! -->
 
-        <div class="btn btn-primary", style="margin:15px">
-          <%= link_to "Save Search", new_user_session_path %>
+        <div class="buttonsMapInfos">
+          <div class="btn btn-primary">
+            <%= link_to "Save Search", new_user_session_path %>
+          </div>
+          <div class="btn btn-primary">
+            <%= link_to "New Search", new_user_session_path %>
+          </div>
+          <div class="btn btn-success">
+            <%= link_to "Add Review", new_user_session_path %>
+          </div>
         </div>
 
-        <div class="btn btn-primary", style="margin:15px">
-          <%= link_to "New Search", new_user_session_path %>
-        </div>
-
-        <div class="btn btn-success", style="margin:15px">
-          <%= link_to "Add Review", new_user_session_path %>
-        </div>
-
       </div>
-
-
-      <h4> Let's locate your search: </h4>
-
-      <div class="cardMap">
-        <!-- Partial is located in Views/Shared -->
-        <%= render 'shared/mapradius' %>
-      </div>
-
-
-      <h4> Your neightbourhood in pictures: </h4>
-      <div class="cardReview">
-
-        <!-- space for the pictures -->
-
-        <!-- space for the commune review and description -->
-
-      </div>
-
-      <h4> Read what Locals think about: </h4>
-      <div class="cardStat">
-
-
-      </div>
-
-      <h4> Reviews by Locals: </h4>
-      <div class="cardStat">
-
-
-      </div>
-
     </div>
   </div>
 </div>
 
+<br><br><br><br>
+
+<!-- SECTION 2: PICTURES + INFOS ON COMMUNE -->
+<div class="row">
+  <div class="col-xs-12">
+
+    <div class="cardGridPicture">
+
+     <!-- space for the commune review and description -->
+     <div class="cardPictureCommune">
+      <h4> <strong> The street is part of "Commune" </strong> </h4>
+      <h4> + Add the rating </h4>
+      <p> Description of the commune </p>
+      <!-- MODAL START -->
+      <div class="commune-modal">
+        <!-- Button to Open the Modal -->
+        <button type="button" class="buttonNoFill" data-toggle="modal" data-target="#myModal">
+          Read more...
+        </button>
+
+        <!-- The Modal -->
+        <div class="modal fade" id="myModal">
+          <div class="modal-dialog">
+            <div class="modal-content">
+
+              <!-- Modal Header -->
+              <div class="modal-header">
+                <h4 class="modal-title">More infos on...</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+              </div>
+
+              <!-- Modal body -->
+              <div class="modal-body">
+                Modal body..
+              </div>
+
+              <!-- Modal footer -->
+              <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <!-- MODAL END -->
+    </div>
+
+    <!-- space for the pictures -->
+    <div class="smallcardPictureNeightbourhood">
+
+      <div class="Pic1">
+        <p> Your Neighbourhood in picture </p>
+      </div>
+
+      <div class="Pic2">
+      </div>
+
+      <div class="Pic3">
+      </div>
+
+      <!-- MODAL START <-->
+      <div class="pictures-modal">
+        <!-- Button to Open the Modal -->
+        <button type="button" class="buttonNoFill" data-toggle="modal" data-target="#myModal">
+          More pictures...
+        </button>
+
+        <!-- The Modal -->
+        <div class="modal fade" id="myModal">
+          <div class="modal-dialog">
+            <div class="modal-content">
+
+              <!-- Modal Header -->
+              <div class="modal-header">
+                <h4 class="modal-title">Your neighbourhood in pictures...</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+              </div>
+
+              <!-- Modal body -->
+              <div class="modal-body">
+                Modal body..
+              </div>
+
+              <!-- Modal footer -->
+              <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <!-- MODAL END -->
+    </div>
+
+    <!-- Carousel with the pictures -->
+    <div class="bigcardPictureNeighbourhood">
+      <p>  @search.address </p>
+      <p>  + Add the rating </p>
+
+      <div class="w3-content w3-display-container" style="max-width:800px">
+        <%= image_tag "home_pic5.jpeg", class: "mySlides", style: "width:100%;" %>
+        <%= image_tag "home_pic6.jpeg", class: "mySlides", style: "width:100%;" %>
+        <%= image_tag "home_pic7.jpeg", class: "mySlides", style: "width:100%;" %>
+        <div class="w3-center w3-container w3-section w3-large w3-text-white w3-display-bottommiddle" style="width:100%">
+          <div class="w3-left w3-hover-text-khaki" onclick="plusDivs(-1)">&#10094;</div>
+          <div class="w3-right w3-hover-text-khaki" onclick="plusDivs(1)">&#10095;</div>
+          <span class="w3-badge demo w3-border w3-transparent w3-hover-white" onclick="currentDiv(1)"></span>
+          <span class="w3-badge demo w3-border w3-transparent w3-hover-white" onclick="currentDiv(2)"></span>
+          <span class="w3-badge demo w3-border w3-transparent w3-hover-white" onclick="currentDiv(3)"></span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+</div>
+</div>
+
+<br><br><br><br>
+<div class="main_page-hero-image2">
+  <div class="main_page-title">
+    <h3> <strong> Learn from a neighbourhood thanks to locals ! </strong> </h3>
+  </div>
+</div>
+<!-- SECTION 3: STATISTICS -->
+<div class="row">
+  <div class="col-xs-12">
+    <div class="StatTitle">
+      <h3> <strong> What Locals think about: </strong> </h3>
+    </div>
+    <div class="cardStat", style="display: flex">
+      <div class="community">
+        <h3> Category</h3>
+        <p> <strong> 80% </strong> "Friendly neighbours" <%= image_tag "main_page_hands.png" %></p>
+        <p> <strong> 80% </strong> "Activity and events organised" <%= image_tag "main_page_event.png" %></p>
+        <p> <strong> 80% </strong> "Plan to stay >5 years" <%= image_tag "main_page_5years.png" %></p>
+      </div>
+      <div class="environment">
+       <h3> Category</h3>
+       <p> <strong> 80% </strong> "Quiet place" <%= image_tag "main_page_quiet.png" %></p>
+       <p> <strong> 80% </strong> "Green place" <%= image_tag "question_environment.png" %></p>
+       <p> <strong> 80% </strong> "Clean place" <%= image_tag "main_page_clean.png" %></p>
+     </div>
+     <div class="facilities">
+       <h3> Category</h3>
+       <p> <strong> 80% </strong> "Easy to park" <%= image_tag "main_page_car.png" %></p>
+       <p> <strong> 80% </strong> "Parking for cars" <%= image_tag "main_page_parking.png" %></p>
+       <p> <strong> 80% </strong> "Parking for bikes" <%= image_tag "main_page_bike.png" %></p>
+       <p> <strong> 80% </strong> "Public transport" <%= image_tag "main_page_tram.png" %></p>
+       <p> <strong> 80% </strong> "Bike lanes" <%= image_tag "main_page_bikepath.png" %></p>
+     </div>
+     <div class="comfort">
+       <h3> Category</h3>
+       <p> <strong> 80% </strong> "Pavement well maintained" <%= image_tag "main_page_street.png" %></p>
+       <p> <strong> 80% </strong> "Street well illuminated" <%= image_tag "main_page_light.png" %></p>
+       <p> <strong> 80% </strong> "Nice playground" <%= image_tag "main_page_playground.png" %></p>
+       <p> <strong> 80% </strong> "Dog friendly" <%= image_tag "main_page_dog.png" %></p>
+     </div>
+   </div>
+ </div>
+</div>
+<br><br><br><br>
+<div class="main_page-hero-image3">
+  <div class="main_page-title">
+    <h3> <strong> and get a feel of their lifestyle ! </strong> </h3>
+  </div>
+</div>
+<!-- SECTION 4: Review of the locals -->
+<div class="row">
+  <div class="col-xs-12">
+    <div class="reviewTitle">
+      <h3> <strong> What Locals say: </strong> </h3>
+    </div>
+    <div class="cardReviewsLocals">
+      <div class="review1">
+
+      </div>
+      <div class="review2">
+
+      </div>
+      <div class="review3">
+
+      </div>
+      <div class="review3">
+
+      </div>
+
+      <!-- MODAL START <-->
+      <div class="reviews-modal">
+        <!-- Button to Open the Modal -->
+        <button type="button" class="buttonNoFill" data-toggle="modal" data-target="#myModal">
+          More reviews...
+        </button>
+
+        <!-- The Modal -->
+        <div class="modal fade" id="myModal">
+          <div class="modal-dialog">
+            <div class="modal-content">
+
+              <!-- Modal Header -->
+              <div class="modal-header">
+                <h4 class="modal-title">More reviews...</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+              </div>
+
+              <!-- Modal body -->
+              <div class="modal-body">
+                Modal body..
+              </div>
+
+              <!-- Modal footer -->
+              <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <!-- MODAL END -->
+    </div>
+
+  </div>
+</div>
 
 
+<script>
+
+  var slideIndex = 1;
+  showDivs(slideIndex);
+
+  function plusDivs(n) {
+    showDivs(slideIndex += n);
+  }
+
+  function currentDiv(n) {
+    showDivs(slideIndex = n);
+  }
+
+  function showDivs(n) {
+    var i;
+    var x = document.getElementsByClassName("mySlides");
+    var dots = document.getElementsByClassName("demo");
+    if (n > x.length) {slideIndex = 1}
+      console.log("Hello");
+    if (n < 1) {slideIndex = x.length}
+      for (i = 0; i < x.length; i++) {
+       x[i].style.display = "none";
+     }
+     for (i = 0; i < dots.length; i++) {
+       dots[i].className = dots[i].className.replace(" w3-white", "");
+     }
+     x[slideIndex-1].style.display = "block";
+     dots[slideIndex-1].className += " w3-white";
+   }
+ </script>
 <!-- TO DO and DISPLAY
 
 1. Partial with the map with markers and radius (w/o reviews) => A
