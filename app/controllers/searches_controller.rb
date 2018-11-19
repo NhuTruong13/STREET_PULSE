@@ -32,14 +32,19 @@ class SearchesController < ApplicationController
     @markers = @reviews_in_radius.map do |r|
       {
         lat: r.latitude,
-        lng: r.longitude
+        lng: r.longitude,
+        title: r.address+" ("+r.street_review_average_rating.to_s+"/10)",
+        # is it possible to store here the ID of this review instance, so that
+        # we can identify it back after the user clicks market on the map?
+        review_id: r.id
       }
     end
-
+    # raise
     # manually add marker for user input address
     @markers.unshift({
         lat: @search.latitude,
-        lng: @search.longitude
+        lng: @search.longitude,
+        title: @search.address
     })
 
 

@@ -5,7 +5,11 @@
     position: absolute;
     top: 530px;
     left: 740px;
-
+    box-shadow: 1px 1px 3px 3px rgba(0,0,0,0.1);
+    &:hover {
+      outline: none;
+      box-shadow: 1px 1px 6px 6px rgba(0,0,0,0.1);
+    }
   }
   .searchBar {
     position: absolute;
@@ -22,11 +26,11 @@
     border: none;
     border-radius: 3px;
     padding: 10px;
-    box-shadow: 1px 1px 30px 1px rgba(0,0,0,0.1);
+    box-shadow: 1px 1px 3px 3px rgba(0,0,0,0.1);
     transition: all 0.3s;
-    &:focus {
+    &:hover {
       outline: none;
-      box-shadow: 1px 1px 30px 1px rgba(0,0,0,0.1);
+      box-shadow: 1px 1px 6px 6px rgba(0,0,0,0.1);
     }
   }
 

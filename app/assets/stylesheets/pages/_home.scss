@@ -57,20 +57,23 @@
 // HOME - section
 .home-section1 {
   display: flex;
-  margin-bottom: 50px;
+  margin-bottom: 30px;
+  margin-left: 70px;
+  margin-right: 70px;
 
 }
 .home-section-valueprop1{
-  padding: 10px;
-  margin: 20px;
-  width: 300px;
-  height: 200px;
-  border-radius: 5px;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.6);
+ padding: 10px;
+ margin: 20px;
+ width: 300px;
+ height: 300px;
+ margin-top: -10px;
+ border-radius: 5px;
+ box-shadow: 0 1px 3px rgba(0,0,0,0.6);
 }
 .home-hero-image1 {
   background-image: linear-gradient(rgba(0, 0, 0, 0.1),
-    rgba(0, 0, 0, 0.1)), url("home_pic1.jpg");
+    rgba(0, 0, 0, 0.1)), url("home_pic3.jpg");
       /* Set a specific height */
       height: 250px;
       width: 300px;
@@ -80,20 +83,20 @@
     background-size: cover;
     box-shadow: 0 1px 3px rgba(0,0,0,0.6);
     padding: 20px;
-    margin-top: 100px;
+    margin-top: -10px;
   }
   .home-section-valueprop2 {
     padding: 10px;
     margin: 20px;
     width: 300px;
     height: 300px;
-    margin-top: 0px;
+    margin-top: 100px;
     border-radius: 5px;
     box-shadow: 0 1px 3px rgba(0,0,0,0.6);
   }
   .home-hero-image2 {
     background-image: linear-gradient(rgba(0, 0, 0, 0.2),
-      rgba(0, 0, 0, 0.2)), url("home_pic2.jpg");
+      rgba(0, 0, 0, 0.2)), url("home_pic6.jpg");
       /* Set a specific height */
       height: 250px;
       width: 300px;
@@ -103,5 +106,58 @@
     background-size: cover;
     box-shadow: 0 1px 3px rgba(0,0,0,0.6);
     padding: 20px;
-    margin-top: 50px;
+    margin-top: 150px;
+  }
+  .home-section2 {
+    display: flex;
+    margin-top: 150px;
+    margin-bottom: 50px;
+    margin-left: 70px;
+    margin-right: 70px;
+  }
+  .home-section-valueprop3 {
+    padding: 10px;
+    margin: 20px;
+    width: 300px;
+    height: 300px;
+    margin-top: -100px;
+    border-radius: 5px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.6);
+  }
+  .home-hero-image3 {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.2),
+      rgba(0, 0, 0, 0.2)), url("home_pic7.jpg");
+      /* Set a specific height */
+      height: 250px;
+      width: 300px;
+
+    /* Position and center the image to scale nicely on all screens */
+    background-repeat: no-repeat;
+    background-size: cover;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.6);
+    padding: 20px;
+    margin-top: -50px;
+  }
+  .home-section-valueprop4 {
+    padding: 10px;
+    margin: 20px;
+    width: 300px;
+    height: 300px;
+    margin-top: 5px;
+    border-radius: 5px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.6);
+  }
+  .home-hero-image4 {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.1),
+      rgba(0, 0, 0, 0.2)), url("home_pic5.jpg");
+      /* Set a specific height */
+      height: 250px;
+      width: 300px;
+
+    /* Position and center the image to scale nicely on all screens */
+    background-repeat: no-repeat;
+    background-size: cover;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.6);
+    padding: 20px;
+    margin-top: 5px;
   }
