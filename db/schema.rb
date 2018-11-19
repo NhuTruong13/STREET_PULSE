@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_15_200035) do
+ActiveRecord::Schema.define(version: 2018_11_18_181547) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -47,6 +47,17 @@ ActiveRecord::Schema.define(version: 2018_11_15_200035) do
     t.integer "zip_code"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "destinations", force: :cascade do |t|
+    t.string "name"
+    t.string "address"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.float "latitude"
+    t.float "longitude"
+    t.bigint "review_id"
+    t.index ["review_id"], name: "index_destinations_on_review_id"
   end
 
   create_table "pictures", force: :cascade do |t|
@@ -95,6 +106,7 @@ ActiveRecord::Schema.define(version: 2018_11_15_200035) do
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "query"
     t.index ["user_id"], name: "index_searches_on_user_id"
   end
 
@@ -116,6 +128,7 @@ ActiveRecord::Schema.define(version: 2018_11_15_200035) do
 
   add_foreign_key "answers", "questions"
   add_foreign_key "answers", "reviews"
+  add_foreign_key "destinations", "reviews"
   add_foreign_key "pictures", "reviews"
   add_foreign_key "reviews", "communes"
   add_foreign_key "reviews", "searches"

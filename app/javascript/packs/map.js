@@ -1,13 +1,18 @@
 import GMaps from 'gmaps/gmaps.js';
-
 import { autocomplete } from '../components/autocomplete';
+
 
 const mapElement = document.getElementById('map');
 if (mapElement) {
+
   const map = new GMaps({ el: '#map', lat: 0, lng: 0});
+  console.log(mapElement);
   const markers = JSON.parse(mapElement.dataset.marker);
   const marker_main = markers.shift();
+  console.log(marker_main);
   const radius = parseInt(mapElement.dataset.radius);
+  const queries = mapElement.dataset.query;
+  console.log(queries);
 
   const circle = map.drawCircle({
     lat: marker_main,
@@ -29,7 +34,7 @@ if (mapElement) {
    lng: marker_main,
    icon: 'http://maps.google.com/mapfiles/ms/icons/green-dot.png',
    animation: google.maps.Animation.DROP
-  });
+ });
 
   markers.unshift(marker_main);
 
@@ -44,7 +49,8 @@ if (mapElement) {
     map.fitBounds(circle.getBounds());
   }
 
-}
+  };
+
 
 autocomplete();
 

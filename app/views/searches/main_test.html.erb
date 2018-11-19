@@ -1,8 +1,6 @@
 <div class="container">
   <div class="row">
     <div class="col-xs-10 col-xs-offset-1">
-
-
       <div class="searchLine">
 
         <div class="searchBarAddress">
@@ -18,8 +16,15 @@
             <%= number_field_tag(:radius, @search.radius, min: 100, max: 2500, step: 100 ) %>
           </div>
         </div>
-        <!-- STILL TO CHANGE!!!!!!!!!!!!!! -->
 
+        <!-- TODO: a search bar by type -->
+<!--         <div class="nearbySearch">
+          <div style="padding:15px">
+            <%= text_field_tag(:query, @search.query) %>
+          </div>
+        </div> -->
+
+        <!-- STILL TO CHANGE!!!!!!!!!!!!!! -->
         <div class="btn btn-primary", style="margin:15px">
           <%= link_to "Save Search", new_user_session_path %>
         </div>
@@ -32,11 +37,7 @@
         <div class="btn btn-success", style="margin:15px">
           <%= link_to "Add Review", new_search_review_path(:search_id => @search.id) %>
         </div>
-
       </div>
-
-
-
 
       <% zip_code = Geocoder.search([@search.latitude, @search.longitude]).first.postal_code %>
       <h4>Address: <%= @search.address %> (<%= zip_code %>)</h4>
