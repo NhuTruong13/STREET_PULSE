@@ -74,7 +74,7 @@
                   </tr>
                   <tr>
                     <td><strong>Post code:</strong></td>
-                    <td><%= zip_code %> (<%= Commune.where(zip_code: zip_code).first.name %></td>
+                    <td><%= zip_code %> (<%= Commune.where(zip_code: zip_code).first.name %>)</td>
                   </tr>
                   <tr>
                     <td><strong>Review Street:</strong></td>
@@ -88,7 +88,8 @@
                 </tbody>
               </table>
 
-              <!-- replace with "r.photo" once photo is available -->
+              <!-- replace with "r.photo" once photo is available: -->
+              <!-- <%= cl_image_tag r.photo, :width=>200, :height=>150, :alt=>"street photo" %> -->
               <p> <%= image_tag("PhotoBxl.jpg", height: '100', width: '150')  %> </p>
 
             </div>
