@@ -30,22 +30,27 @@ class SearchesController < ApplicationController
     radius_km = @search.radius / 1000.0
     @reviews_in_radius = Review.near(@search.address, radius_km)
 
+    # @statistics is a hash with necessary stats calculated
+    @stats = stats(@reviews_in_radius)
+
     # prepare markers to be displayed on the map (in a hash)
     @markers = @reviews_in_radius.map do |r|
       {
         lat: r.latitude,
-        lng: r.longitude
+        lng: r.longitude,
+        title: r.address+" ("+r.street_review_average_rating.to_s+"/10)",
+        # is it possible to store here the ID of this review instance, so that
+        # we can identify it back after the user clicks market on the map?
+        review_id: r.id
       }
     end
-
+    # raise
     # manually add marker for user input address
     @markers.unshift({
         lat: @search.latitude,
-        lng: @search.longitude
+        lng: @search.longitude,
+        title: @search.address
     })
-
-    # @statistics is a hash with necessary stats calculated
-    @stats = stats(@reviews_in_radius)
 
     # and render the view
     render :main_test
@@ -55,9 +60,13 @@ class SearchesController < ApplicationController
 
   def stats(reviews)
     # return a hash with necessary statistics calculated
-    # s1 = "average xxxxx"
+    # st_avg = 0.0
+    # reviews.each do |r|
+    #   st_avg += r.street_review_average_rating
+    # end
+    # st_avg /= reviews.size
     # return {
-    #   :avg_rating1 => s1
+    #   :st_avg => st_avg
     # }
   end
 
