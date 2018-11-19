@@ -6,7 +6,12 @@ class SearchesController < ApplicationController
   end
 
   def create
+    # if radius empty - set the radius to default = 1km for example
+    params[:radius] = 1000 unless params[:radius]
+    params[:search] = "Brussels, Belgium" if params[:search] == ""
+
     @search = Search.new({ :address => params[:search], :radius => params[:radius] })
+
     # save to the DB only if user logged in
     if user_signed_in?
       @search.user = current_user
@@ -14,28 +19,16 @@ class SearchesController < ApplicationController
       render :new unless @search.save
     end
 
-    # check if params are empty?
-    # if address field empty the re-render the page
-    render :new unless params[:search]
-    # if radius empty - set the radius to default = 1 for example
-    params[:radius] = 1 unless params[:radius]
-
-    # redirect_to main_page_path(
-    #   { :search => params[:search], :radius => params[:radius] },
-    #   @reviews_in_radius, @stats,
-    #   @markers
-    # )
-
     # call main method which will render the main page
     main
   end
 
   def main
     # @search has the input from the user (address and radius)
-    # @search = @search
 
-    # get the reviews within radius of address
-    @reviews_in_radius = Review.near(@search.address, @search.radius)
+    # get the reviews within radius(meters) of address
+    radius_km = @search.radius / 1000.0
+    @reviews_in_radius = Review.near(@search.address, radius_km)
 
     # prepare markers to be displayed on the map (in a hash)
     @markers = @reviews_in_radius.map do |r|
@@ -45,11 +38,17 @@ class SearchesController < ApplicationController
       }
     end
 
+    # manually add marker for user input address
+    @markers.unshift({
+        lat: @search.latitude,
+        lng: @search.longitude
+    })
+
     # @statistics is a hash with necessary stats calculated
     @stats = stats(@reviews_in_radius)
 
     # and render the view
-    render :main
+    render :main_test
   end
 
   private
