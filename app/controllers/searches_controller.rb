@@ -44,15 +44,13 @@ class SearchesController < ApplicationController
 
 
     # fetching the answers for a review
-    @review_indexes = []
-    @reviews_in_radius.each { |rir|
-      @review_indexes << rir[:id]
-    }
-    @answers = Answer
-
+    @answers_within_radius =  []
+    @reviews_in_radius.each do |rev|
+        @answers_within_radius << rev.answers
+    end
     # @statistics is a hash with necessary stats calculated
-    @street_average = streetAverage
-    @commune_average = communeAverage
+    @street_average = street_average
+    @commune_average = commune_average
     @friendliness = friendliness
     @events = events
     @stay = stay
@@ -97,27 +95,89 @@ class SearchesController < ApplicationController
   private
 
   def street_average
-    counter = @reviews_in_radius.size
+    counter = @answers_within_radius.size
     total = 0
-    @reviews_in_radius.each { |rating|
+    @answers_within_radius.each { |rating|
       total += rating[:street_review_average_rating]
       }
     return total/counter.round
   end
 
   def commune_average
-    counter = @reviews_in_radius.size
+    counter = @answers_within_radius.size
     total = 0
-    @reviews_in_radius.each { |rating|
+    @answers_within_radius.each { |rating|
       total += rating[:commune_review_average_rating]
       }
     return total/counter.round
   end
 
+  def type_of_population
+    populations = [" Students ", " Families ", " Retirees ", " Tourists ", " Offices "]
+    s = 0
+    f = 0
+    r = 0
+    t = 0
+    b = 0
+    @answers_within_radius.each { |population|
+      if :q5 == "Students"
+        s += 1
+      end
+      if :q5 == "Families"
+        f += 1
+      end
+      if :q5 == "Retirees"
+        r += 1
+      end
+      if :q5 == "Tourists"
+        t += 1
+      end
+      if :q5 == "Offices"
+        b += 1
+      end
+    }
+    population = {}
+    population.merge!(students: s)
+    population.merge!(families: f)
+    population.merge!(retirees: r)
+    population.merge!(tourists: t)
+    population.merge!(business: b)
+    income_types.values.sort!.reverse
+    return income_types.keys.first.to_s.capitalize
+  end
+
+  def income
+    incomes = ["Super High Income","High Income", "Average Income", "Low Income"]
+    s=0
+    h=0
+    a=0
+    l=0
+
+    @answers_within_radius.each { |income|
+      case :q6
+      when "Super High Income"
+        s += 1
+      when "High Income"
+        h += 1
+      when "Average Income"
+        a += 1
+      when "Low Income"
+        l += 1
+      end
+    }
+    income_types = {}
+    income_types.merge!(s: s)
+    income_types.merge!(h: h)
+    income_types.merge!(a: a)
+    income_types.merge!(l: l)
+    income_types.values.sort!.reverse
+    return income_types.keys.first.to_s
+  end
+
   def friendliness
     counter = 0
     total = 0
-    @reviews_in_radius.each { |rating|
+    @answers_within_radius.each { |rating|
       if rating != nil
       total += rating[:q7]
       counter += 1
@@ -129,12 +189,12 @@ class SearchesController < ApplicationController
   def events
     counter = 0
     total = 0
-    @reviews_in_radius.each { |rating|
+    @answers_within_radius.each { |rating|
       if rating != nil
       total += rating[:q8]
       counter += 1
+      end
       }
-    end
       if counter > 0
       return total/counter.round(2)
       else
@@ -145,7 +205,7 @@ class SearchesController < ApplicationController
   def stay
     counter = 0
     total = 0
-    @reviews_in_radius.each { |rating|
+    @answers_within_radius.each { |rating|
       if rating != nil
       total += rating[:q9]
       counter += 1
@@ -161,7 +221,7 @@ class SearchesController < ApplicationController
   def quiet
     counter = 0
     total = 0
-    @reviews_in_radius.each { |rating|
+    @answers_within_radius.each { |rating|
       if rating != nil
       total += rating[:q10]
       counter += 1
@@ -177,7 +237,7 @@ class SearchesController < ApplicationController
   def green
     counter = 0
     total = 0
-    @reviews_in_radius.each { |rating|
+    @answers_within_radius.each { |rating|
       if rating != nil
       total += rating[:q11]
       counter += 1
@@ -193,7 +253,7 @@ class SearchesController < ApplicationController
   def clean
     counter = 0
     total = 0
-    @reviews_in_radius.each { |rating|
+    @answers_within_radius.each { |rating|
       if rating != nil
       total += rating[:q12]
       counter += 1
@@ -209,7 +269,7 @@ class SearchesController < ApplicationController
   def parking
     counter = 0
     total = 0
-    @reviews_in_radius.each { |rating|
+    @answers_within_radius.each { |rating|
       if rating != nil
       total += rating[:q13]
       counter += 1
@@ -225,7 +285,7 @@ class SearchesController < ApplicationController
   def cars
     counter = 0
     total = 0
-    @reviews_in_radius.each { |rating|
+    @answers_within_radius.each { |rating|
       if rating != nil
       total += rating[:q14]
       counter += 1
@@ -241,7 +301,7 @@ class SearchesController < ApplicationController
   def bikes
     counter = 0
     total = 0
-    @reviews_in_radius.each { |rating|
+    @answers_within_radius.each { |rating|
       if rating != nil
       total += rating[:q15]
       counter += 1
@@ -257,7 +317,7 @@ class SearchesController < ApplicationController
   def transportation
     counter = 0
     total = 0
-    @reviews_in_radius.each { |rating|
+    @answers_within_radius.each { |rating|
       if rating != nil
       total += rating[:q16]
       counter += 1
@@ -273,7 +333,7 @@ class SearchesController < ApplicationController
   def bike_lanes
     counter = 0
     total = 0
-    @reviews_in_radius.each { |rating|
+    @answers_within_radius.each { |rating|
       if rating != nil
       total += rating[:q17]
       counter += 1
@@ -289,7 +349,7 @@ class SearchesController < ApplicationController
   def pavement
     counter = 0
     total = 0
-    @reviews_in_radius.each { |rating|
+    @answers_within_radius.each { |rating|
       if rating != nil
       total += rating[:q18]
       counter += 1
@@ -305,7 +365,7 @@ class SearchesController < ApplicationController
   def lightened
     counter = 0
     total = 0
-    @reviews_in_radius.each { |rating|
+    @answers_within_radius.each { |rating|
       if rating != nil
       total += rating[:q19]
       counter += 1
@@ -321,7 +381,7 @@ class SearchesController < ApplicationController
   def playgrounds
     counter = 0
     total = 0
-    @reviews_in_radius.each { |rating|
+    @answers_within_radius.each { |rating|
       if rating != nil
       total += rating[:q20]
       counter += 1
@@ -337,7 +397,7 @@ class SearchesController < ApplicationController
   def dog_friendly
     counter = 0
     total = 0
-    @reviews_in_radius.each { |rating|
+    @answers_within_radius.each { |rating|
       if rating != nil
       total += rating[:q21]
       counter += 1

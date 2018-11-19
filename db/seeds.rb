@@ -89,6 +89,4 @@ r4 = Review.create!(street_review_title: "Review on the street No 4",
   address: s4.address
   )
 
-
-
 puts "Done populating the DB..."
