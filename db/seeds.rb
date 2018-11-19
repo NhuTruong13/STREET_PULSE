@@ -46,7 +46,8 @@ r1 = Review.create!(street_review_title: "Review No 1",
   user: u1,
   commune: c1,
   search: s1,
-  address: s1.address
+  address: s1.address,
+  photo: "https://res.cloudinary.com/kloshi/image/upload/v1542645911/BeCentral.png"
   )
 
 
@@ -60,7 +61,8 @@ r2 = Review.create!(street_review_title: "Review on the street No 2",
   user: u1,
   commune: c1,
   search: s2,
-  address: s2.address
+  address: s2.address,
+  photo: "https://res.cloudinary.com/kloshi/image/upload/v1542645911/AvTervuren.png"
   )
 
 r3 = Review.create!(street_review_title: "Review on the street No 3",
@@ -73,7 +75,8 @@ r3 = Review.create!(street_review_title: "Review on the street No 3",
   user: u2,
   commune: c3,
   search: s3,
-  address: s3.address
+  address: s3.address,
+  photo: "https://res.cloudinary.com/kloshi/image/upload/v1542645910/GrandPlace.png"
   )
 
 r4 = Review.create!(street_review_title: "Review on the street No 4",
@@ -86,7 +89,8 @@ r4 = Review.create!(street_review_title: "Review on the street No 4",
   user: u3,
   commune: c2,
   search: s4,
-  address: s4.address
+  address: s4.address,
+  photo: "https://res.cloudinary.com/kloshi/image/upload/v1542645911/Ambiorix.png"
   )
 
 
