@@ -1,70 +1,138 @@
 
-.cardQ5 {
-  padding: 20px;
-  margin: 20px;
-  height: 260px;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.6);
-  background-size: cover !important;
-}
-.cardQ6 {
-  padding: 20px;
-  margin: 20px;
-  height: 270px;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.6);
-  background-size: cover !important;
-}
-.cardEnvironment {
-  padding: 20px;
-  margin: 20px;
-  height: 400px;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.6);
-  background-size: cover !important;
-}
-.cardCommunity {
-  padding: 20px;
-  margin: 20px;
-  height: 450px;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.6);
-  background-size: cover !important;
-}
-.cardFacilities {
-  padding: 20px;
-  margin: 20px;
-  height: 520px;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.6);
-  background-size: cover !important;
-}
-.cardComfort {
-  padding: 20px;
-  margin: 20px;
-  height: 350px;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.6);
-  background-size: cover !important;
-}
-.emoji-community {
-  margin-top: 30px;
-  color: #FF7A59;
-  font-size: 30px;
-}
+.review2-hero-image {
+   /* Use "linear-gradient" to add a darken background effect to the image (photographer.jpg). This will make the text easier to read */
+   background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.2)), url("reviewPic2.jpeg");
 
-.emoji-environment {
-  margin-top: 30px;
-  color: #32B796;
-  font-size: 30px;
-}
+    /* Set a specific height */
+    height: 50vh;
 
-.emoji-facilities {
- margin-top: 30px;
- color: #E67E22;
- font-size: 30px;
-}
+    /* Position and center the image to scale nicely on all screens */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.6);
+  }
+  .cardQ5 {
+    width: 50%;
+    padding: 20px;
+    margin: 20px;
+    height: 300px;
+    box-shadow: 0 0px 0px rgba(0,0,0,0.6);
+    background-size: cover !important;
+    position: relative;
+    background-color: #FFF;
+    border: none;
+    &:hover {
+      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    }
+  }
+  .pictureq5 {
+    position: absolute;
+    bottom: 25px;
+    right: 25px;
+  }
 
-.emoji-comfort {
- margin-top: 30px;
- color: #24305E;
- font-size: 30px;
-}
-.buttonSubmitQ {
-  padding: 40px;
-  margin-left: 730px;
-}
+  .cardQ6 {
+    width: 50%;
+    padding: 20px;
+    margin: 20px;
+    height: 300px;
+    box-shadow: 0 0px 0px rgba(0,0,0,0.6);
+    background-size: cover !important;
+    position: relative;
+    background-color: #FFF;
+    border: none;
+    &:hover {
+      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    }
+  }
+  .pictureq6 {
+    position: absolute;
+    bottom: 25px;
+    right: 25px;
+  }
+  .answers {
+    margin-top: 40px;
+  }
+  .cardEnvironment {
+    width: 50%;
+    padding: 20px;
+    margin: 20px;
+    height: 600px;
+    box-shadow: 0 0px 0px rgba(0,0,0,0.6);
+    background-size: cover !important;
+    position: relative;
+    background-color: #FFF;
+    border: none;
+    &:hover {
+      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    }
+  }
+  .pictureq10 {
+    position: absolute;
+    bottom: 25px;
+    right: 25px;
+  }
+
+  .cardCommunity {
+    width: 50%;
+    padding: 20px;
+    margin: 20px;
+    height: 600px;
+    box-shadow: 0 0px 0px rgba(0,0,0,0.6);
+    background-size: cover !important;
+    position: relative;
+    background-color: #FFF;
+    border: none;
+    &:hover {
+      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    }
+  }
+  .pictureq7 {
+    position: absolute;
+    bottom: 25px;
+    right: 25px;
+  }
+  .cardFacilities {
+    width: 50%;
+    padding: 20px;
+    margin: 20px;
+    height: 620px;
+    box-shadow: 0 0px 0px rgba(0,0,0,0.6);
+    background-size: cover !important;
+    position: relative;
+    background-color: #FFF;
+    border: none;
+    &:hover {
+      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    }
+  }
+  .pictureq13 {
+    position: absolute;
+    bottom: 25px;
+    right: 25px;
+  }
+  .cardComfort {
+    width: 50%;
+    padding: 20px;
+    margin: 20px;
+    height: 620px;
+    box-shadow: 0 0px 0px rgba(0,0,0,0.6);
+    background-size: cover !important;
+    position: relative;
+    background-color: #FFF;
+    border: none;
+    &:hover {
+      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    }
+  }
+  .pictureq18 {
+    position: absolute;
+    bottom: 25px;
+    right: 25px;
+  }
+  .buttonSubmitQ {
+    padding: 40px;
+    margin-left: 730px;
+  }
