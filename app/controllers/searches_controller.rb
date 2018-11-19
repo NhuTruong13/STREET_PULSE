@@ -55,11 +55,11 @@ class SearchesController < ApplicationController
   private
 
   def stats(reviews)
-    # return a hash with necessary statistics calculated
-    # s1 = "average xxxxx"
-    # return {
-    #   :avg_rating1 => s1
-    # }
+    return a hash with necessary statistics calculated
+    s1 = "average xxxxx"
+    return {
+      :avg_rating1 => s1
+    }
   end
 
   def search_params
