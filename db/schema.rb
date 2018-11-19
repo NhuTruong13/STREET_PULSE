@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 2018_11_19_145246) do
     t.string "q5"
     t.string "q6"
     t.bigint "review_id"
+    t.bigint "question_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "q7"
@@ -36,6 +37,7 @@ ActiveRecord::Schema.define(version: 2018_11_19_145246) do
     t.integer "q19"
     t.integer "q20"
     t.integer "q21"
+    t.index ["question_id"], name: "index_answers_on_question_id"
     t.index ["review_id"], name: "index_answers_on_review_id"
   end
 
@@ -53,6 +55,15 @@ ActiveRecord::Schema.define(version: 2018_11_19_145246) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["review_id"], name: "index_pictures_on_review_id"
+  end
+
+  create_table "questions", force: :cascade do |t|
+    t.string "title"
+    t.string "category"
+    t.string "answer_type"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "number"
   end
 
   create_table "reviews", force: :cascade do |t|
@@ -104,6 +115,7 @@ ActiveRecord::Schema.define(version: 2018_11_19_145246) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "answers", "questions"
   add_foreign_key "answers", "reviews"
   add_foreign_key "pictures", "reviews"
   add_foreign_key "reviews", "communes"

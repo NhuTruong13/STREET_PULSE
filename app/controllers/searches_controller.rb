@@ -47,13 +47,13 @@ class SearchesController < ApplicationController
     # raise
     # manually add marker for user input address
     @markers.unshift({
-        lat: @search.latitude,
-        lng: @search.longitude,
-        title: @search.address
+      lat: @search.latitude,
+      lng: @search.longitude,
+      title: @search.address
     })
 
     # and render the view
-    render :main_test
+    render :main
   end
 
   private
