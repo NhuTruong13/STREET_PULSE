@@ -63,7 +63,6 @@
 <% zip_code = Geocoder.search([@search.latitude, @search.longitude]).first.postal_code %>
 
 <h4>Address: <%= @search.address %> (<%= zip_code %>)</h4>
-<p>Radius <%= @search.radius / 1000.0 %> km</p>
 
 
 
