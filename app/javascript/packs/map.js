@@ -1,4 +1,6 @@
 import GMaps from 'gmaps/gmaps.js';
+import $ from 'jquery';
+import "bootstrap";
 
 import { autocomplete } from '../components/autocomplete';
 
@@ -21,24 +23,32 @@ if (mapElement) {
     strokeOpacity: 0.5,
   });
 
-  // add markers (reviews in the radius)
-  map.addMarkers(markers);
+  // add markers in one go (reviews in the radius):
+  console.log(markers);
+
+  // map.addMarkers(markers);
+  // need to set markers one by one? to be able to assign "click"
+  // and also assign review_id to each marker
+  markers.forEach(addOneMarker);
+
+  function addOneMarker(item) {
+    map.addMarker({
+      lat: item.lat,
+      lng: item.lng,
+      title: item.title,
+      review_id: item.review_id,
+      animation: google.maps.Animation.DROP,
+      click: function(){
+        $(`#reviewModal-${item.review_id}`).modal();
+      }
+    });
+  };
 
   // add the main marker (user typed address)
   map.addMarker({
     lat: marker_main,
     lng: marker_main,
     icon: 'http://maps.google.com/mapfiles/ms/icons/green-dot.png',
-    animation: google.maps.Animation.DROP,
-    click: function(){
-      // alert("Hello from the main marker");
-      // const myModal = document.getElementById('myModal');
-      // myModal.modal('show');
-      // console.log(document.getElementById('myModal'));
-      // document.getElementById('myModal').modal('show');
-      // $('#myModal').modal();
-      $('#myModal').modal();
-    }
   });
 
   markers.unshift(marker_main);
@@ -50,8 +60,9 @@ if (mapElement) {
   }
   else {
     // 2 possible zoom versions:
-    // map.fitLatLngBounds(markers);
-    map.fitBounds(circle.getBounds());
+    map.fitLatLngBounds(markers);
+    // map.fitBounds(circle.getBounds());
+    map.setCenter(marker_main.lat, marker_main.lng);
   }
 
 }

@@ -44,7 +44,7 @@ class ReviewsController < ApplicationController
       :key => ENV['GOOGLE_API_SERVER_KEY']
       }
     query_string = params.map { |k, v| "#{k}=#{v}" }.join("&")
-    "https://maps.googleapis.com/maps/api/staticmap?center=" + query_string
+    "https://maps.googleapis.com/maps/api/staticmap?" + query_string
 
     # https://maps.googleapis.com/maps/api/staticmap?center=Brooklyn+Bridge,New+York,NY&zoom=13&size=600x300&maptype=roadmap
     # &markers=color:blue%7Clabel:S%7C40.702147,-74.015794&markers=color:green%7Clabel:G%7C40.711614,-74.012318
