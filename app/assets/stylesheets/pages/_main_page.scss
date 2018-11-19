@@ -21,7 +21,7 @@
 }
 .buttonsMapInfos {
   position: absolute;
-  top: 300px;
+
 }
 .btn-success a {
   color: white
@@ -39,8 +39,10 @@
 
 .cardGridPicture {
  height: 400px;
+ margin-top: 100px;
  margin-left: 60px;
  margin-right: 60px;
+ margin-bottom: 80px;
  background-size: cover !important;
  border: none;
  display: grid;

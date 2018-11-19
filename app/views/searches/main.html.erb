@@ -1,55 +1,6 @@
-<div class="main_page-hero-image1">
-  <div class="main_page-title">
-    <h3> <strong> Discover your future neighbourhood ! </strong> </h3>
-  </div>
-</div>
-<br>
 <!-- SECTION 1: MAP + SEARCH BAR ADDRESS & RADIUS -->
 
-<div class="row">
-  <div class="col-xs-12">
-
-    <div class="cardMap", style="display: flex">
-      <%= render 'shared/mapradius' %>
-
-      <div class="MapInfos">
-
-        <div class="searchBarTitle">
-          <h3> <strong> Your neighbourhood... </strong> </h3>
-          <div class="searchBarAddress">
-            <%= form_tag(controller: "searches", action: "create", method: "post") do %>
-            <%= text_field_tag 'search', nil, placeholder: @address   %>
-            <% end %>
-          </div>
-        </div>
-
-        <div class="searchRadiusTitle">
-          <h4> playing with the radius </h4>
-          <div class="searchRadius">
-            <%= form_tag(controller: "searches", action: "create", method: "post") do %>
-            <%= text_field_tag 'search', nil, placeholder: 'type a radius'   %>
-            <% end %>
-          </div>
-        </div>
-
-        <div class="buttonsMapInfos">
-          <div class="btn btn-primary">
-            <%= link_to "Save Search", new_user_session_path %>
-          </div>
-          <div class="btn btn-primary">
-            <%= link_to "New Search", new_user_session_path %>
-          </div>
-          <div class="btn btn-success">
-            <%= link_to "Add Review", new_user_session_path %>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </div>
-</div>
-
-<br><br><br><br>
+<%= render 'shared/mapradius' %>
 
 <!-- SECTION 2: PICTURES + INFOS ON COMMUNE -->
 <div class="row">

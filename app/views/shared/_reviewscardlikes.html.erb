@@ -1,1 +1,15 @@
-_reviewscardlikes.html.erb
+<ul>
+  <% @reviews_in_radius.each do |r| %>
+  <li>
+    <strong>Title: <%= r.street_review_title %></strong>
+    <p>Address: <%= r.address %> (<%= '%.02f' % r.distance_from(@search.address) %> km away)</p>
+    <% zip_code = Geocoder.search([r.latitude, r.longitude]).first.postal_code %>
+    <p>Post code: <%= zip_code %> (<%= Commune.where(zip_code: zip_code).first.name %>) </p>
+    <p>Review Street: <%= r.street_review_content %></p>
+    <p>User: <%= r.user.email %></p>
+
+  </li>
+  <% end %>
+</ul>
+
+
