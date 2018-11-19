@@ -2,7 +2,8 @@
 
 .MapInfos {
   width: 50%;
-  margin: 50px;
+  margin-top: 50px;
+  margin-left:50px;
   position: relative;
 }
 .searchBarAddress {
@@ -28,7 +29,7 @@
 #map {
   width: 70%;
   margin-top: 50px;
-  margin-left: 50px;
+  margin-left:30px;
   box-shadow: 0 10px 30px rgba(0,0,0,0.6);
   background-size: cover !important;
   border: none;
@@ -103,6 +104,7 @@
   border-radius: 20px;
   box-shadow: 0 2px 4px rgba(0,0,0,0.6);
   border: none;
+  padding: 1px;
 }
 // section Statistics
 .cardStat {
@@ -170,103 +172,106 @@
 // section ReviewsLocals
 .cardReviewsLocals {
   display: flex;
-  margin: 50px;
+  margin-left: 190px;
+  padding: 20px;
+  margin: 20px;
   height: 400px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.6);
+  background-size: cover !important;
   border: none;
-  position: relative;
 }
 .reviewTitle{
-  margin-left: 50px;
+ margin-left: 50px;
 }
 .review1{
-  padding: 20px;
-  margin: 10px;
-  width: 300px;
-  height: 300px;
-  border-radius: 5px;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.6);
-  background-size: cover !important;
+ padding: 20px;
+ margin: 10px;
+ width: 300px;
+ height: 300px;
+ border-radius: 5px;
+ box-shadow: 0 1px 3px rgba(0,0,0,0.6);
+ background-size: cover !important;
 }
 .review2{
-  padding: 20px;
-  margin: 10px;
-  width: 300px;
-  height: 300px;
-  border-radius: 5px;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.6);
-  background-size: cover !important;
+ padding: 20px;
+ margin: 10px;
+ width: 300px;
+ height: 300px;
+ border-radius: 5px;
+ box-shadow: 0 1px 3px rgba(0,0,0,0.6);
+ background-size: cover !important;
 }
 .review3 {
-  padding: 20px;
-  margin: 10px;
-  width: 300px;
-  height: 300px;
-  border-radius: 5px;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.6);
-  background-size: cover !important;
+ padding: 20px;
+ margin: 10px;
+ width: 300px;
+ height: 300px;
+ border-radius: 5px;
+ box-shadow: 0 1px 3px rgba(0,0,0,0.6);
+ background-size: cover !important;
 }
 .review4{
-  padding: 20px;
-  margin: 10px;
-  width: 300px;
-  height: 300px;
-  border-radius: 5px;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.6);
-  background-size: cover !important;
+ padding: 20px;
+ margin: 10px;
+ width: 300px;
+ height: 300px;
+ border-radius: 5px;
+ box-shadow: 0 1px 3px rgba(0,0,0,0.6);
+ background-size: cover !important;
 }
 .reviews-modal{
-  position: absolute;
-  right: 10px;
-  bottom: 10px;
+ position: absolute;
+ right: 10px;
+ bottom: 10px;
 }
 .main_page-hero-image1 {
-   /* Use "linear-gradient" to add a darken background effect to the image (photographer.jpg). This will make the text easier to read */
-   background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url("main_page_map.jpeg");
+  /* Use “linear-gradient” to add a darken background effect to the image (photographer.jpg). This will make the text easier to read */
+  background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url("main_page_map.jpeg");
 
-    /* Set a specific height */
-    height: 50vh;
+   /* Set a specific height */
+   height: 50vh;
 
-    /* Position and center the image to scale nicely on all screens */
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    position: relative;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.6);
-    color: white;
-    text-align: center;
-    padding: 100px;
-  }
-  .main_page-hero-image2 {
-   /* Use "linear-gradient" to add a darken background effect to the image (photographer.jpg). This will make the text easier to read */
-   background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url("main_page_run.jpeg");
+   /* Position and center the image to scale nicely on all screens */
+   background-position: center;
+   background-repeat: no-repeat;
+   background-size: cover;
+   position: relative;
+   box-shadow: 0 1px 3px rgba(0,0,0,0.6);
+   color: white;
+   text-align: center;
+   padding: 100px;
+ }
+ .main_page-hero-image2 {
+  /* Use “linear-gradient” to add a darken background effect to the image (photographer.jpg). This will make the text easier to read */
+  background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url("main_page_run.jpeg");
 
-    /* Set a specific height */
-    height: 50vh;
+   /* Set a specific height */
+   height: 50vh;
 
-    /* Position and center the image to scale nicely on all screens */
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    position: relative;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.6);
-    color: white;
-    text-align: center;
-    padding: 100px;
-  }
-  .main_page-hero-image3 {
-   /* Use "linear-gradient" to add a darken background effect to the image (photographer.jpg). This will make the text easier to read */
-   background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url("main_page_lifestyle.jpeg");
+   /* Position and center the image to scale nicely on all screens */
+   background-position: center;
+   background-repeat: no-repeat;
+   background-size: cover;
+   position: relative;
+   box-shadow: 0 1px 3px rgba(0,0,0,0.6);
+   color: white;
+   text-align: center;
+   padding: 100px;
+ }
+ .main_page-hero-image3 {
+  /* Use “linear-gradient” to add a darken background effect to the image (photographer.jpg). This will make the text easier to read */
+  background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url("main_page_lifestyle.jpeg");
 
-    /* Set a specific height */
-    height: 50vh;
+   /* Set a specific height */
+   height: 50vh;
 
-    /* Position and center the image to scale nicely on all screens */
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    position: relative;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.6);
-    color: white;
-    text-align: center;
-    padding: 40px;
-  }
+   /* Position and center the image to scale nicely on all screens */
+   background-position: center;
+   background-repeat: no-repeat;
+   background-size: cover;
+   position: relative;
+   box-shadow: 0 1px 3px rgba(0,0,0,0.6);
+   color: white;
+   text-align: center;
+   padding: 40px;
+ }
