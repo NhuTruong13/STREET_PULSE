@@ -8,7 +8,10 @@
   <div class="col-xs-12">
     <div class="StatTitle">
       <h3> <strong> What Locals think about: </strong> </h3>
+      <%= link_to "Add Review", new_search_review_path(:search_id => @search.id), class:"buttonNoFillGreen" , style:"margin-left:1240px" %>
     </div>
+    <!-- button Addreview -->
+
     <div class="cardStat", style="display: flex">
       <div class="community">
         <h3> Category</h3>

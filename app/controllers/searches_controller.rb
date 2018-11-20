@@ -102,6 +102,10 @@ class SearchesController < ApplicationController
     # calculate zip_code (for the green marker) for use in main.html.erb
     @zip_code = Geocoder.search([@markers[0][:lat], @markers[0][:lng]]).first.postal_code
 
+    # lookup the commune (for the green marker) for use in main.html.erb
+    # if commune does not exist in our DB then assign commune = 1000 (first in the DB)
+    @commune = Commune.where(zip_code: @zip_code).first
+    @commune = Commune.first if @commune.nil?
     # and render the view
     render :main
   end

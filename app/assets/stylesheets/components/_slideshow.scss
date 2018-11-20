@@ -1,3 +1,19 @@
+.w3-display-container {
+  position: relative;
+}
+
+.w3-left {
+  position: absolute;
+  top: 160px;
+  left: -20px;
+}
+
+.w3-right {
+  position: absolute;
+  top: 160px;
+  right: -20px;
+}
+
 .mySlides {
   border-radius: 5px;
   display:none;

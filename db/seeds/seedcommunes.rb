@@ -1,4 +1,15 @@
+puts "Deleting existing communes data..."
+
 Commune.destroy_all
+
+puts "Creating communes data..."
+
+c0 = Commune.create!(
+  name: "N/A",
+  zip_code: "N/A",
+  description: "N/A"
+  )
+
 
 c1 = Commune.create!(
   name: "Bruxelles-Ville",
@@ -160,3 +171,6 @@ c9 = Commune.create!(
 
   Coups de cœur : Se promener le long du circuit de la promenade verte permet de s’échapper de la ville en empruntant, depuis la rue L. Jasmin, l’ancien tracé de la ligne de chemin de fer « Bruxelles-Tervueren », en traversant le Parc Malou (avenue du Stade) et en longeant la Woluwe (découverte du Lindekemaele, repas dans le restaurant Le Slot, reste d’un château du XVIème siècle."
   )
+
+
+puts "Creating communes data OK."
