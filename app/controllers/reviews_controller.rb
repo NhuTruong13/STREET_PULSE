@@ -9,22 +9,21 @@ class ReviewsController < ApplicationController
     @search = Search.find(params[:search_id])
     @review = Review.new
     @staticmap = static_map_for(@search)
+    @commune = get_commune(@search) # fetch communune based on user input address
   end
 
   def create
     @review = Review.new(reviews_params)
     @search = Search.find(params[:search_id])
 
-    # ------------------------------------------------
-    # the right way to save the commune to the review:
-    zip_code = Geocoder.search([@search.latitude, @search.longitude]).first.postal_code
-    @review.commune = Commune.where(zip_code: zip_code).first
-    # ------------------------------------------------
+    @commune = get_commune(@search)
 
+    @review.commune = @commune
+
+    @review.search = @search
     @review.address = @search.address
-
     @review.user = current_user
-    @review.search = Search.find(params[:search_id])
+
     if @review.save!
       redirect_to new_search_review_answer_path(review_id: @review.id, search_id: @review.search_id)
     else
@@ -55,6 +54,16 @@ class ReviewsController < ApplicationController
   end
 
   private
+
+  def get_commune(search)
+    zip_code = Geocoder.search([search.latitude, search.longitude]).first.postal_code
+    # in case geocode (maps api) fails --> assign zip_code = 9999
+    zip_code = "9999" if zip_code == [] || zip_code.nil?
+    # if commune does not exist in our DB then assign commune = N/A (first in the DB)
+    commune = Commune.where(zip_code: zip_code).first
+    commune = Commune.first if @review.commune.nil?
+    return commune
+  end
 
   def reviews_params
     params.require(:review).permit(
