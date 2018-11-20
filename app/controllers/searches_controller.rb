@@ -120,8 +120,8 @@ class SearchesController < ApplicationController
     @reviews_in_radius.each { |rating|
       total += rating[:street_review_average_rating]
       }
-    return total/counter.round
-  end
+      result = ((total/counter).round)*20
+    return "#{result} %"  end
 
   def commune_average
     counter = @reviews_in_radius.size
@@ -129,7 +129,8 @@ class SearchesController < ApplicationController
     @reviews_in_radius.each { |rating|
       total += rating[:commune_review_average_rating]
       }
-    return total/counter.round
+      result = ((total/counter).round)*20
+    return "#{result} %"
   end
 
   def type_of_population
@@ -191,7 +192,7 @@ class SearchesController < ApplicationController
     income_types.merge!(a: a)
     income_types.merge!(l: l)
     income_types.values.sort!.reverse
-    return income_types.keys.first.to_s
+    return income_types.keys.first.to_s.capitalize
   end
 
   def friendliness
@@ -203,8 +204,13 @@ class SearchesController < ApplicationController
       counter += 1
       end
       }
-    return total/counter.round(2)
-  end
+      if counter > 0
+        result = ((total/counter).round)*20
+        return "#{result} %"
+      else
+        return "N/A"
+      end
+    end
 
   def events
     counter = 0
@@ -215,9 +221,10 @@ class SearchesController < ApplicationController
       counter += 1
       end
       }
-      if counter > 0
-      return total/counter.round(2)
-      else
+    if counter > 0
+      result = ((total/counter).round)*20
+      return "#{result} %"
+    else
       return "N/A"
     end
   end
@@ -232,7 +239,8 @@ class SearchesController < ApplicationController
       end
       }
       if counter > 0
-      return total/counter.round(2)
+        result = ((total/counter).round)*20
+        return "#{result} %"
       else
       return "N/A"
     end
@@ -248,7 +256,8 @@ class SearchesController < ApplicationController
       end
       }
       if counter > 0
-      return total/counter.round(2)
+        result = ((total/counter).round)*20
+        return "#{result} %"
       else
       return "N/A"
     end
@@ -264,7 +273,8 @@ class SearchesController < ApplicationController
       end
       }
       if counter > 0
-      return total/counter.round(2)
+        result = ((total/counter).round)*20
+        return "#{result} %"
       else
       return "N/A"
       end
@@ -280,7 +290,8 @@ class SearchesController < ApplicationController
       end
       }
       if counter > 0
-      return total/counter.round(2)
+        result = ((total/counter).round)*20
+        return "#{result} %"
       else
       return "N/A"
     end
@@ -296,7 +307,8 @@ class SearchesController < ApplicationController
       end
       }
       if counter > 0
-      return total/counter.round(2)
+        result = ((total/counter).round)*20
+        return "#{result} %"
       else
       return "N/A"
     end
@@ -312,7 +324,8 @@ class SearchesController < ApplicationController
       end
       }
       if counter > 0
-      return total/counter.round(2)
+        result = ((total/counter).round)*20
+        return "#{result} %"
       else
       return "N/A"
     end
@@ -328,7 +341,8 @@ class SearchesController < ApplicationController
       end
       }
       if counter > 0
-      return total/counter.round(2)
+        result = ((total/counter).round)*20
+        return "#{result} %"
       else
       return "N/A"
     end
@@ -344,7 +358,8 @@ class SearchesController < ApplicationController
       end
       }
       if counter > 0
-      return total/counter.round(2)
+        result = ((total/counter).round)*20
+        return "#{result} %"
       else
       return "N/A"
     end
@@ -360,7 +375,8 @@ class SearchesController < ApplicationController
       end
       }
       if counter > 0
-      return total/counter.round(2)
+        result = ((total/counter).round)*20
+        return "#{result} %"
       else
       return "N/A"
     end
@@ -376,7 +392,8 @@ class SearchesController < ApplicationController
       end
       }
       if counter > 0
-      return total/counter.round(2)
+        result = ((total/counter).round)*20
+        return "#{result} %"
       else
       return "N/A"
     end
@@ -392,7 +409,8 @@ class SearchesController < ApplicationController
       end
       }
       if counter > 0
-      return total/counter.round(2)
+        result = ((total/counter).round)*20
+        return "#{result} %"
       else
       return "N/A"
     end
@@ -408,7 +426,8 @@ class SearchesController < ApplicationController
       end
       }
       if counter > 0
-      return total/counter.round(2)
+        result = ((total/counter).round)*20
+        return "#{result} %"
       else
       return "N/A"
     end
@@ -424,7 +443,8 @@ class SearchesController < ApplicationController
       end
       }
       if counter > 0
-      return total/counter.round(2)
+        result = ((total/counter).round)*20
+        return "#{result} %"
       else
       return "N/A"
     end
