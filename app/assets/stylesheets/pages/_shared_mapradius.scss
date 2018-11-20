@@ -1,0 +1,52 @@
+// section MapRadius
+.main_page-hero-image1 {
+  /* Use “linear-gradient” to add a darken background effect to the image (photographer.jpg). This will make the text easier to read */
+  background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url("main_page_map.jpeg");
+
+   /* Set a specific height */
+   height: 50vh;
+
+   /* Position and center the image to scale nicely on all screens */
+   background-position: center;
+   background-repeat: no-repeat;
+   background-size: cover;
+   position: relative;
+   box-shadow: 0 1px 3px rgba(0,0,0,0.6);
+   color: white;
+   text-align: center;
+   padding: 100px;
+ }
+ .MapInfos {
+  width: 50%;
+  margin-top: 50px;
+  margin-left:50px;
+  position: relative;
+}
+.searchBarAddress {
+  position: absolute;
+  top: 80px;
+}
+.searchRadiusTitle {
+  position: absolute;
+  top: 130px;
+}
+
+.searchBarRadius {
+  position: absolute;
+  bottom: 180px;
+}
+.buttonsMapInfos {
+  position: absolute;
+
+}
+.btn-success a {
+  color: white
+}
+#map {
+  width: 70%;
+  margin-top: 50px;
+  margin-left:30px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+  background-size: cover !important;
+  border: none;
+}
