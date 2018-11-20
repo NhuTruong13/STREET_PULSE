@@ -1,4 +1,4 @@
-const infowindow;
+// const infowindow;
 
 // // TODO: Replace coordinates with the ones of the search
 // function initMap() {
