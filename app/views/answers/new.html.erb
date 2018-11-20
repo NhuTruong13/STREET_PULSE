@@ -62,6 +62,7 @@
       <p>
        <%= f.input :q7, collection: 0..5,
        :label => Answer::QUESTIONS[:q7][:title],
+       :as => :range,
        wrapper_html: { class: 'form-group' }
        %>
       </p>
