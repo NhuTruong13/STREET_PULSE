@@ -49,12 +49,13 @@ class SearchesController < ApplicationController
     #############################################################
     ################## creating @stats hash #####################
 
-
         # fetching the answers for a review
         @answers_within_radius =  []
-        @reviews_in_radius.each do |rev|
-          @answers_within_radius << rev.answers
-        end
+          @reviews_in_radius.each do |rev|
+          @answers_within_radius << rev.answers.first unless rev.answers.first == nil || rev.answers.first == []
+
+          end
+
         # @statistics is a hash with necessary stats calculated
         @street_average = street_average
         @commune_average = commune_average
@@ -201,8 +202,8 @@ class SearchesController < ApplicationController
     counter = 0
     total = 0
     @answers_within_radius.each { |rating|
-      if rating != nil
-      total += rating.first[:q7]
+      if rating[:q7] != [] && rating[:q7] != nil
+      total += rating[:q7]
       counter += 1
       end
       }
@@ -218,8 +219,8 @@ class SearchesController < ApplicationController
     counter = 0
     total = 0
     @answers_within_radius.each { |rating|
-      if rating != nil
-      total += rating.first[:q8]
+      if rating[:q8] != [] && rating[:q8] != nil
+      total += rating[:q8]
       counter += 1
       end
       }
@@ -235,8 +236,8 @@ class SearchesController < ApplicationController
     counter = 0
     total = 0
     @answers_within_radius.each { |rating|
-      if rating != nil
-      total += rating.first[:q9]
+      if rating[:q9] != [] && rating[:q9] != nil
+      total += rating[:q9]
       counter += 1
       end
       }
@@ -252,8 +253,8 @@ class SearchesController < ApplicationController
     counter = 0
     total = 0
     @answers_within_radius.each { |rating|
-      if rating != nil
-      total += rating.first[:q10]
+      if rating[:q10] != [] && rating[:q10] != nil
+      total += rating[:q10]
       counter += 1
       end
       }
@@ -269,8 +270,8 @@ class SearchesController < ApplicationController
     counter = 0
     total = 0
     @answers_within_radius.each { |rating|
-      if rating != nil
-      total += rating.first[:q11]
+      if rating[:q11] != [] && rating[:q11] != nil
+      total += rating[:q11]
       counter += 1
       end
       }
@@ -286,8 +287,8 @@ class SearchesController < ApplicationController
     counter = 0
     total = 0
     @answers_within_radius.each { |rating|
-      if rating != nil
-      total += rating.first[:q12]
+      if rating[:q12] != [] && rating[:q12] != nil
+      total += rating[:q12]
       counter += 1
       end
       }
@@ -303,8 +304,8 @@ class SearchesController < ApplicationController
     counter = 0
     total = 0
     @answers_within_radius.each { |rating|
-      if rating != nil
-      total += rating.first[:q13]
+      if rating[:q13] != [] && rating[:q13] != nil
+      total += rating[:q13]
       counter += 1
       end
       }
@@ -320,8 +321,8 @@ class SearchesController < ApplicationController
     counter = 0
     total = 0
     @answers_within_radius.each { |rating|
-      if rating != nil
-      total += rating.first[:q14]
+      if rating[:q14] != [] && rating[:q14] != nil
+      total += rating[:q14]
       counter += 1
       end
       }
@@ -337,8 +338,8 @@ class SearchesController < ApplicationController
     counter = 0
     total = 0
     @answers_within_radius.each { |rating|
-      if rating != nil
-      total += rating.first[:q15]
+      if rating[:q15] != [] && rating[:q15] != nil
+      total += rating[:q15]
       counter += 1
       end
       }
@@ -354,8 +355,8 @@ class SearchesController < ApplicationController
     counter = 0
     total = 0
     @answers_within_radius.each { |rating|
-      if rating != nil
-      total += rating.first[:q16]
+      if rating[:q16] != [] && rating[:q16] != nil
+      total += rating[:q16]
       counter += 1
       end
       }
@@ -371,8 +372,8 @@ class SearchesController < ApplicationController
     counter = 0
     total = 0
     @answers_within_radius.each { |rating|
-      if rating != nil
-      total += rating.first[:q17]
+      if rating[:q17] != [] && rating[:q17] != nil
+      total += rating[:q17]
       counter += 1
       end
       }
@@ -388,8 +389,8 @@ class SearchesController < ApplicationController
     counter = 0
     total = 0
     @answers_within_radius.each { |rating|
-      if rating != nil
-      total += rating.first[:q18]
+      if rating[:q18] != [] && rating[:q18] != nil
+      total += rating[:q18]
       counter += 1
       end
       }
@@ -405,8 +406,8 @@ class SearchesController < ApplicationController
     counter = 0
     total = 0
     @answers_within_radius.each { |rating|
-      if rating != nil
-      total += rating.first[:q19]
+      if rating[:q19] != [] && rating[:q19] != nil
+      total += rating[:q19]
       counter += 1
       end
       }
@@ -422,8 +423,8 @@ class SearchesController < ApplicationController
     counter = 0
     total = 0
     @answers_within_radius.each { |rating|
-      if rating != nil
-      total += rating.first[:q20]
+      if rating[:q20] != [] && rating[:q20] != nil
+      total += rating[:q20]
       counter += 1
       end
       }
@@ -439,8 +440,8 @@ class SearchesController < ApplicationController
     counter = 0
     total = 0
     @answers_within_radius.each { |rating|
-      if rating != nil
-      total += rating.first[:q21]
+      if rating[:q21] != [] && rating[:q21] != nil
+      total += rating[:q21]
       counter += 1
       end
       }

@@ -1,7 +1,7 @@
 a1 = Answer.create!(
   q5: "Students",
   q6: "Super High Income",
-  review_id: 35,
+  review_id: 41,
   q7: 3,
   q8: 5,
   q9: 5,
@@ -22,7 +22,7 @@ a1 = Answer.create!(
 a2 = Answer.create!(
   q5: "Offices",
   q6: "High Income",
-  review_id: 37,
+  review_id: 43,
   q7: 5,
   q8: 5,
   q9: 5,
