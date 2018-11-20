@@ -45,7 +45,7 @@ class ReviewsController < ApplicationController
     params = {
       :center => [location.latitude, location.longitude].join(","),
       :zoom => 16,
-      :size => "350x350",
+      :size => "600x370",
       :markers => [location.latitude, location.longitude].join(","),
       :key => ENV['GOOGLE_API_SERVER_KEY']
     }
@@ -75,3 +75,6 @@ class ReviewsController < ApplicationController
       :commune_review_content)
   end
 end
+
+
+
