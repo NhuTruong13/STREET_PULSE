@@ -13,9 +13,9 @@ class ReviewsController < ApplicationController
 
   def create
     @review = Review.new(reviews_params)
+    @search = Search.find(params[:search_id])
 
-    ############## Attention, commune has been sorta hardcoded #######
-    # @review.commune = Commune.first
+    @review.address = @search.address
 
     # ------------------------------------------------
     # the right way to save the commune to the review:
@@ -46,10 +46,10 @@ class ReviewsController < ApplicationController
     params = {
       :center => [location.latitude, location.longitude].join(","),
       :zoom => 16,
-      :size => "350x450",
+      :size => "350x350",
       :markers => [location.latitude, location.longitude].join(","),
       :key => ENV['GOOGLE_API_SERVER_KEY']
-      }
+    }
     query_string = params.map { |k, v| "#{k}=#{v}" }.join("&")
     return "https://maps.googleapis.com/maps/api/staticmap?" + query_string
   end

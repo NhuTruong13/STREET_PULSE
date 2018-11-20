@@ -3,92 +3,93 @@
 
     <div class="cardGridPicture">
 
-     <!-- space for the commune review and description -->
-     <div class="cardPictureCommune">
-      <h4> <strong> The street is part of "<%= Commune.where(zip_code: @zip_code).first.name %>" </strong> </h4>
-      <h4> + Add the rating </h4>
-      <p> Description of the commune </p>
+      <!-- space for the commune review and description -->
+      <div class="cardPictureCommune">
+        <h4> <strong> The street is part of the Commune of "<%= Commune.where(zip_code: @zip_code).first.name %>" </strong> </h4>
+        <h4> + Add the rating </h4>
 
-     <p>Commune description: <%= Commune.where(zip_code: @zip_code).first.description %> </p>
+        <p> <strong>Commune description:</strong> <%= Commune.where(zip_code: @zip_code).first.description.truncate_words(50) %> </p>
 
-      <!-- MODAL START -->
-      <div class="commune-modal">
-        <!-- Button to Open the Modal -->
-        <button type="button" class="buttonNoFill" data-toggle="modal" data-target="#myModal">
-          Read more...
-        </button>
+        <!-- MODAL START -->
+        <div class="commune-modal">
+          <!-- Button to Open the Modal -->
+          <button type="button" class="buttonNoFill" data-toggle="modal" data-target="#myModal">
+            Read more...
+          </button>
 
-        <!-- The Modal -->
-        <div class="modal fade" id="myModal">
-          <div class="modal-dialog">
-            <div class="modal-content">
+          <!-- The Modal -->
+          <div class="modal fade" id="myModal">
+            <div class="modal-dialog">
+              <div class="modal-content">
 
-              <!-- Modal Header -->
-              <div class="modal-header">
-                <h4 class="modal-title">More infos on...</h4>
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <!-- Modal Header -->
+                <div class="modal-header">
+                  <h4 class="modal-title"><h4> <strong> Commune of "<%= Commune.where(zip_code: @zip_code).first.name %>" </strong> </h4></h4>
+                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+
+                <!-- Modal body -->
+                <div class="modal-body">
+                  <p> <strong>Commune description:</strong> <%= Commune.where(zip_code: @zip_code).first.description %> </p>
+                </div>
+
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                </div>
+
               </div>
-
-              <!-- Modal body -->
-              <div class="modal-body">
-                Modal body..
-              </div>
-
-              <!-- Modal footer -->
-              <div class="modal-footer">
-                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-              </div>
-
             </div>
+          </div>
+
+        </div>
+        <!-- MODAL END -->
+      </div>
+
+      <!-- space for the pictures -->
+      <div class="smallcardPictureNeightbourhood">
+
+        <div class="Pic1">
+          <p> Your Neighbourhood in picture </p>
+        </div>
+
+        <div class="Pic2">
+        </div>
+
+        <div class="Pic3">
+        </div>
+
+      </div>
+
+      <!-- Carousel with the pictures -->
+      <div class="bigcardPictureNeighbourhood">
+
+        <!-- fetch zip code based on lat/lng and geocoder -->
+        <% zip_code = Geocoder.search([@search.latitude, @search.longitude]).first.postal_code %>
+        <h4><%= @search.address %> </h4>
+
+        <p>  + Add the rating </p>
+
+        <div class="w3-content w3-display-container" style="max-width:800px">
+          <% @reviews_in_radius.each do |r| %>
+          <%= cl_image_tag r.photo, :width=>400, :height=>400, :alt=>"street photo" %>
+          <div class="w3-center w3-container w3-section w3-large w3-text-white w3-display-bottommiddle" style="width:100%">
+            <div class="w3-left w3-hover-text-khaki" onclick="plusDivs(-1)">&#10094;</div>
+            <div class="w3-right w3-hover-text-khaki" onclick="plusDivs(1)">&#10095;</div>
+            <span class="w3-badge demo w3-border w3-transparent w3-hover-white" onclick="currentDiv(1)"></span>
+            <span class="w3-badge demo w3-border w3-transparent w3-hover-white" onclick="currentDiv(2)"></span>
+            <span class="w3-badge demo w3-border w3-transparent w3-hover-white" onclick="currentDiv(3)"></span>
           </div>
         </div>
 
       </div>
-      <!-- MODAL END -->
     </div>
 
-    <!-- space for the pictures -->
-    <div class="smallcardPictureNeightbourhood">
-
-      <div class="Pic1">
-        <p> Your Neighbourhood in picture </p>
-      </div>
-
-      <div class="Pic2">
-      </div>
-
-      <div class="Pic3">
-      </div>
-
-    </div>
-
-    <!-- Carousel with the pictures -->
-    <div class="bigcardPictureNeighbourhood">
-      <!-- fetch zip code based on lat/lng and geocoder -->
-      <% zip_code = Geocoder.search([@search.latitude, @search.longitude]).first.postal_code %>
-      <h4><%= @search.address %> </h4>
-
-      <p>  + Add the rating </p>
-
-      <div class="w3-content w3-display-container" style="max-width:800px">
-        <%= image_tag "home_pic5.jpeg", class: "mySlides", style: "width:100%;" %>
-        <%= image_tag "home_pic6.jpeg", class: "mySlides", style: "width:100%;" %>
-        <%= image_tag "home_pic7.jpeg", class: "mySlides", style: "width:100%;" %>
-        <div class="w3-center w3-container w3-section w3-large w3-text-white w3-display-bottommiddle" style="width:100%">
-          <div class="w3-left w3-hover-text-khaki" onclick="plusDivs(-1)">&#10094;</div>
-          <div class="w3-right w3-hover-text-khaki" onclick="plusDivs(1)">&#10095;</div>
-          <span class="w3-badge demo w3-border w3-transparent w3-hover-white" onclick="currentDiv(1)"></span>
-          <span class="w3-badge demo w3-border w3-transparent w3-hover-white" onclick="currentDiv(2)"></span>
-          <span class="w3-badge demo w3-border w3-transparent w3-hover-white" onclick="currentDiv(3)"></span>
-        </div>
-      </div>
-
-    </div>
   </div>
-
 </div>
 </div>
-</div>
+<% end %>
+<!--   the "end" correspond to the loop in partial _mapradius -->
 
 <br><br><br><br>
 
