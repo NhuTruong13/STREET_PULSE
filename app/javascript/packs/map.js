@@ -62,7 +62,7 @@ if (mapElement) {
     // 2 possible zoom versions:
     map.fitLatLngBounds(markers);
     // map.fitBounds(circle.getBounds());
-    map.setCenter(marker_main.lat, marker_main.lng);
+    // map.setCenter(marker_main.lat, marker_main.lng);
   }
 
 }
