@@ -1,0 +1,102 @@
+
+.upvotes {
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  border-radius: 3px;
+  transition: all 0.15s ease;
+}
+
+/* Body design */
+.upvotes-body {
+  flex: 1 1 auto;
+}
+.upvotes-body h3 {
+  font-weight: bold;
+  font-size: 23px;
+  margin-top: 0;
+}
+.upvotes-body p {
+  font-weight: lighter;
+  color: #999999;
+  margin-bottom: 0;
+}
+
+/* upvotes image */
+.upvotes-image {
+  border-radius: 10px;
+  margin-right: 20px;
+  width: 175px;
+}
+
+/* Upvote design */
+.upvotes-el {
+  padding-right: 20px;
+  text-align: center;
+  transition: all 0.15s ease;
+  font-weight: bold;
+  font-size: 13px;
+  line-height: 20px;
+}
+.upvotes-count {
+  margin: 2px 0 0;
+}
+.upvotes-arrow {
+  transition: all 0.15s ease;
+  width: 0;
+  height: 0;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-top: 6px solid transparent;
+  border-bottom: 9px solid black;
+  border-radius: 2px;
+  margin: auto;
+}
+
+.vote-on {
+  border-bottom: 9px solid green;
+}
+
+/* Controls design */
+.upvotes-controls {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  margin: 0px;
+}
+.upvotes-controls a {
+  padding: 0 20px;
+  font-size: 17px;
+  color: #E6E6E6;
+}
+.upvotes-controls a:hover {
+  color: #D3473C !important
+}
+.upvotes-controls-hidden a {
+  color: transparent;
+  font-size: 15px;
+  transition: all 0.15s ease;
+  border-color: transparent;
+}
+
+/* Hover effects */
+.upvotes:hover {
+  background: #f7f7fa;
+  cursor: pointer;
+}
+.upvotes-upvote:hover, .upvotes-upvote.upvotes-upvote-upvoted {
+  color: #5898f1;
+  cursor: pointer;
+}
+.upvotes-upvote-upvoted .upvotes-arrow {
+  border-bottom-color: #5898f1;
+}
+// .upvotes:hover .upvotes-upvote {
+//   transform: scale(1.2)
+// }
+.upvotes:hover .upvotes-controls-hidden a {
+  color: #E6E6E6;
+}
+.upvotes-upvote:hover .upvotes-arrow {
+  border-bottom: 9px solid #5898f1;
+}

@@ -1,0 +1,10 @@
+var upvote = (document.getElementsByClassName('upvotes-el'))[0].children[1];
+
+var updateVotes = (innerHTML) => {
+  console.log('am here');
+  upvote.innerHTML = innerHTML
+}
+
+updateVotes('<%= j render partial: "reviews/vote", search: @search, locals: { review: @review } %>');
+
+

@@ -1,0 +1,5 @@
+<div class=”upvotes-count”>
+  <%= display_votes(review) %>
+  <%= link_to '', vote_search_review_path(review.search, review), method: :patch, remote: true, :class => “glyphicon glyphicon-heart-empty” %>
+</div>
+

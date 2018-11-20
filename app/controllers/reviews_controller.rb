@@ -1,8 +1,11 @@
 class ReviewsController < ApplicationController
-  # before_action :set_search, only: [:new, :create]
+  before_action :set_review, only: [:show, :vote]
 
-  def show # expanded modal to display a single review
-    @review = Review.find(params[:id])
+  def index
+    @reviews = Review.where("search_id = #{params[:search_id]}")
+  end
+
+  def show
   end
 
   def new
@@ -12,29 +15,41 @@ class ReviewsController < ApplicationController
 
   def create
     @review = Review.new(reviews_params)
-############## Attention, commune has been sorta hardcoded #######
     @review.commune = Commune.first
-##################################################################
     @review.user = current_user
     @review.search = Search.find(params[:search_id])
     if @review.save!
-      redirect_to new_search_review_answer_path(review_id: @review.id, search_id: @review.search_id)
+      respond_to do |format|
+        format.html { redirect_to new_search_review_answer_path(review_id: @review.id, search_id: @review.search_id) }
+        format.js
+      end
     else
-      render :new
+      respond_to do |format|
+        format.html { render 'restaurants/show' }
+        format.js
+      end
     end
   end
 
-  # let's assume we don't mess with those for now
-  # def edit
-  # end
-
-  # def update
-  # end
-
-  # def destroy
-  # end
+  def vote
+    @search = Search.find(params[:search_id])
+    if current_user.voted_for?(@review)
+      flash[:notice] = "You have cast your vote already."
+    else
+      @review.liked_by current_user
+      # render partial: "reviews/vote", locals: { review: @review }
+      respond_to do |format|
+        format.html { redirect_to search_reviews_path(@search) }
+        format.js
+      end
+    end
+  end
 
   private
+
+  def set_review
+    @review = Review.find(params[:id])
+  end
 
   def reviews_params
     params.require(:review).permit(

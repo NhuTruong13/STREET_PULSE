@@ -212,22 +212,29 @@
     <div class="reviewTitle">
       <h3> <strong> What Locals say: </strong> </h3>
     </div>
-    <div class="cardReviewsLocals">
-      <div class="review1">
 
-      </div>
-      <div class="review2">
-
-      </div>
-      <div class="review3">
-
-      </div>
-      <div class="review3">
-
-      </div>
+    <!-- Make divs appear according to the number of reviews existing ! -->
+<!--     <div class="cardReviewsLocals" >
+      <%  if @search.reviews.first == nil  %>
+      <h2> <%= "Be the first to put a review !" %> </h2>
+      <%  else  %>
+      <% @search.reviews.each do |review| %>
+      <div class="review" data-review="<%= review.to_json %>">
+        <div class='review-upvote'>
+          <div class="review-arrow"></div>
+          <div class='review-count'><%= review.no_likes %></div>
+        </div>
+        <div class='review-body'>
+          <h3><%= review.street_review_title %></h3>
+          <p><%= review.street_review_content %></p>
+        </div>
+        <% end  %>
+        <% end %>
+      </div> -->
 
       <!-- MODAL START <-->
       <div class="reviews-modal">
+
         <!-- Button to Open the Modal -->
         <button type="button" class="buttonNoFill" data-toggle="modal" data-target="#myModal">
           More reviews...
@@ -253,15 +260,12 @@
               <div class="modal-footer">
                 <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
               </div>
-
             </div>
           </div>
         </div>
-
       </div>
       <!-- MODAL END -->
     </div>
-
   </div>
 </div>
 

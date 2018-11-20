@@ -1,0 +1,26 @@
+  <h1>Here is a review </h1>
+
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="reviewTitle">
+        <h3> <strong> What Locals say: </strong> </h3>
+      </div>
+      <% @reviews.each do |review| %>
+        <div class="cardReviewsLocals" id="@reviews" data-review="<%= review.votes_for.size %>" >
+          <div class="upvotes" >
+            <div class='upvotes-el'>
+              <div class="upvotes-arrow"></div>
+              <!-- RENDER PARTIAL WITH SIMPLE FORM REVIEW  -->
+              <div class=”upvotes-count” data-review="<%= review.votes_for.size %>">
+                <%= render partial: "reviews/vote", locals: { review: review } %>
+              </div>
+            </div>
+            <div class='upvotes-body'>
+              <h3><%= review.street_review_title %></h3>
+              <p><%= review.street_review_content %></p>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>

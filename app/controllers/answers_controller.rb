@@ -16,7 +16,7 @@ class AnswersController < ApplicationController
     @answer = Answer.new(answer_params)
     @answer.review = @review
     if @answer.save!
-      redirect_to searches_path
+      redirect_to search_path(@search)
     else
       render :new
     end

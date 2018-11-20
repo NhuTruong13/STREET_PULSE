@@ -6,4 +6,5 @@ class User < ApplicationRecord
   has_many :searches, dependent: :destroy
   has_many :reviews, dependent: :destroy
   mount_uploader :photo, PhotoUploader
+  acts_as_voter
 end
