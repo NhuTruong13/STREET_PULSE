@@ -1,6 +1,8 @@
 .mySlides {
+  border-radius: 5px;
   display:none;
   background-size: cover !important;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.6);
 }
 .w3-left, .w3-right, .w3-badge {
   cursor:pointer;

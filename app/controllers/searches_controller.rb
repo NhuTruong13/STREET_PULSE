@@ -11,7 +11,6 @@ class SearchesController < ApplicationController
     params[:search] = "Brussels, Belgium" if params[:search] == ""
 
     @search = Search.new({ :address => params[:search], :radius => params[:radius] })
-
     # save to the DB only if user logged in
     if user_signed_in?
       @search.user = current_user
@@ -39,8 +38,8 @@ class SearchesController < ApplicationController
         review_id: r.id
       }
     end
-    # raise
-    # manually add marker for user input address
+
+    # at the beginning manually add the green marker (the user input address)
     @markers.unshift({
       lat: @search.latitude,
       lng: @search.longitude,
@@ -98,6 +97,9 @@ class SearchesController < ApplicationController
 
         ################## end of @stats hash ############
         ##################################################
+
+    # calculate zip_code (for the green marker) for use in main.html.erb
+    @zip_code = Geocoder.search([@markers[0][:lat], @markers[0][:lng]]).first.postal_code
 
     # and render the view
     render :main

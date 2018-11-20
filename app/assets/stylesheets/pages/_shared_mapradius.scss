@@ -36,8 +36,17 @@
   bottom: 180px;
 }
 .buttonsMapInfos {
+  position: relative;
+  width: 300px;
+}
+.SaveButton {
   position: absolute;
-
+  bottom: -80px;
+}
+.AddButton {
+  position: absolute;
+  bottom: -80px;
+  left: 120px;
 }
 .btn-success a {
   color: white

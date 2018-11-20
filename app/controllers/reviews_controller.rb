@@ -1,7 +1,7 @@
 class ReviewsController < ApplicationController
   # before_action :set_search, only: [:new, :create]
 
-  def show # expanded modal to display a single review
+  def show
     @review = Review.find(params[:id])
   end
 
@@ -13,9 +13,16 @@ class ReviewsController < ApplicationController
 
   def create
     @review = Review.new(reviews_params)
-############## Attention, commune has been sorta hardcoded #######
-    @review.commune = Commune.first
-##################################################################
+    @search = Search.find(params[:search_id])
+
+    # ------------------------------------------------
+    # the right way to save the commune to the review:
+    zip_code = Geocoder.search([@search.latitude, @search.longitude]).first.postal_code
+    @review.commune = Commune.where(zip_code: zip_code).first
+    # ------------------------------------------------
+
+    @review.address = @search.address
+
     @review.user = current_user
     @review.search = Search.find(params[:search_id])
     if @review.save!
@@ -44,12 +51,7 @@ class ReviewsController < ApplicationController
       :key => ENV['GOOGLE_API_SERVER_KEY']
       }
     query_string = params.map { |k, v| "#{k}=#{v}" }.join("&")
-    "https://maps.googleapis.com/maps/api/staticmap?" + query_string
-
-    # https://maps.googleapis.com/maps/api/staticmap?center=Brooklyn+Bridge,New+York,NY&zoom=13&size=600x300&maptype=roadmap
-    # &markers=color:blue%7Clabel:S%7C40.702147,-74.015794&markers=color:green%7Clabel:G%7C40.711614,-74.012318
-    # &markers=color:red%7Clabel:C%7C40.718217,-73.998284
-    # &key=YOUR_API_KEY
+    return "https://maps.googleapis.com/maps/api/staticmap?" + query_string
   end
 
   private
