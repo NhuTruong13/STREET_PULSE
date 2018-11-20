@@ -59,10 +59,9 @@
 </div>
 
 <br><br><br><br>
-<!-- fetch zip code based on lat/lng and geocoder -->
-<% zip_code = Geocoder.search([@search.latitude, @search.longitude]).first.postal_code %>
 
-<h4>Address: <%= @search.address %> (<%= zip_code %>)</h4>
+
+<h4>Address: <%= @search.address %> (<%= @zip_code %>)</h4>
 
 
 
@@ -90,7 +89,7 @@
               </tr>
               <tr>
                 <td><strong>Post code:</strong></td>
-                <td><%= zip_code %> (<%= Commune.where(zip_code: zip_code).first.name %>)</td>
+                <td><%= @zip_code %> (<%= Commune.where(zip_code: @zip_code).first.name %>)</td>
               </tr>
               <tr>
                 <td><strong>Review Street:</strong></td>
