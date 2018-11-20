@@ -16,7 +16,9 @@ class ReviewsController < ApplicationController
     @review = Review.new(reviews_params)
     @search = Search.find(params[:search_id])
 
-    @commune = get_commune(@search)
+    @zip_code = get_zip_code(@search)
+
+    @commune = get_commune(@zip_code)
 
     @review.commune = @commune
 
@@ -41,6 +43,8 @@ class ReviewsController < ApplicationController
   # def destroy
   # end
 
+  private
+
   def static_map_for(location)
     params = {
       :center => [location.latitude, location.longitude].join(","),
@@ -53,16 +57,18 @@ class ReviewsController < ApplicationController
     return "https://maps.googleapis.com/maps/api/staticmap?" + query_string
   end
 
-  private
+  def get_commune(zip_code)
+    # if commune does not exist in our DB then assign commune = N/A (first in the DB)
+    commune = Commune.where(zip_code: zip_code).first
+    commune = Commune.first if commune.nil?
+    return commune
+  end
 
-  def get_commune(search)
+  def get_zip_code(search)
     zip_code = Geocoder.search([search.latitude, search.longitude]).first.postal_code
     # in case geocode (maps api) fails --> assign zip_code = 9999
     zip_code = "9999" if zip_code == [] || zip_code.nil?
-    # if commune does not exist in our DB then assign commune = N/A (first in the DB)
-    commune = Commune.where(zip_code: zip_code).first
-    commune = Commune.first if @review.commune.nil?
-    return commune
+    return zip_code
   end
 
   def reviews_params
