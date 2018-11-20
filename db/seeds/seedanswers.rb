@@ -1,0 +1,41 @@
+a1 = Answer.create!(
+  q5: "Students",
+  q6: "Super High Income",
+  review_id: 35,
+  q7: 3,
+  q8: 5,
+  q9: 5,
+  q10: 5,
+  q11: 3,
+  q12: 2,
+  q13: 1,
+  q14: 2,
+  q15: 3,
+  q16: 2,
+  q17: 1,
+  q18: 1,
+  q19: 1,
+  q20: 4,
+  q21: 2
+)
+
+a2 = Answer.create!(
+  q5: "Offices",
+  q6: "High Income",
+  review_id: 37,
+  q7: 5,
+  q8: 5,
+  q9: 5,
+  q10: 5,
+  q11: 5,
+  q12: 5,
+  q13: 5,
+  q14: 5,
+  q15: 5,
+  q16: 5,
+  q17: 5,
+  q18: 5,
+  q19: 5,
+  q20: 5,
+  q21: 5
+)
