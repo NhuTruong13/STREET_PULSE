@@ -24,11 +24,13 @@
    height: 400px;
    background-size: cover !important;
    border: none;
+
  }
  .reviewTitle{
    margin-left: 50px;
  }
  .review{
+   position: relative;
    padding: 20px;
    margin-left: 50px;
    width: 300px;
@@ -37,8 +39,4 @@
    box-shadow: 0 1px 3px rgba(0,0,0,0.6);
    background-size: cover !important;
  }
- .reviews-modal{
-   position: absolute;
-   right: 10px;
-   bottom: 10px;
- }
+

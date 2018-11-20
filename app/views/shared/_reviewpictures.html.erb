@@ -57,45 +57,14 @@
       <div class="Pic3">
       </div>
 
-      <!-- MODAL START <-->
-      <div class="pictures-modal">
-        <!-- Button to Open the Modal -->
-        <button type="button" class="buttonNoFill" data-toggle="modal" data-target="#myModal">
-          More pictures...
-        </button>
-
-        <!-- The Modal -->
-        <div class="modal fade" id="myModal">
-          <div class="modal-dialog">
-            <div class="modal-content">
-
-              <!-- Modal Header -->
-              <div class="modal-header">
-                <h4 class="modal-title">Your neighbourhood in pictures...</h4>
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-              </div>
-
-              <!-- Modal body -->
-              <div class="modal-body">
-                Modal body..
-              </div>
-
-              <!-- Modal footer -->
-              <div class="modal-footer">
-                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-              </div>
-
-            </div>
-          </div>
-        </div>
-
-      </div>
-      <!-- MODAL END -->
     </div>
 
     <!-- Carousel with the pictures -->
     <div class="bigcardPictureNeighbourhood">
-      <p>  @search.address </p>
+      <!-- fetch zip code based on lat/lng and geocoder -->
+      <% zip_code = Geocoder.search([@search.latitude, @search.longitude]).first.postal_code %>
+      <h4><%= @search.address %> </h4>
+
       <p>  + Add the rating </p>
 
       <div class="w3-content w3-display-container" style="max-width:800px">
