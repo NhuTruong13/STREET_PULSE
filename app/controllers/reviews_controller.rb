@@ -17,11 +17,14 @@ class ReviewsController < ApplicationController
 
     @review.address = @search.address
 
+
     # ------------------------------------------------
     # the right way to save the commune to the review:
     zip_code = Geocoder.search([@search.latitude, @search.longitude]).first.postal_code
     @review.commune = Commune.where(zip_code: zip_code).first
     # ------------------------------------------------
+
+    @review.address = @search.address
 
     @review.user = current_user
     @review.search = Search.find(params[:search_id])
