@@ -53,7 +53,7 @@
    <!-- Questions on Community -->
    <div class="cardCommunity">
 
-    <p>  @answer.QUESTIONS[:q7][:category]} </p>
+    <p> <%= Answer::QUESTIONS[:q7][:category]  %></p>
     <div class="pictureq7">
      <%= image_tag "question_community.png" %>
     </div>
@@ -83,7 +83,7 @@
    <!-- Questions on Environment -->
    <div class="cardEnvironment">
 
-    <p>  @answer.QUESTIONS[:q10][:category]} </p>
+    <p>  <%= Answer::QUESTIONS[:q10][:category]  %> </p>
     <div class="pictureq10">
      <%= image_tag "question_environment.png" %>
     </div>
@@ -115,7 +115,7 @@
  <div class="review-content", style="display: flex">
   <!-- Questions on Facilities -->
   <div class="cardFacilities">
-   <p>  @answer.QUESTIONS[:q13][:category]} </p>
+   <p>  <%= Answer::QUESTIONS[:q13][:category]  %> </p>
 
    <div class="pictureq13">
     <%= image_tag "question_facilities.png" %>
@@ -152,7 +152,7 @@
 
  <!-- Questions on Comfort -->
  <div class="cardComfort">
-  <p>  @answer.QUESTIONS[:q13][:category]} </p>
+  <p>  <%= Answer::QUESTIONS[:q7][:category]  %> </p>
   <div class="pictureq18">
    <%= image_tag "question_comfort.png" %>
   </div>
@@ -184,8 +184,6 @@
 <div class="buttonSubmitQ">
  <%= f.button :submit, class: "btn btn-primary" %>
  <% end %>
-</div>
-
 </div>
 </div>
 </div>

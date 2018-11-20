@@ -46,59 +46,74 @@ class SearchesController < ApplicationController
         lng: @search.longitude,
         title: @search.address
     })
+    #############################################################
+    #############################################################
+    ################## creating @stats hash #####################
 
 
-    # fetching the answers for a review
-    @answers_within_radius =  []
-    @reviews_in_radius.each do |rev|
-        @answers_within_radius << rev.answers
-    end
-    # @statistics is a hash with necessary stats calculated
-    @street_average = street_average
-    @commune_average = commune_average
-    @friendliness = friendliness
-    @events = events
-    @stay = stay
-    @quiet = quiet
-    @green = green
-    @clean = clean
-    @parking = parking
-    @cars = cars
-    @bikes = bikes
-    @transportation = transportation
-    @bike_lanes = bike_lanes
-    @pavement = pavement
-    @lightened = lightened
-    @playgrounds = playgrounds
-    @dog_friendly = dog_friendly
+        # fetching the answers for a review
+        @answers_within_radius =  []
+        @reviews_in_radius.each do |rev|
+          @answers_within_radius << rev.answers
+        end
+        # @statistics is a hash with necessary stats calculated
+        @street_average = street_average
+        @commune_average = commune_average
+        @friendliness = friendliness
+        @events = events
+        @stay = stay
+        @quiet = quiet
+        @green = green
+        @clean = clean
+        @parking = parking
+        @cars = cars
+        @bikes = bikes
+        @transportation = transportation
+        @bike_lanes = bike_lanes
+        @pavement = pavement
+        @lightened = lightened
+        @playgrounds = playgrounds
+        @dog_friendly = dog_friendly
 
-    # Here is the stats Hash
-    @stats = {
-      street_average: @street_average,
-      commune_average: @commune_average,
-      friendliness: @friendliness,
-      events: @events,
-      stay: @stay,
-      quiet: @quiet,
-      green: @green,
-      clean: @clean,
-      parking: @parking,
-      cars: @cars,
-      bikes: @bikes,
-      transportation: @transportation,
-      bike_lanes: @bike_lanes,
-      pavement: @pavement,
-      lightened: @lightened,
-      playgrounds: @playgrounds,
-      dog_friendly: @dog_friendly
-    }
+        # Here is the stats Hash
+        @stats = {
+          street_average: @street_average,
+          commune_average: @commune_average,
+          friendliness: @friendliness,
+          events: @events,
+          stay: @stay,
+          quiet: @quiet,
+          green: @green,
+          clean: @clean,
+          parking: @parking,
+          cars: @cars,
+          bikes: @bikes,
+          transportation: @transportation,
+          bike_lanes: @bike_lanes,
+          pavement: @pavement,
+          lightened: @lightened,
+          playgrounds: @playgrounds,
+          dog_friendly: @dog_friendly
+        }
+
+        ################## end of @stats hash ############
+        ##################################################
 
     # and render the view
     render :main_test
   end
 
+
+
+
+
+
+
   private
 
+  ##################################################################
+  ###################################################################
+  ################# computation methods ##########################
   def street_average
     counter = @answers_within_radius.size
     total = 0
@@ -147,8 +162,8 @@ class SearchesController < ApplicationController
     population.merge!(retirees: r)
     population.merge!(tourists: t)
     population.merge!(business: b)
-    income_types.values.sort!.reverse
-    return income_types.keys.first.to_s.capitalize
+    population.values.sort!.reverse
+    return population.keys.first.to_s.capitalize
   end
 
   def income
@@ -415,6 +430,7 @@ class SearchesController < ApplicationController
     end
   end
 
+  ######################### strong params #######################
   def search_params
     params.require(:search).permit(:address, :latitude, :longitude)
   end
