@@ -29,26 +29,21 @@
           <h4> playing with the radius </h4>
           <div class="searchRadius">
             <div style="padding:15px">
-              <%= number_field_tag(:radius, @search.radius, min: 100, max: 2500, step: 100 ) %>
+              <%= number_field_tag(:radius, @search.radius, min: 100, max: 2500, step: 100 ) %> meters
             </div>
           </div>
 
           <div class="buttonsMapInfos">
-            <!-- corrected button-link to New search -->
-            <div>
-              <%= submit_tag("New Search", :class=>"btn btn-primary", :style=>"margin:15px") %>
+            <div class="NewSearchButton">
+              <%= submit_tag("New Search", :class=>"btn btn-primary", :style=>"margin-top:15px") %>
               <% end %>
             </div>
-
-            <div class="btn btn-primary", style="margin-left:15px">
-              <%= link_to "Save Search", new_user_session_path %>
+            <div class="SaveButton">
+              <%= link_to "Save Search", new_user_session_path, class:"buttonNoFill" , style:"margin-top:15px"%>
             </div>
-
-            <!-- corrected link to posting new review -->
-            <div class="btn btn-success", style="margin:15px">
-              <%= link_to "Add Review", new_search_review_path(:search_id => @search.id) %>
+            <div class="AddButton">
+              <%= link_to "Add Review", new_search_review_path(:search_id => @search.id), class:"buttonNoFillGreen" , style:"margin:15px" %>
             </div>
-
           </div>
 
         </div>
@@ -60,12 +55,6 @@
 
 <br><br><br><br>
 
-
-<h4>Address: <%= @search.address %> (<%= @zip_code %>)</h4>
-
-
-
-<hr>
 <!-- show the list of reviews in radius -->
 <ul>
   <% @reviews_in_radius.each do |r| %>
