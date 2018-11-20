@@ -5,9 +5,12 @@
 
      <!-- space for the commune review and description -->
      <div class="cardPictureCommune">
-      <h4> <strong> The street is part of "Commune" </strong> </h4>
+      <h4> <strong> The street is part of "<%= Commune.where(zip_code: @zip_code).first.name %>" </strong> </h4>
       <h4> + Add the rating </h4>
       <p> Description of the commune </p>
+
+     <p>Commune description: <%= Commune.where(zip_code: @zip_code).first.description %> </p>
+
       <!-- MODAL START -->
       <div class="commune-modal">
         <!-- Button to Open the Modal -->
