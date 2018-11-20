@@ -11,7 +11,6 @@ class SearchesController < ApplicationController
     params[:search] = "Brussels, Belgium" if params[:search] == ""
 
     @search = Search.new({ :address => params[:search], :radius => params[:radius] })
-
     # save to the DB only if user logged in
     if user_signed_in?
       @search.user = current_user
@@ -51,7 +50,6 @@ class SearchesController < ApplicationController
         lng: @search.longitude,
         title: @search.address
     })
-
     # and render the view
     render :main_test
   end

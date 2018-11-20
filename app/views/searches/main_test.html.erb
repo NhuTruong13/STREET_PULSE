@@ -31,8 +31,10 @@
         </div>
 
         <!-- corrected link to posting new review -->
-        <div class="btn btn-success", style="margin:15px">
-          <%= link_to "Add Review", new_search_review_path(:search_id => @search.id) %>
+        <div>
+          <!-- maybe add a condition: if user_logged_in  -->
+          <%= link_to "Add Review", new_search_review_path(:search_id => @search.id, :class=>"btn btn-success", :style=>"margin:15px") %>
+          <!-- of not logged: display "login to add review" and redirect to login -->
         </div>
 
       </div>

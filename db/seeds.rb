@@ -22,9 +22,9 @@ c4 = Commune.where(zip_code: 1040).first
 
 puts "Creating new records..."
 
-u1 = User.create!(email: "mikel@example.com", password: "123456", f_name: "Mikel", l_name:"C")
-u2 = User.create!(email: "nhu@example.com", password: "123456", f_name: "Nhu", l_name:"T")
-u3 = User.create!(email: "tarig@example.com", password: "123456", f_name: "Tarig", l_name:"B")
+u1 = User.create!(email: "mikel@example.com", password: "123456", f_name: "Mikel", l_name:"C", photo: "https://res.cloudinary.com/kloshi/image/upload/v1542648376/38562752.jpg")
+u2 = User.create!(email: "nhu@example.com", password: "123456", f_name: "Nhu", l_name:"T", photo: "https://res.cloudinary.com/kloshi/image/upload/v1542648376/43372246.jpg")
+u3 = User.create!(email: "tarig@example.com", password: "123456", f_name: "Tarig", l_name:"B", photo: "https://res.cloudinary.com/kloshi/image/upload/v1542648376/43496861.png")
 u4 = User.create!(email: "andrzej@example.com", password: "123456", f_name: "Andrzej", l_name:"G")
 
 # in searches instances long/latit shhould be added by Geocoder gem while saving
