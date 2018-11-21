@@ -67,9 +67,13 @@ class ReviewsController < ApplicationController
   end
 
   def get_zip_code(search)
-    zip_code = Geocoder.search([search.latitude, search.longitude]).first.postal_code
-    # in case geocode (maps api) fails --> assign zip_code = 9999
-    zip_code = "9999" if zip_code == [] || zip_code.nil?
+    query = Geocoder.search([search.latitude, search.longitude]).first
+    # in case geocoder (maps api) fails --> assign zip_code = 9999
+    if query.nil?
+      zip_code = "9999"
+    else
+      zip_code = query.postal_code
+    end
     return zip_code
   end
 

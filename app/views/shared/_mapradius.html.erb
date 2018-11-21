@@ -45,10 +45,11 @@
               <%= link_to "Add Review", new_search_review_path(:search_id => @search.id), class:"buttonNoFillGreen" , style:"margin:15px" %>
             </div>
           </div>
-
         </div>
       </div>
     </div>
+        <!-- display number of reviews -->
+        <p> We found <%= @reviews_in_radius.size %> reviews for this neighbouhood! </p>
 
   </div>
 </div>
