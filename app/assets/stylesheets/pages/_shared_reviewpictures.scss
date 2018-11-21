@@ -28,6 +28,29 @@
   position: relative;
   margin-top: 100px;
 }
+.cardPictureCommune {
+  position: relative;
+  margin-right: 50px;
+}
+.ratStreet {
+  position: absolute;
+  text-shadow: 1px 1px 2px #32B796;
+  right: 20px;
+  top: -25px;
+  color:  #32B796;
+
+}
+.bigcardPictureNeighbourhood {
+  position: relative;
+}
+.ratCommune {
+  position: absolute;
+  text-shadow: 1px 1px 2px #32B796;
+  right: 50px;
+  top: -25px;
+  color:  #32B796;
+
+}
 .pictures-modal{
   position: absolute;
   top: 165px;

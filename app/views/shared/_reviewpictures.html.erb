@@ -9,7 +9,7 @@
       <div class="cardPictureCommune">
         <h4> <strong> The street is part of the Commune of "<%= @commune.name %>" </strong> </h4>
         <div class="ratStreet">
-          <h2><em><%= @stats[:commune_average] %></em></h2>
+          <h3><%= @stats[:commune_average] %></h3>
         </div>
         <br>
         <p> <strong>Commune description:</strong> <%= @commune.description.truncate_words(50) %> </p>
@@ -57,7 +57,7 @@
         <% zip_code = @zip_code %>
         <h4> <strong> " <%= @search.address %> " </strong> </h4>
         <div class="ratCommune">
-          <h2> <strong> <em><%= @stats[:street_average] %></em> </strong> </h2>
+          <h3> <strong> <%= @stats[:street_average] %> </strong> </h3>
         </div>
         <div class="w3-content w3-display-container" style="max-width:800px">
           <% @reviews_in_radius.each do |r| %>
