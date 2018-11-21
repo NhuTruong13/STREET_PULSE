@@ -12,9 +12,10 @@
     <div class="MapSearchReview", style="margin-top:15px">
       <h5><strong> Street Name: </strong></h5>
       <%= form_tag(controller: "searches", action: "create", method: "post") do %>
-      <%= text_field_tag :search, @search.address  %>
+      <%= text_field_tag :search, @search.address %>
+      <%= hidden_field_tag :update_address, "yes" %>
       <%= submit_tag("Update address", :class=>"btn btn-primary", :style=>"margin:15px") %>
-      <p>TO CHANGE!!!!!</p>
+      <!-- TO CHANGE!!!!! -->
       <% end %>
 
       <!-- add static image - a map centered to address given by user -->

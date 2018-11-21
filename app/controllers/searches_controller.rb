@@ -11,12 +11,17 @@ class SearchesController < ApplicationController
     params[:search] = "Brussels, Belgium" if params[:search] == ""
 
     @search = Search.new({ :address => params[:search], :radius => params[:radius] })
+    @search.user = current_user if user_signed_in?
 
     # dirty fix: we save each search, otherwise for non-logged users the app crashes (at main.html.erb)
     @search.save
 
-    # call main method which will render the main page
-    main
+    # call main method which will render the main page UNLESS it's a call from new review with the intention to update the address
+    if params[:update_address] == "yes"
+      redirect_to new_search_review_path(@search)
+    else
+      main
+    end
   end
 
   def main
@@ -124,10 +129,10 @@ class SearchesController < ApplicationController
     @reviews_in_radius.each { |rating|
       total += rating[:street_review_average_rating]
       }
-      result = (total/counter).round(2)
       if counter == 0
         return "N/A"
       else
+        result = (total/counter).round(1)
         return "#{result}/5"
       end
   end
@@ -138,10 +143,10 @@ class SearchesController < ApplicationController
     @reviews_in_radius.each { |rating|
       total += rating[:commune_review_average_rating]
       }
-      result = (total/counter).round(2)
       if counter == 0
         return "N/A"
       else
+        result = (total/counter).round(1)
         return "#{result}/5"
       end
   end
@@ -210,7 +215,7 @@ class SearchesController < ApplicationController
 
   def average(q)
     counter = 0
-    total = 0
+    total = 0.0
     @answers_within_radius.each { |rating|
       if rating[q.to_sym] != [] && rating[q.to_sym] != nil
       total += rating[q.to_sym]
