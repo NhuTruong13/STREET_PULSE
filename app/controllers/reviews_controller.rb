@@ -1,6 +1,10 @@
 class ReviewsController < ApplicationController
   # before_action :set_search, only: [:new, :create]
 
+  def index
+    
+  end
+
   def show
     @review = Review.find(params[:id])
   end
@@ -78,7 +82,8 @@ class ReviewsController < ApplicationController
       :street_review_title,
       :street_review_content,
       :commune_review_title,
-      :commune_review_content)
+      :commune_review_content,
+      :photo)
   end
 end
 
