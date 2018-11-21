@@ -2,7 +2,7 @@ class ReviewsController < ApplicationController
   # before_action :set_search, only: [:new, :create]
 
   def index
-    
+
   end
 
   def show
@@ -13,16 +13,14 @@ class ReviewsController < ApplicationController
     @search = Search.find(params[:search_id])
     @review = Review.new
     @staticmap = static_map_for(@search)
-    @commune = get_commune(@search) # fetch communune based on user input address
+    # @commune = get_commune(@search) # fetch communune based on user input address
+    @zip_code = get_zip_code(@search)
+    @commune = get_commune(@zip_code)
   end
 
   def create
     @review = Review.new(reviews_params)
     @search = Search.find(params[:search_id])
-
-    @zip_code = get_zip_code(@search)
-
-    @commune = get_commune(@zip_code)
 
     @review.commune = @commune
 
@@ -69,9 +67,13 @@ class ReviewsController < ApplicationController
   end
 
   def get_zip_code(search)
-    zip_code = Geocoder.search([search.latitude, search.longitude]).first.postal_code
-    # in case geocode (maps api) fails --> assign zip_code = 9999
-    zip_code = "9999" if zip_code == [] || zip_code.nil?
+    query = Geocoder.search([search.latitude, search.longitude]).first
+    # in case geocoder (maps api) fails --> assign zip_code = 9999
+    if query.nil?
+      zip_code = "9999"
+    else
+      zip_code = query.postal_code
+    end
     return zip_code
   end
 
