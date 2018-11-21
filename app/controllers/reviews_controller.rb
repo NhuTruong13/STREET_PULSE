@@ -21,6 +21,8 @@ class ReviewsController < ApplicationController
   def create
     @review = Review.new(reviews_params)
     @search = Search.find(params[:search_id])
+    @zip_code = get_zip_code(@search)
+    @commune = get_commune(@zip_code)
 
     @review.commune = @commune
 
