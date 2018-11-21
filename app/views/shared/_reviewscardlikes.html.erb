@@ -2,7 +2,9 @@
 <div class="reviewTitle">
   <h3> <strong> What Locals say: </strong> </h3>
 </div>
+
 <%= link_to "Add Review", new_search_review_path(:search_id => @search.id), class:"buttonNoFillGreen" , style:"margin-left:1240px" %>
+
 <div class="cardReviewsLocals">
   <div class="row">
     <% @reviews_in_radius.each do |r| %>
