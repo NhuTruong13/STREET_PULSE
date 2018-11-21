@@ -2,7 +2,7 @@ class ReviewsController < ApplicationController
   before_action :set_review, only: [:show, :vote]
 
   def index
-    @reviews = Review.where("search_id = #{params[:search_id]}")
+    @review = Review.where("search_id = #{params[:search_id]}").first
   end
 
   def show

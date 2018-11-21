@@ -21,7 +21,6 @@ gem 'cloudinary'
 gem 'carrierwave', '~> 1.2'
 gem "geocoder"
 gem 'acts_as_votable', '~> 0.12.0'
-gem 'greensock-rails'
 
 group :development do
   gem 'web-console', '>= 3.3.0'
