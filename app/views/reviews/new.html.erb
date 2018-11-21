@@ -1,70 +1,70 @@
-<div class="review-hero-image">
-  <div class="review-title">
-    <h3> <strong> Your review is precious for the others! </strong> </h3>
-  </div>
-</div>
-
-
-
-<div class="row">
-  <div class="col-xs-10 col-xs-10-offset-1">
-
-    <div class="MapSearchReview", style="margin-top:15px">
-      <h5><strong> Street Name: </strong></h5>
-      <%= form_tag(controller: "searches", action: "create", method: "post") do %>
-      <%= text_field_tag :search, @search.address  %>
-      <%= submit_tag("Update address", :class=>"btn btn-primary", :style=>"margin:15px") %>
-      <p>TO CHANGE!!!!!</p>
-      <% end %>
-
-      <!-- add static image - a map centered to address given by user -->
-      <div class="staticmap">
-        <%= image_tag @staticmap, :alt => @search.address %>
-      </div>
-    </div>
-
-    <div class="review-content", style="display: flex">
-      <div class="card-Review-Street">
-
-        <div class="color-street">
-          <h4><strong> Regarding the street... </strong></h4>
-        </div>
-
-        <h4> <strong> " <%= @search.address %> </strong> " </h4>
-
-        <%= simple_form_for [@search, @review] do |f| %>
-        <div style="padding-top: 30px;">
-          <h5> <%= f.input :street_review_average_rating, collection: 0..10, :label => "Your General Appreciation" %> </h5>
-          <h5> <%= f.input :street_review_title, :label => "Your Review Title" %> </h5>
-          <h5> <%= f.input :street_review_content, :label => "Your Review" %> </h5>
-        </div>
-
-      </div>
-
-
-      <div class="card-Review-Commune"">
-
-        <div class="color-commune">
-          <h4><strong>Regarding the commune...</strong></h4>
-        </div>
-
-        <h4> <strong> " <%= @commune.name %> </strong> " </h4>
-
-        <div style="padding-top: 30px;">
-          <p> <%= f.input :commune_review_average_rating, collection: 0..10, :label => "Your General Appreciation" %> </p>
-          <p> <%= f.input :commune_review_title, :label => "Your Review Title" %> </p>
-          <p> <%= f.input :commune_review_content, :label => "Your Review" %> </p>
-        </div>
-
-      </div>
-
-
-
-      <div class="confirm">
-        <%= f.button :submit, "Confirm - Next > ", class: "btn btn-primary" %>
-        <% end  %>
-      </div>
+  <div class="review-hero-image">
+    <div class="review-title">
+      <h3> <strong> Your review is precious for the others! </strong> </h3>
     </div>
   </div>
-</div>
+
+
+
+  <div class="row">
+    <div class="col-xs-10 col-xs-10-offset-1">
+
+      <div class="MapSearchReview", style="margin-top:15px">
+        <h5><strong> Street Name: </strong></h5>
+        <%= form_tag(controller: "searches", action: "create", method: "post") do %>
+        <%= text_field_tag :search, @search.address  %>
+        <%= submit_tag("Update address", :class=>"btn btn-primary", :style=>"margin:15px") %>
+        <p>TO CHANGE!!!!!</p>
+        <% end %>
+
+        <!-- add static image - a map centered to address given by user -->
+        <div class="staticmap">
+          <%= image_tag @staticmap, :alt => @search.address %>
+        </div>
+      </div>
+
+      <div class="review-content", style="display: flex">
+        <div class="card-Review-Street">
+
+          <div class="color-street">
+            <h4><strong> Regarding the street... </strong></h4>
+          </div>
+
+          <h4> <strong> " <%= @search.address %> </strong> " </h4>
+
+          <%= simple_form_for [@search, @review] do |f| %>
+          <div style="padding-top: 30px;">
+            <h5> <%= f.input :street_review_average_rating, collection: 0..10, :label => "Your General Appreciation" %> </h5>
+            <h5> <%= f.input :street_review_title, :label => "Your Review Title" %> </h5>
+            <h5> <%= f.input :street_review_content, :label => "Your Review" %> </h5>
+          </div>
+
+        </div>
+
+
+        <div class="card-Review-Commune"">
+
+          <div class="color-commune">
+            <h4><strong>Regarding the commune...</strong></h4>
+          </div>
+
+          <h4> <strong> " <%= @commune.name %> </strong> " </h4>
+
+          <div style="padding-top: 30px;">
+            <p> <%= f.input :commune_review_average_rating, collection: 0..10, :label => "Your General Appreciation" %> </p>
+            <p> <%= f.input :commune_review_title, :label => "Your Review Title" %> </p>
+            <p> <%= f.input :commune_review_content, :label => "Your Review" %> </p>
+          </div>
+
+        </div>
+
+
+
+        <div class="confirm">
+          <%= f.button :submit, "Confirm - Next > ", class: "btn btn-primary" %>
+          <% end  %>
+        </div>
+      </div>
+    </div>
+  </div>
 
