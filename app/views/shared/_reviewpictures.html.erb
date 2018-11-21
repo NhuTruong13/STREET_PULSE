@@ -7,7 +7,7 @@
       <!-- space for the commune review and description -->
       <div class="cardPictureCommune">
         <h4> <strong> The street is part of the Commune of "<%= @commune.name %>" </strong> </h4>
-        <h4> + Add the rating </h4>
+        <h4><em><%= @stats[:commune_average] %></em></h4>
 
         <p> <strong>Commune description:</strong> <%= @commune.description.truncate_words(50) %> </p>
 
@@ -70,7 +70,7 @@
         <% zip_code = @zip_code %>
         <h4><%= @search.address %> </h4>
 
-        <p>  + Add the rating </p>
+        <p><em><%= @stats[:street_average] %></em></p>
 
         <div class="w3-content w3-display-container" style="max-width:800px">
           <% @reviews_in_radius.each do |r| %>
@@ -124,4 +124,3 @@
      dots[slideIndex-1].className += " w3-white";
    }
  </script>
-

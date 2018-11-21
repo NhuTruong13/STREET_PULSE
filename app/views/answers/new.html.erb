@@ -1,191 +1,189 @@
 <div class="review2-hero-image">
-  <div class="review-title">
-    <h3> <strong> Help people to search for a place </strong> </h3>
-    <h3> <strong> that fits their lifestyle! </strong> </h3>
-  </div>
+<div class="review-title">
+ <h3> <strong> Help people to search for a place </strong> </h3>
+ <h3> <strong> that fits their lifestyle! </strong> </h3>
+</div>
 </div>
 
 <div class= "container">
-  <%= simple_form_for [@search, @review, @answer] do |f| %>
-  <div class="row">
-    <div class="col-xs-10 col-xs-offset-1">
+<%= simple_form_for [@search, @review, @answer] do |f| %>
+<div class="row">
+ <div class="col-xs-10 col-xs-offset-1">
 
-      <div class="review-content", style="display: flex">
+  <div class="review-content", style="display: flex">
 
-        <div class="cardQ5">
-          <h5>
-            <%= f.input :q5,
-            :label => Answer::QUESTIONS[:q5][:title],
-            :collection => [" Students ", " Families ", " Retirees ", " Tourists ", " Offices "],
-            :include_blank => "Anything",
-            wrapper_html: { class: 'form-group' },
-            :as => :check_boxes,
-            include_hidden: false,
-            :input_html => {:multiple => true} %>
-          </h5>
-          <div class="pictureq5">
-            <%= image_tag "question_family.png" %>
-          </div>
-        </div>
-
-
-        <div class="cardQ6">
-          <h5>
-            <%= f.input :q6,
-            :label => Answer::QUESTIONS[:q6][:title],
-            :collection => ["Super High Income","High Income", "Average Income", "Low Income"],
-            :include_blank => "Anything",
-            wrapper_html: { class: 'form-group' },
-            :as => :radio_buttons,
-            include_hidden: false,
-            :input_html => {:multiple => false} %>
-          </h5>
-          <div class="pictureq6">
-            <%= image_tag "question_money.png" %>
-          </div>
-        </div>
-
-      </div>
-
-      <!-- Will put in the same row Community and Environment -->
-
-      <div class="review-content", style="display: flex">
-        <!-- Questions on Community  -->
-        <div class="cardCommunity">
-
-          <p>   @answer.QUESTIONS[:q7][:category]} </p>
-          <div class="pictureq7">
-            <%= image_tag "question_community.png" %>
-          </div>
-
-          <div class="answers">
-            <p>
-              <%= f.input :q7,
-              collection: 0..10,
-              :label => Answer::QUESTIONS[:q7][:title],
-              wrapper_html: { class: 'form-group' }
-              %>
-            </p>
-            <p>
-              <%= f.input :q8, collection: 0..10,
-              :label => Answer::QUESTIONS[:q8][:title],
-              wrapper_html: { class: 'form-group' }
-              %>
-            </p>
-            <p>
-              <%= f.input :q9, collection: 0..10,
-              :label => Answer::QUESTIONS[:q9][:title],
-              wrapper_html: { class: 'form-group' }
-              %>
-            </p>
-          </div>
-        </div>
-        <!-- Questions on Environment -->
-        <div class="cardEnvironment">
-
-          <p>   @answer.QUESTIONS[:q10][:category]} </p>
-          <div class="pictureq10">
-            <%= image_tag "question_environment.png" %>
-          </div>
-          <div class="answers">
-            <p>
-              <%= f.input :q10, collection: 0..10,
-              :label => Answer::QUESTIONS[:q10][:title],
-              wrapper_html: { class: 'form-group' }
-              %>
-            </p>
-            <p>
-             <%= f.input :q11, collection: 0..10,
-             :label => Answer::QUESTIONS[:q11][:title],
-             wrapper_html: { class: 'form-group' }
-             %>
-           </p>
-           <p>
-            <%= f.input :q12, collection: 0..10,
-            :label => Answer::QUESTIONS[:q12][:title],
-            wrapper_html: { class: 'form-group' }
-            %>
-          </p>
-        </div>
-      </div>
-
+   <div class="cardQ5">
+    <h5>
+     <%= f.input :q5,
+     :label => Answer::QUESTIONS[:q5][:title],
+     :collection => [" Students ", " Families ", " Retirees ", " Tourists ", " Offices "],
+     :include_blank => "Anything",
+     wrapper_html: { class: 'form-group' },
+     :as => :check_boxes,
+     include_hidden: false,
+     :input_html => {:multiple => true} %>
+    </h5>
+    <div class="pictureq5">
+     <%= image_tag "question_family.png" %>
     </div>
+   </div>
 
-    <!-- Will put in the same row Facilities and Comfort -->
-    <div class="review-content", style="display: flex">
-      <!-- Questions on Facilities -->
-      <div class="cardFacilities">
 
-        <p>   @answer.QUESTIONS[:q13][:category]} </p>
-        <div class="pictureq13">
-          <%= image_tag "question_facilities.png" %>
-        </div>
-        <div class="answers">
-          <p>
-           <%= f.input :q13, collection: 0..10,
-           :label => Answer::QUESTIONS[:q13][:title],
-           wrapper_html: { class: 'form-group' }  %>
-         </p>
-         <p>
-          <%= f.input :q14, collection: 0..10,
-          :label => Answer::QUESTIONS[:q14][:title],
-          wrapper_html: { class: 'form-group' }  %>
-        </p>
-        <p>
-          <%= f.input :q15, collection: 0..10,
-          :label => Answer::QUESTIONS[:q15][:title],
-          wrapper_html: { class: 'form-group' }  %>
-        </p>
-        <p>
-          <%= f.input :q16, collection: 0..10,
-          :label => Answer::QUESTIONS[:q16][:title],
-          wrapper_html: { class: 'form-group' }  %>
-        </p>
-        <p>
-          <%= f.input :q17, collection: 0..10,
-          :label => Answer::QUESTIONS[:q17][:title],
-          wrapper_html: { class: 'form-group' }  %>
-        </p>
-      </div>
-
+   <div class="cardQ6">
+    <h5>
+     <%= f.input :q6,
+     :label => Answer::QUESTIONS[:q6][:title],
+     :collection => ["Super High Income","High Income", "Average Income", "Low Income"],
+     :include_blank => "Anything",
+     wrapper_html: { class: 'form-group' },
+     :as => :radio_buttons,
+     include_hidden: false,
+     :input_html => {:multiple => false} %>
+    </h5>
+    <div class="pictureq6">
+     <%= image_tag "question_money.png" %>
     </div>
+   </div>
 
-    <!-- Questions on Comfort -->
-    <div class="cardComfort">
-      <p>   @answer.QUESTIONS[:q13][:category]} </p>
-      <div class="pictureq18">
-        <%= image_tag "question_comfort.png" %>
-      </div>
-      <div class="answers">
-        <p>
-          <%= f.input :q18, collection: 0..10,
-          :label => Answer::QUESTIONS[:q18][:title],
-          wrapper_html: { class: 'form-group' }  %>
-        </p>
-        <p>
-          <%= f.input :q19, collection: 0..10,
-          :label => Answer::QUESTIONS[:q19][:title],
-          wrapper_html: { class: 'form-group' }  %>
-        </p>
-        <p>
-          <%= f.input :q20, collection: 0..10,
-          :label => Answer::QUESTIONS[:q20][:title],
-          wrapper_html: { class: 'form-group' }  %>
-        </p>
-        <p>
-          <%= f.input :q21, collection: 0..10,
-          :label => Answer::QUESTIONS[:q21][:title],
-          wrapper_html: { class: 'form-group' }  %>
-        </p>
-      </div>
-    </div>
   </div>
 
-  <div class="buttonSubmitQ">
-    <%= f.button :submit, class: "btn btn-primary" %>
-    <% end  %>
+  <!-- Will put in the same row Community and Environment -->
+
+  <div class="review-content", style="display: flex">
+   <!-- Questions on Community -->
+   <div class="cardCommunity">
+
+    <p> <%= Answer::QUESTIONS[:q7][:category]  %></p>
+    <div class="pictureq7">
+     <%= image_tag "question_community.png" %>
+    </div>
+
+    <div class="answers">
+      <p>
+       <%= f.input :q7, collection: 0..5,
+       :label => Answer::QUESTIONS[:q7][:title],
+       :as => :range,
+       wrapper_html: { class: 'form-group' }
+       %>
+      </p>
+     <p>
+      <%= f.input :q8, collection: 0..5,
+      :label => Answer::QUESTIONS[:q8][:title],
+      wrapper_html: { class: 'form-group' }
+      %>
+     </p>
+     <p>
+      <%= f.input :q9, collection: 0..5,
+      :label => Answer::QUESTIONS[:q9][:title],
+      wrapper_html: { class: 'form-group' }
+      %>
+     </p>
+    </div>
+   </div>
+   <!-- Questions on Environment -->
+   <div class="cardEnvironment">
+
+    <p>  <%= Answer::QUESTIONS[:q10][:category]  %> </p>
+    <div class="pictureq10">
+     <%= image_tag "question_environment.png" %>
+    </div>
+    <div class="answers">
+     <p>
+      <%= f.input :q10, collection: 0..5,
+      :label => Answer::QUESTIONS[:q10][:title],
+      wrapper_html: { class: 'form-group' }
+      %>
+     </p>
+     <p>
+      <%= f.input :q11, collection: 0..5,
+      :label => Answer::QUESTIONS[:q11][:title],
+      wrapper_html: { class: 'form-group' }
+      %>
+     </p>
+     <p>
+     <%= f.input :q12, collection: 0..5,
+     :label => Answer::QUESTIONS[:q12][:title],
+     wrapper_html: { class: 'form-group' }
+     %>
+    </p>
+   </div>
   </div>
 
+ </div>
+
+ <!-- Will put in the same row Facilities and Comfort -->
+ <div class="review-content", style="display: flex">
+  <!-- Questions on Facilities -->
+  <div class="cardFacilities">
+   <p>  <%= Answer::QUESTIONS[:q13][:category]  %> </p>
+
+   <div class="pictureq13">
+    <%= image_tag "question_facilities.png" %>
+   </div>
+   <div class="answers">
+    <p>
+     <%= f.input :q13, collection: 0..5,
+     :label => Answer::QUESTIONS[:q13][:title],
+     wrapper_html: { class: 'form-group' } %>
+    </p>
+    <p>
+    <%= f.input :q14, collection: 0..5,
+    :label => Answer::QUESTIONS[:q14][:title],
+    wrapper_html: { class: 'form-group' } %>
+   </p>
+   <p>
+    <%= f.input :q15, collection: 0..5,
+    :label => Answer::QUESTIONS[:q15][:title],
+    wrapper_html: { class: 'form-group' } %>
+   </p>
+   <p>
+    <%= f.input :q16, collection: 0..5,
+    :label => Answer::QUESTIONS[:q16][:title],
+    wrapper_html: { class: 'form-group' } %>
+   </p>
+   <p>
+    <%= f.input :q17, collection: 0..5,
+    :label => Answer::QUESTIONS[:q17][:title],
+    wrapper_html: { class: 'form-group' } %>
+   </p>
+  </div>
+
+ </div>
+
+ <!-- Questions on Comfort -->
+ <div class="cardComfort">
+  <p>  <%= Answer::QUESTIONS[:q7][:category]  %> </p>
+  <div class="pictureq18">
+   <%= image_tag "question_comfort.png" %>
+  </div>
+  <div class="answers">
+   <p>
+    <%= f.input :q18, collection: 0..5,
+    :label => Answer::QUESTIONS[:q18][:title],
+    wrapper_html: { class: 'form-group' } %>
+   </p>
+   <p>
+    <%= f.input :q19, collection: 0..5,
+    :label => Answer::QUESTIONS[:q19][:title],
+    wrapper_html: { class: 'form-group' } %>
+   </p>
+   <p>
+    <%= f.input :q20, collection: 0..5,
+    :label => Answer::QUESTIONS[:q20][:title],
+    wrapper_html: { class: 'form-group' } %>
+   </p>
+   <p>
+    <%= f.input :q21, collection: 0..5,
+    :label => Answer::QUESTIONS[:q21][:title],
+    wrapper_html: { class: 'form-group' } %>
+   </p>
+  </div>
+ </div>
+</div>
+
+<div class="buttonSubmitQ">
+ <%= f.button :submit, class: "btn btn-primary" %>
+ <% end %>
 </div>
 </div>
 </div>
