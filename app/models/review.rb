@@ -8,4 +8,10 @@ class Review < ApplicationRecord
   has_many :pictures, dependent: :destroy
   has_many :answers, dependent: :destroy
   mount_uploader :photo, PhotoUploader
+  validates :street_review_title, prensence: true
+  validates :street_review_content, prensence: true
+  validates :street_review_average_rating, prensence: true
+  validates :commune_review_title, prensence: true
+  validates :commune_review_content, prensence: true
+  validates :commune_review_average_rating, prensence: true
 end
