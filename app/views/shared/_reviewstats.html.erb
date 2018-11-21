@@ -15,7 +15,7 @@
     <div class="cardStat", style="display: flex">
       <div class="community">
         <h3><%= Answer::QUESTIONS[:q7][:category] %></h3>
-        <p> <strong> <%= @stats[:friendliness] %> </strong> "Friendly neighbours" <%= image_tag "main_page_hands.png" %></p>
+        <p> <strong> <%= @stats[:friendliness] %> <%= image_tag "main_page_hands.png" %> </strong> "Friendly neighbours"</p>
         <p> <strong> <%= @stats[:events] %> </strong> "Activity and events organised" <%= image_tag "main_page_event.png" %></p>
         <p> <strong> <%= @stats[:stay] %> </strong> "Plan to stay >5 years" <%= image_tag "main_page_5years.png" %></p>
       </div>
