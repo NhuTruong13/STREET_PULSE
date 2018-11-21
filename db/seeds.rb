@@ -36,7 +36,8 @@ s4 = Search.create!(address: "Ambiorixsquare, 1000 Brussel", radius: 2.500, user
 
 
 # in reviews instances long/latit shhould be added by Geocoder gem while saving
-r1 = Review.create!(street_review_title: "Review No 1",
+r1 = Review.create!(
+  street_review_title: "Review No 1",
   street_review_content: "Excellet so nice!",
   street_review_average_rating: 6,
   commune_review_title: "Review on the commune No 1",
@@ -51,7 +52,8 @@ r1 = Review.create!(street_review_title: "Review No 1",
   )
 
 
-r2 = Review.create!(street_review_title: "Review on the street No 2",
+r2 = Review.create!(
+  street_review_title: "Review on the street No 2",
   street_review_content: "Very veyry excellent so nice!",
   street_review_average_rating: 4,
   commune_review_title: "Review on the commune No 2",
@@ -65,7 +67,8 @@ r2 = Review.create!(street_review_title: "Review on the street No 2",
   photo: "https://res.cloudinary.com/kloshi/image/upload/v1542645911/AvTervuren.png"
   )
 
-r3 = Review.create!(street_review_title: "Review on the street No 3",
+r3 = Review.create!(
+  street_review_title: "Review on the street No 3",
   street_review_content: "Super cool and very very excellent so nice!",
   street_review_average_rating: 5,
   commune_review_title: "Review on the commune No 2",
@@ -79,7 +82,8 @@ r3 = Review.create!(street_review_title: "Review on the street No 3",
   photo: "https://res.cloudinary.com/kloshi/image/upload/v1542645910/GrandPlace.png"
   )
 
-r4 = Review.create!(street_review_title: "Review on the street No 4",
+r4 = Review.create!(
+  street_review_title: "My review on the street No 4",
   street_review_content: "Oh my God, it's so cool. Very very excellent so nice!",
   street_review_average_rating: 9,
   commune_review_title: "Review on the commune No 2",
