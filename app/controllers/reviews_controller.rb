@@ -2,7 +2,7 @@ class ReviewsController < ApplicationController
   # before_action :set_search, only: [:new, :create]
 
   def index
-    
+
   end
 
   def show
@@ -13,16 +13,14 @@ class ReviewsController < ApplicationController
     @search = Search.find(params[:search_id])
     @review = Review.new
     @staticmap = static_map_for(@search)
-    @commune = get_commune(@search) # fetch communune based on user input address
+    # @commune = get_commune(@search) # fetch communune based on user input address
+    @zip_code = get_zip_code(@search)
+    @commune = get_commune(@zip_code)
   end
 
   def create
     @review = Review.new(reviews_params)
     @search = Search.find(params[:search_id])
-
-    @zip_code = get_zip_code(@search)
-
-    @commune = get_commune(@zip_code)
 
     @review.commune = @commune
 
