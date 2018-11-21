@@ -57,21 +57,21 @@ class SearchesController < ApplicationController
         # @statistics is a hash with necessary stats calculated
         @street_average = street_average
         @commune_average = commune_average
-        @friendliness = friendliness
-        @events = events
-        @stay = stay
-        @quiet = quiet
-        @green = green
-        @clean = clean
-        @parking = parking
-        @cars = cars
-        @bikes = bikes
-        @transportation = transportation
-        @bike_lanes = bike_lanes
-        @pavement = pavement
-        @lightened = lightened
-        @playgrounds = playgrounds
-        @dog_friendly = dog_friendly
+        @friendliness = average("q7")
+        @events = average("q8")
+        @stay = average("q9")
+        @quiet = average("q10")
+        @green = average("q11")
+        @clean = average("q12")
+        @parking = average("q13")
+        @cars = average("q14")
+        @bikes = average("q15")
+        @transportation = average("q16")
+        @bike_lanes = average("q17")
+        @pavement = average("q18")
+        @lightened = average("q19")
+        @playgrounds = average("q20")
+        @dog_friendly = average("q21")
 
         # Here is the stats Hash
         @stats = {
@@ -125,7 +125,8 @@ class SearchesController < ApplicationController
       total += rating[:street_review_average_rating]
       }
       result = ((total/counter).round)*20
-    return "#{result} %"  end
+    return "#{result} %"
+  end
 
   def commune_average
     counter = @reviews_in_radius.size
@@ -199,12 +200,12 @@ class SearchesController < ApplicationController
     return income_types.keys.first.to_s.capitalize
   end
 
-  def friendliness
+  def average(q)
     counter = 0
     total = 0
     @answers_within_radius.each { |rating|
-      if rating[:q7] != [] && rating[:q7] != nil
-      total += rating[:q7]
+      if rating[q.to_sym] != [] && rating[q.to_sym] != nil
+      total += rating[q.to_sym]
       counter += 1
       end
       }
@@ -216,242 +217,6 @@ class SearchesController < ApplicationController
       end
     end
 
-  def events
-    counter = 0
-    total = 0
-    @answers_within_radius.each { |rating|
-      if rating[:q8] != [] && rating[:q8] != nil
-      total += rating[:q8]
-      counter += 1
-      end
-      }
-    if counter > 0
-      result = ((total/counter).round)*20
-      return "#{result} %"
-    else
-      return "N/A"
-    end
-  end
-
-  def stay
-    counter = 0
-    total = 0
-    @answers_within_radius.each { |rating|
-      if rating[:q9] != [] && rating[:q9] != nil
-      total += rating[:q9]
-      counter += 1
-      end
-      }
-      if counter > 0
-        result = ((total/counter).round)*20
-        return "#{result} %"
-      else
-      return "N/A"
-    end
-  end
-
-  def quiet
-    counter = 0
-    total = 0
-    @answers_within_radius.each { |rating|
-      if rating[:q10] != [] && rating[:q10] != nil
-      total += rating[:q10]
-      counter += 1
-      end
-      }
-      if counter > 0
-        result = ((total/counter).round)*20
-        return "#{result} %"
-      else
-      return "N/A"
-    end
-  end
-
-  def green
-    counter = 0
-    total = 0
-    @answers_within_radius.each { |rating|
-      if rating[:q11] != [] && rating[:q11] != nil
-      total += rating[:q11]
-      counter += 1
-      end
-      }
-      if counter > 0
-        result = ((total/counter).round)*20
-        return "#{result} %"
-      else
-      return "N/A"
-      end
-  end
-
-  def clean
-    counter = 0
-    total = 0
-    @answers_within_radius.each { |rating|
-      if rating[:q12] != [] && rating[:q12] != nil
-      total += rating[:q12]
-      counter += 1
-      end
-      }
-      if counter > 0
-        result = ((total/counter).round)*20
-        return "#{result} %"
-      else
-      return "N/A"
-    end
-  end
-
-  def parking
-    counter = 0
-    total = 0
-    @answers_within_radius.each { |rating|
-      if rating[:q13] != [] && rating[:q13] != nil
-      total += rating[:q13]
-      counter += 1
-      end
-      }
-      if counter > 0
-        result = ((total/counter).round)*20
-        return "#{result} %"
-      else
-      return "N/A"
-    end
-  end
-
-  def cars
-    counter = 0
-    total = 0
-    @answers_within_radius.each { |rating|
-      if rating[:q14] != [] && rating[:q14] != nil
-      total += rating[:q14]
-      counter += 1
-      end
-      }
-      if counter > 0
-        result = ((total/counter).round)*20
-        return "#{result} %"
-      else
-      return "N/A"
-    end
-  end
-
-  def bikes
-    counter = 0
-    total = 0
-    @answers_within_radius.each { |rating|
-      if rating[:q15] != [] && rating[:q15] != nil
-      total += rating[:q15]
-      counter += 1
-      end
-      }
-      if counter > 0
-        result = ((total/counter).round)*20
-        return "#{result} %"
-      else
-      return "N/A"
-    end
-  end
-
-  def transportation
-    counter = 0
-    total = 0
-    @answers_within_radius.each { |rating|
-      if rating[:q16] != [] && rating[:q16] != nil
-      total += rating[:q16]
-      counter += 1
-      end
-      }
-      if counter > 0
-        result = ((total/counter).round)*20
-        return "#{result} %"
-      else
-      return "N/A"
-    end
-  end
-
-  def bike_lanes
-    counter = 0
-    total = 0
-    @answers_within_radius.each { |rating|
-      if rating[:q17] != [] && rating[:q17] != nil
-      total += rating[:q17]
-      counter += 1
-      end
-      }
-      if counter > 0
-        result = ((total/counter).round)*20
-        return "#{result} %"
-      else
-      return "N/A"
-    end
-  end
-
-  def pavement
-    counter = 0
-    total = 0
-    @answers_within_radius.each { |rating|
-      if rating[:q18] != [] && rating[:q18] != nil
-      total += rating[:q18]
-      counter += 1
-      end
-      }
-      if counter > 0
-        result = ((total/counter).round)*20
-        return "#{result} %"
-      else
-      return "N/A"
-    end
-  end
-
-  def lightened
-    counter = 0
-    total = 0
-    @answers_within_radius.each { |rating|
-      if rating[:q19] != [] && rating[:q19] != nil
-      total += rating[:q19]
-      counter += 1
-      end
-      }
-      if counter > 0
-        result = ((total/counter).round)*20
-        return "#{result} %"
-      else
-      return "N/A"
-    end
-  end
-
-  def playgrounds
-    counter = 0
-    total = 0
-    @answers_within_radius.each { |rating|
-      if rating[:q20] != [] && rating[:q20] != nil
-      total += rating[:q20]
-      counter += 1
-      end
-      }
-      if counter > 0
-        result = ((total/counter).round)*20
-        return "#{result} %"
-      else
-      return "N/A"
-    end
-  end
-
-  def dog_friendly
-    counter = 0
-    total = 0
-    @answers_within_radius.each { |rating|
-      if rating[:q21] != [] && rating[:q21] != nil
-      total += rating[:q21]
-      counter += 1
-      end
-      }
-      if counter > 0
-        result = ((total/counter).round)*20
-        return "#{result} %"
-      else
-      return "N/A"
-    end
     def get_commune(zip_code)
       # if commune does not exist in our DB then assign commune = N/A (first in the DB)
       commune = Commune.where(zip_code: zip_code).first
@@ -465,7 +230,7 @@ class SearchesController < ApplicationController
       zip_code = "9999" if zip_code == [] || zip_code.nil?
       return zip_code
     end
-  end
+
 
   ######################### strong params #######################
   def search_params
