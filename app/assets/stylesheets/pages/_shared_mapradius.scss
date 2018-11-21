@@ -2,7 +2,6 @@
 .main_page-hero-image1 {
   /* Use “linear-gradient” to add a darken background effect to the image (photographer.jpg). This will make the text easier to read */
   background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url("main_page_map.jpeg");
-
    /* Set a specific height */
    height: 50vh;
 
@@ -18,22 +17,22 @@
  }
  .MapInfos {
   width: 50%;
-  margin-top: 50px;
-  margin-left:50px;
+  margin: 40px;
+  margin-left: 100px;
   position: relative;
 }
 .searchBarAddress {
   position: absolute;
-  top: 80px;
+  top: 135px;
 }
 .searchRadiusTitle {
   position: absolute;
-  top: 130px;
+  top: 140px;
 }
 
 .searchBarRadius {
   position: absolute;
-  bottom: 180px;
+  top: 165px;
 }
 .buttonsMapInfos {
   position: relative;
@@ -58,4 +57,27 @@
   box-shadow: 0 10px 30px rgba(0,0,0,0.6);
   background-size: cover !important;
   border: none;
+}
+.cardPictureCommune {
+  position: relative;
+  margin-right: 50px;
+}
+.ratStreet {
+  position: absolute;
+  text-shadow: 1px 1px 2px #32B796;
+  right: 20px;
+  top: -25px;
+  color:  #32B796;
+
+}
+.bigcardPictureNeighbourhood {
+  position: relative;
+}
+.ratCommune {
+  position: absolute;
+  text-shadow: 1px 1px 2px #32B796;
+  right: 30px;
+  top: -25px;
+  color:  #32B796;
+
 }

@@ -5,7 +5,8 @@
 </div>
 <br>
 
-<div class="row">
+
+<div class="row row-margin">
   <div class="col-xs-12">
     <div class="cardMap", style="display: flex">
       <!-- The map with the result; passing markers and radius via "data-xxxxx" -->
@@ -17,44 +18,42 @@
 
       <div class="searchBarTitle">
         <h3> <strong> Your neighbourhood... </strong> </h3>
+        <br>
+        <h5> <strong>Type in the address</strong> </h5>
+        <div class="searchBarAddress" style="padding:15px, width: 800px">
+          <%= form_tag(controller: "searches", action: "create", method: "post") do %>
+          <%= text_field_tag :search, @search.address  %>
+        </div>
+        <br><br>
+        <h5> <strong>Set the radius</strong> </h5>
+        <div class="searchRadius">
+          <%= number_field_tag(:radius, @search.radius, min: 100, max: 2500, step: 100 ) %> meters
+        </div>
 
-        <div class="searchBarAddress">
-          <div style="padding:15px, width: 600px">
-            <%= form_tag(controller: "searches", action: "create", method: "post") do %>
-            <%= text_field_tag :search, @search.address  %>
+        <div class="buttonsMapInfos">
+          <div class="NewSearchButton">
+            <%= submit_tag("New Search", :class=>"btn btn-primary", :style=>"margin-top:15px") %>
+            <% end %>
+          </div>
+          <div class="SaveButton">
+            <%= link_to "Save Search", new_user_session_path, class:"buttonNoFill" , style:"margin-top:15px pading:20px"%>
+          </div>
+          <div class="AddButton">
+            <%= link_to "Add Review", new_search_review_path(:search_id => @search.id), class:"buttonNoFillGreen" , style:"margin:15px" %>
           </div>
         </div>
 
-        <div class="searchRadiusTitle">
-          <h4> Set the radius </h4>
-          <div class="searchRadius">
-            <div style="padding:15px">
-              <%= number_field_tag(:radius, @search.radius, min: 100, max: 2500, step: 100 ) %> meters
-            </div>
-          </div>
-
-          <div class="buttonsMapInfos">
-            <div class="NewSearchButton">
-              <%= submit_tag("New Search", :class=>"btn btn-primary", :style=>"margin-top:15px") %>
-              <% end %>
-            </div>
-            <div class="SaveButton">
-              <%= link_to "Save Search", new_user_session_path, class:"buttonNoFill" , style:"margin-top:15px"%>
-            </div>
-            <div class="AddButton">
-              <%= link_to "Add Review", new_search_review_path(:search_id => @search.id), class:"buttonNoFillGreen" , style:"margin:15px" %>
-            </div>
-          </div>
-        </div>
       </div>
     </div>
         <!-- display number of reviews -->
         <p> We found <%= @reviews_in_radius.size %> reviews for this neighbouhood! </p>
 
   </div>
+
+</div>
 </div>
 
-<br><br><br><br>
+<br><br>
 
 <!-- show the list of reviews in radius -->
 <ul>
@@ -69,37 +68,27 @@
           <h4 class="modal-title" id="myModalLabel"> <%= r.street_review_title %> </h4>
         </div>
         <div class="modal-body">
-
-
-          <table class="table">
-            <tbody>
-              <tr>
-                <td><strong>Address:</strong></td>
-                <td><%= r.address %> (<%= '%.02f' % r.distance_from(@search.address) %> km away)</td>
-              </tr>
-              <tr>
-                <td><strong>Post code:</strong></td>
-                <td><%= @zip_code %> (<%= @commune.name %>)</td>
-              </tr>
-              <tr>
-                <td><strong>Review Street:</strong></td>
-                <td><%= r.street_review_content %></td>
-              </tr>
-              <tr>
-                <td><strong>From user:</strong></td>
-                <td><%= r.user.email %></td>
-              </tr>
-
-            </tbody>
-          </table>
-
-          <%= cl_image_tag r.photo, :width=>500, :alt=>"street photo" %>
-
+          <p>
+            <strong>Address:</strong>
+            <%= r.address %> (<%= '%.02f' % r.distance_from(@search.address) %> km away)
+          </p>
+          <p>
+            <strong>Review Street:</strong>
+            <%= r.street_review_content %>
+          </p>
+          <p>
+            <strong>From user:</strong>
+            <%= r.user.email %>
+          </p>
+          <p>
+            <%= cl_image_tag r.photo, :width=>500, :alt=>"street photo" %>
+          </p>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
         </div>
       </div>
     </div>
   </div>
   <% end %>
+

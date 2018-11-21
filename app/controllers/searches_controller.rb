@@ -54,10 +54,10 @@ class SearchesController < ApplicationController
 
         # fetching the answers for a review
         @answers_within_radius =  []
-          @reviews_in_radius.each do |rev|
+        @reviews_in_radius.each do |rev|
           @answers_within_radius << rev.answers.first unless rev.answers.first == nil || rev.answers.first == []
 
-          end
+        end
 
         # @statistics is a hash with necessary stats calculated
         @street_average = street_average
@@ -125,7 +125,7 @@ class SearchesController < ApplicationController
   ################# computation methods ##########################
   def street_average
     counter = @reviews_in_radius.size
-    total = 0
+    total = 0.0
     @reviews_in_radius.each { |rating|
       total += rating[:street_review_average_rating]
       }
@@ -139,7 +139,7 @@ class SearchesController < ApplicationController
 
   def commune_average
     counter = @reviews_in_radius.size
-    total = 0
+    total = 0.0
     @reviews_in_radius.each { |rating|
       total += rating[:commune_review_average_rating]
       }
@@ -218,17 +218,17 @@ class SearchesController < ApplicationController
     total = 0.0
     @answers_within_radius.each { |rating|
       if rating[q.to_sym] != [] && rating[q.to_sym] != nil
-      total += rating[q.to_sym]
-      counter += 1
+        total += rating[q.to_sym]
+        counter += 1
       end
-      }
-      if counter > 0
-        result = ((total/counter).round)*20
-        return "#{result} %"
-      else
-        return "N/A"
-      end
+    }
+    if counter > 0
+      result = ((total/counter).round)*20
+      return "#{result} %"
+    else
+      return "N/A"
     end
+  end
 
   def get_commune(zip_code)
     # if commune does not exist in our DB then assign commune = N/A (first in the DB)
