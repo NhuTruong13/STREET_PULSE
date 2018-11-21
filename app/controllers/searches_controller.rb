@@ -124,10 +124,10 @@ class SearchesController < ApplicationController
     @reviews_in_radius.each { |rating|
       total += rating[:street_review_average_rating]
       }
-      result = (total/counter).round(2)
       if counter == 0
         return "N/A"
       else
+        result = (total/counter).round(2)
         return "#{result}/5"
       end
   end
@@ -138,10 +138,10 @@ class SearchesController < ApplicationController
     @reviews_in_radius.each { |rating|
       total += rating[:commune_review_average_rating]
       }
-      result = (total/counter).round(2)
       if counter == 0
         return "N/A"
       else
+        result = (total/counter).round(2)
         return "#{result}/5"
       end
   end

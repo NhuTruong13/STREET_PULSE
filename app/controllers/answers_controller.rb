@@ -16,7 +16,8 @@ class AnswersController < ApplicationController
     @answer = Answer.new(answer_params)
     @answer.review = @review
     if @answer.save!
-      redirect_to searches_path
+      flash[:notice] = "Thank you for contributing!"
+      redirect_to new_search_path
     else
       render :new
     end
