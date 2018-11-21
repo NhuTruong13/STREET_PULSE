@@ -32,7 +32,7 @@
 
         <h4> <strong> " <%= @search.address %> </strong> " </h4>
 
-       <%= simple_form_for [@search, @review] do |f| %>
+        <%= simple_form_for [@search, @review] do |f| %>
 
         <div style="padding-top: 30px;">
           <h5> <%= f.input :street_review_average_rating, collection: 0..5, :label => "Your General Appreciation" %> </h5>
@@ -50,7 +50,7 @@
           <h4><strong>Regarding the commune...</strong></h4>
         </div>
 
-        <h4> <strong> " <%= @commune.name %> </strong> " </h4>
+        <h4> <strong> "<%= @commune.name %>" </strong> </h4>
 
         <div style="padding-top: 30px;">
           <p> <%= f.input :commune_review_average_rating, collection: 0..5, :label => "Your General Appreciation" %> </p>
@@ -67,6 +67,6 @@
         <% end  %>
       </div>
 
-      </div>
     </div>
   </div>
+</div>
