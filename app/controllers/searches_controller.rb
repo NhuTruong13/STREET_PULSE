@@ -124,8 +124,12 @@ class SearchesController < ApplicationController
     @reviews_in_radius.each { |rating|
       total += rating[:street_review_average_rating]
       }
-      result = ((total/counter).round)*20
-    return "#{result} %"
+      result = (total/counter).round(2)
+      if counter == 0
+        return "N/A"
+      else
+        return "#{result}/5"
+      end
   end
 
   def commune_average
@@ -134,8 +138,12 @@ class SearchesController < ApplicationController
     @reviews_in_radius.each { |rating|
       total += rating[:commune_review_average_rating]
       }
-      result = ((total/counter).round)*20
-    return "#{result} %"
+      result = (total/counter).round(2)
+      if counter == 0
+        return "N/A"
+      else
+        return "#{result}/5"
+      end
   end
 
   def type_of_population

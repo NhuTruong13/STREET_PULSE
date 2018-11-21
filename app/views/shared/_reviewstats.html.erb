@@ -14,19 +14,19 @@
 
     <div class="cardStat", style="display: flex">
       <div class="community">
-        <h3> Category</h3>
+        <h3><%= Answer::QUESTIONS[:q7][:category] %></h3>
         <p> <strong> <%= @stats[:friendliness] %> </strong> "Friendly neighbours" <%= image_tag "main_page_hands.png" %></p>
         <p> <strong> <%= @stats[:events] %> </strong> "Activity and events organised" <%= image_tag "main_page_event.png" %></p>
         <p> <strong> <%= @stats[:stay] %> </strong> "Plan to stay >5 years" <%= image_tag "main_page_5years.png" %></p>
       </div>
       <div class="environment">
-       <h3> Category</h3>
+       <h3> <%= Answer::QUESTIONS[:q10][:category] %></h3>
        <p> <strong> <%= @stats[:quiet] %> </strong> "Quiet place" <%= image_tag "main_page_quiet.png" %></p>
        <p> <strong> <%= @stats[:green] %> </strong> "Green place" <%= image_tag "question_environment.png" %></p>
        <p> <strong> <%= @stats[:clean] %> </strong> "Clean place" <%= image_tag "main_page_clean.png" %></p>
      </div>
      <div class="facilities">
-       <h3> Category</h3>
+       <h3> <%= Answer::QUESTIONS[:q13][:category] %></h3>
        <p> <strong> <%= @stats[:parking] %> </strong> "Easy to park" <%= image_tag "main_page_car.png" %></p>
        <p> <strong> <%= @stats[:cars] %> </strong> "Parking for cars" <%= image_tag "main_page_parking.png" %></p>
        <p> <strong> <%= @stats[:bikes] %> </strong> "Parking for bikes" <%= image_tag "main_page_bike.png" %></p>
@@ -34,7 +34,7 @@
        <p> <strong> <%= @stats[:bike_lanes] %> </strong> "Bike lanes" <%= image_tag "main_page_bikepath.png" %></p>
      </div>
      <div class="comfort">
-       <h3> Category</h3>
+       <h3> <%= Answer::QUESTIONS[:q21][:category] %></h3>
        <p> <strong> <%= @stats[:pavement] %></strong> "Pavement well maintained" <%= image_tag "main_page_street.png" %></p>
        <p> <strong> <%= @stats[:lightened] %> </strong> "Street well illuminated" <%= image_tag "main_page_light.png" %></p>
        <p> <strong> <%= @stats[:playgrounds] %> </strong> "Nice playground" <%= image_tag "main_page_playground.png" %></p>
