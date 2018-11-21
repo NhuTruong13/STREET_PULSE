@@ -12,5 +12,8 @@ Rails.application.routes.draw do
       resources :answers
     end
   end
+
   resources :users, only: [:show]
+
+  get 'main', to: 'searches#main', as: :main_page
 end
