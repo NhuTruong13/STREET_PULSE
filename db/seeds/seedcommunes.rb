@@ -171,6 +171,24 @@ c9 = Commune.create!(
 
   Coups de cœur : Se promener le long du circuit de la promenade verte permet de s’échapper de la ville en empruntant, depuis la rue L. Jasmin, l’ancien tracé de la ligne de chemin de fer « Bruxelles-Tervueren », en traversant le Parc Malou (avenue du Stade) et en longeant la Woluwe (découverte du Lindekemaele, repas dans le restaurant Le Slot, reste d’un château du XVIème siècle."
   )
+c10 = Commune.create!(
+  name: "Uccle",
+  zip_code: "1180",
+  description: "Commune très chic, Uccle est la deuxième en taille après Bruxelles-ville et la quatrième en quantité de population.  Elle  est entourée d’écrins de verdure : le bois de la Cambre jusqu’à la forêt de Soignes, à l’est et le circuit de la promenade verte qui longe Uccle du nord-ouest au sud-est pour rejoindre ladite forêt de Soignes qui occupe un quart de la surface de la commune.  Plusieurs parcs jalonnent Uccle parmi lesquels le Wolvendael.
+
+  Si la légende la fait remonter plus loin encore, Uccle est mentionnée pour la première fois au XIème siècle.  Elle se développe près de la Chaussée d’Alsemberg (qui, elle remonte au début du XVIIIème siècle), dans le cœur historique, sur le Parvis de l’église Saint-Pierre.  Bien à l’est se dessine la vieille chaussée de Waterloo (fin du Moyen Age).  La commune fut formée en 1795 par l’ajout des seigneuries de Carloo-Saint-Job et de Stalle-Overhem.  L’avenue Brugmann  (du nom du riche banquier qui en fut l’initiateur) s’inscrit dans le paysage  en 1873.  Depuis lors, Uccle se développe avec ses quartiers populaires dans le nord essentiellement (les « carrés », groupe de petites habitations ouvrières, quartier du Chat) et ses quartiers résidentiels huppés situés du côté de l’Observatoire et dans le sud avec ses nombreuses villas.
+
+  Acheter un bien immobilier à Uccle est une marque de standing.  Pas étonnant dès lors d’y voir les prix les plus élevés de toute la région bruxelloise pour les maisons, villas et appartements.  Etonnamment, la location d’appartement est un peu moins cher, même si elle reste assez élevée.
+
+  Point fort de la commune : aérée, Uccle présente un côté « sous-bois » vraiment charmant.  Plusieurs lignes de tram et de bus complètent les cinq gares de chemin de fer d’Uccle-Calevoet, Uccle-Stalle, Moensberg, Saint-Job et Vivier d’oie.
+
+  Culture en bref :  Le centre culturel d’Uccle (www.ccu.be) offre de nombreuses propositions de spectacles théâtraux, musicaux et cinématographiques.  Exploration du monde y propose la projection de films documentaires géographiques.
+
+  Shopping : Plusieurs quartiers rassemblant des commerces de standing se situent sur le territoire ucclois : le quartier Saint-Job sur la chaussée de Waterloo ou le croisement entre la chaussée d’Alsemberg et la rue Xavier de Bue.
+
+  Coups de cœur : Le marché de Saint-Job se tient tous les lundis de 9 à 13 heures et ce depuis 35 ans.  Quelques bonnes tables se situent à proximité de la place Saint-Job où se tient le marché.
+
+  "
 
 
-puts "Creating communes data OK."
+  puts "Creating communes data OK."
