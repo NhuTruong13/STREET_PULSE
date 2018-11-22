@@ -35,7 +35,7 @@ class SearchesController < ApplicationController
       {
         lat: r.latitude,
         lng: r.longitude,
-        title: r.address+" ("+r.street_review_average_rating.to_s+"/10)",
+        title: r.address+" ("+r.street_review_average_rating.to_s+"/5)",
         # stores the ID of this review instance in the marker so that
         # we can identify it back after the user clicks marker on the map
         review_id: r.id
@@ -123,7 +123,7 @@ class SearchesController < ApplicationController
   ##################################################################
   ###################################################################
   ################# computation methods ##########################
-  
+
   ######################### strong params #######################
   def search_params
     params.require(:search).permit(:address, :latitude, :longitude)
