@@ -35,6 +35,10 @@
             <%= submit_tag("New Search", :class=>"btn btn-primary", :style=>"margin-top:15px") %>
             <% end %>
           </div>
+
+          <!-- display number of reviews -->
+          <p> <%= @reviews_in_radius.size %> reviews found for this neighbouhood! </p>
+
           <div class="SaveButton">
             <%= link_to "Save Search", new_user_session_path, class:"buttonNoFill" , style:"margin-top:15px pading:20px"%>
           </div>
@@ -45,8 +49,6 @@
 
       </div>
     </div>
-        <!-- display number of reviews -->
-        <p> We found <%= @reviews_in_radius.size %> reviews for this neighbouhood! </p>
 
   </div>
 
