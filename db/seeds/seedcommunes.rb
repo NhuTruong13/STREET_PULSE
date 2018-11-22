@@ -188,7 +188,7 @@ c10 = Commune.create!(
 
   Coups de cœur : Le marché de Saint-Job se tient tous les lundis de 9 à 13 heures et ce depuis 35 ans.  Quelques bonnes tables se situent à proximité de la place Saint-Job où se tient le marché.
 
-  "
+  ")
 
 
-  puts "Creating communes data OK."
+puts "Creating communes data OK."
