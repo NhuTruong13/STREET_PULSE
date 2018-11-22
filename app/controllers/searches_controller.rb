@@ -11,12 +11,17 @@ class SearchesController < ApplicationController
     params[:search] = "Brussels, Belgium" if params[:search] == ""
 
     @search = Search.new({ :address => params[:search], :radius => params[:radius] })
+    @search.user = current_user if user_signed_in?
 
     # dirty fix: we save each search, otherwise for non-logged users the app crashes (at main.html.erb)
     @search.save
 
-    # call main method which will render the main page
-    main
+    # call main method which will render the main page UNLESS it's a call from new review with the intention to update the address
+    if params[:update_address] == "yes"
+      redirect_to new_search_review_path(@search)
+    else
+      main
+    end
   end
 
   def main
@@ -49,10 +54,10 @@ class SearchesController < ApplicationController
 
         # fetching the answers for a review
         @answers_within_radius =  []
-          @reviews_in_radius.each do |rev|
+        @reviews_in_radius.each do |rev|
           @answers_within_radius << rev.answers.first unless rev.answers.first == nil || rev.answers.first == []
 
-          end
+        end
 
         # @statistics is a hash with necessary stats calculated
         @street_average = street_average
@@ -127,7 +132,7 @@ class SearchesController < ApplicationController
       if counter == 0
         return "N/A"
       else
-        result = (total/counter).round(2)
+        result = (total/counter).round(1)
         return "#{result}/5"
       end
   end
@@ -141,7 +146,7 @@ class SearchesController < ApplicationController
       if counter == 0
         return "N/A"
       else
-        result = (total/counter).round(2)
+        result = (total/counter).round(1)
         return "#{result}/5"
       end
   end
@@ -213,32 +218,35 @@ class SearchesController < ApplicationController
     total = 0.0
     @answers_within_radius.each { |rating|
       if rating[q.to_sym] != [] && rating[q.to_sym] != nil
-      total += rating[q.to_sym]
-      counter += 1
+        total += rating[q.to_sym]
+        counter += 1
       end
-      }
-      if counter > 0
-        result = ((total/counter).round)*20
-        return "#{result} %"
-      else
-        return "N/A"
-      end
+    }
+    if counter > 0
+      result = ((total/counter).round)*20
+      return "#{result} %"
+    else
+      return "N/A"
     end
+  end
 
-    def get_commune(zip_code)
-      # if commune does not exist in our DB then assign commune = N/A (first in the DB)
-      commune = Commune.where(zip_code: zip_code).first
-      commune = Commune.first if commune.nil?
-      return commune
+  def get_commune(zip_code)
+    # if commune does not exist in our DB then assign commune = N/A (first in the DB)
+    commune = Commune.where(zip_code: zip_code).first
+    commune = Commune.first if commune.nil?
+    return commune
+  end
+
+  def get_zip_code(search)
+    query = Geocoder.search([search.latitude, search.longitude]).first
+    # in case geocoder (maps api) fails --> assign zip_code = 9999
+    if query.nil?
+      zip_code = "9999"
+    else
+      zip_code = query.postal_code
     end
-
-    def get_zip_code(search)
-      zip_code = Geocoder.search([search.latitude, search.longitude]).first.postal_code
-      # in case geocode (maps api) fails --> assign zip_code = 9999
-      zip_code = "9999" if zip_code == [] || zip_code.nil?
-      return zip_code
-    end
-
+    return zip_code
+  end
 
   ######################### strong params #######################
   def search_params
