@@ -8,47 +8,48 @@
 
 <!-- test new cards -->
 
-<div class="row">
-  <div class="col-xs-12">
-    <div class="card-blocks">
+  <div class="row">
+      <div class="col-xs-12">
+          <div class="card-blocks">
 
-      <% @reviews_in_radius.each do |r| %>
+    <% @reviews_in_radius.each do |r| %>
 
-      <div class="card-item panel">
-        <div class="card-head panel-heading"><%= r.street_review_title %><span class="pull-right"></spant></span>
-        </div>
-        <div class="card-body panel-body">
-          <!-- image -->
-          <p><%= cl_image_tag r.photo, :width=>'100%', :alt=>"street photo" %></p>
-          <p><strong>From your search:</strong> <%= '%.02f' % r.distance_from(@search.address) %> km away </p>
-          <p><strong>Street review:</strong> <br> <%= r.street_review_content.truncate_words(25) %></p>
-          <!-- avatar image -->
-          <%= cl_image_tag current_user.photo, class: "card-user" %>
+              <div class="card-item panel">
+                  <div class="card-head panel-heading"><%= r.street_review_title %><span class="pull-right"></spant></span>
+                  </div>
+                  <div class="card-body panel-body">
+                    <!-- image -->
+                    <p><%= cl_image_tag r.photo, :width=>'100%', :alt=>"street photo" %></p>
+                    <p><strong>From your search:</strong> <%= '%.02f' % r.distance_from(@search.address) %> km away </p>
+                    <p><strong>Street review:</strong> <br> <%= r.street_review_content.truncate_words(25) %></p>
+                  <!-- avatar image -->
+                  <%= cl_image_tag r.user.photo, class: "card-user" %>
 
-        </div>
-        <div class="card-foot panel-footer"><a href="#" class="btn btn-link" data-toggle="modal" data-target="#reviewModal-<%= r.id %>">Read more</a>
-        </div>
-      </div>
+                  </div>
+                  <div class="card-foot panel-footer"><a href="#" class="btn btn-link" data-toggle="modal" data-target="#reviewModal-<%= r.id %>">Read more</a>
+                  </div>
+              </div>
 
       <% end %>
 
-      <% @reviews_in_radius.each do |r| %>
+    <% @reviews_in_radius.each do |r| %>
 
-      <div class="card-item panel">
-        <div class="card-head panel-heading"><%= r.street_review_title %><span class="pull-right"></spant></span>
-        </div>
-        <div class="card-body panel-body">
-          <!-- image -->
-          <p><%= cl_image_tag r.photo, :width=>'100%', :alt=>"street photo" %></p>
-          <p><strong>From your search:</strong> <%= '%.02f' % r.distance_from(@search.address) %> km away </p>
-          <p><strong>Street review:</strong> <br> <%= r.street_review_content.truncate_words(25) %></p>
-          <!-- avatar image -->
-          <%= cl_image_tag current_user.photo, class: "card-user" %>
+              <div class="card-item panel">
+                  <div class="card-head panel-heading"><%= r.street_review_title %><span class="pull-right"></spant></span>
+                  </div>
+                  <div class="card-body panel-body">
+                    <!-- image -->
+                    <p><%= cl_image_tag r.photo, :width=>'100%', :alt=>"street photo" %></p>
+                    <p><strong>From your search:</strong> <%= '%.02f' % r.distance_from(@search.address) %> km away </p>
+                    <p><strong>Street review:</strong> <br> <%= r.street_review_content.truncate_words(25) %></p>
+                  <!-- avatar image -->
+                  <%= cl_image_tag r.user.photo, class: "card-user" %>
 
-        </div>
-        <div class="card-foot panel-footer"><a href="#" class="btn btn-link" data-toggle="modal" data-target="#reviewModal-<%= r.id %>">Read more</a>
-        </div>
-      </div>
+                  </div>
+                  <div class="card-foot panel-footer"><a href="#" class="btn btn-link" data-toggle="modal" data-target="#reviewModal-<%= r.id %>">Read more</a>
+                  </div>
+              </div>
+
 
       <% end %>
 
