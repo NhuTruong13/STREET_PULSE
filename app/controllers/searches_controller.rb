@@ -120,7 +120,7 @@ class SearchesController < ApplicationController
   ################# computation methods ##########################
   def street_average
     counter = @reviews_in_radius.size
-    total = 0
+    total = 0.0
     @reviews_in_radius.each { |rating|
       total += rating[:street_review_average_rating]
       }
@@ -134,7 +134,7 @@ class SearchesController < ApplicationController
 
   def commune_average
     counter = @reviews_in_radius.size
-    total = 0
+    total = 0.0
     @reviews_in_radius.each { |rating|
       total += rating[:commune_review_average_rating]
       }
@@ -210,7 +210,7 @@ class SearchesController < ApplicationController
 
   def average(q)
     counter = 0
-    total = 0
+    total = 0.0
     @answers_within_radius.each { |rating|
       if rating[q.to_sym] != [] && rating[q.to_sym] != nil
       total += rating[q.to_sym]

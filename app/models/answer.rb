@@ -4,7 +4,7 @@ class Answer < ApplicationRecord
   QUESTIONS = {
     :q5 => {:title => "What kind of people live in your area?", :category => "General", :type =>"text"},
     :q6 => {:title => "How would you describe the income of people living in your area?", :category => "General", :type =>"text"},
-    :q7 => {:title => "Are your neighbours friendly? (do you say HI to them? Do you know the name of some neighbours in your street? Do you have their phone numbers?", :category => "Community", :type => "range"},
+    :q7 => {:title => "Are your neighbours friendly?", :category => "Community", :type => "range"},
     :q8 => {:title => "Are there lots of activities and community events?", :category => "Community", :type => "range"},
     :q9 => {:title => "Would you like to spend more than 5 years in this area?", :category => "Community", :type => "range"},
     :q10 => {:title => "Is your neighbourhood a quiet place?", :category => "Environment", :type =>"range"},

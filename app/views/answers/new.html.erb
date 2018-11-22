@@ -60,24 +60,44 @@
 
     <div class="answers">
       <p>
-       <%= f.input :q7, collection: 0..5,
-       :label => Answer::QUESTIONS[:q7][:title],
-       :as => :range,
-       wrapper_html: { class: 'form-group' }
-       %>
+        <label style="margin-bottom: 25px;"><%= Answer::QUESTIONS[:q7][:title] %></label>
+      <input type="range" name="answer[q7]" list="tickmarks" min="0" max="5" step="1">
+
+      <datalist id="tickmarks">
+        <option value="0" label="0">
+        <option value="1" label="2">
+        <option value="2" label="2">
+        <option value="3" label="3">
+        <option value="4" label="4">
+        <option value="5" label="5">
+      </datalist>
       </p>
-     <p>
-      <%= f.input :q8, collection: 0..5,
-      :label => Answer::QUESTIONS[:q8][:title],
-      wrapper_html: { class: 'form-group' }
-      %>
-     </p>
-     <p>
-      <%= f.input :q9, collection: 0..5,
-      :label => Answer::QUESTIONS[:q9][:title],
-      wrapper_html: { class: 'form-group' }
-      %>
-     </p>
+      <p>
+        <label style="margin-bottom: 25px;"><%= Answer::QUESTIONS[:q8][:title] %></label>
+      <input type="range" name="answer[q8]" list="tickmarks" min="0" max="5" step="1">
+
+      <datalist id="tickmarks">
+        <option value="0" label="0">
+        <option value="1" label="2">
+        <option value="2" label="2">
+        <option value="3" label="3">
+        <option value="4" label="4">
+        <option value="5" label="5">
+      </datalist>
+      </p>
+      <p>
+        <label style="margin-bottom: 25px;"><%= Answer::QUESTIONS[:q9][:title] %></label>
+      <input type="range" name="answer[q9]" list="tickmarks" min="0" max="5" step="1">
+
+      <datalist id="tickmarks">
+        <option value="0" label="0">
+        <option value="1" label="2">
+        <option value="2" label="2">
+        <option value="3" label="3">
+        <option value="4" label="4">
+        <option value="5" label="5">
+      </datalist>
+      </p>
     </div>
    </div>
    <!-- Questions on Environment -->
@@ -88,24 +108,45 @@
      <%= image_tag "question_environment.png" %>
     </div>
     <div class="answers">
-     <p>
-      <%= f.input :q10, collection: 0..5,
-      :label => Answer::QUESTIONS[:q10][:title],
-      wrapper_html: { class: 'form-group' }
-      %>
-     </p>
-     <p>
-      <%= f.input :q11, collection: 0..5,
-      :label => Answer::QUESTIONS[:q11][:title],
-      wrapper_html: { class: 'form-group' }
-      %>
-     </p>
-     <p>
-     <%= f.input :q12, collection: 0..5,
-     :label => Answer::QUESTIONS[:q12][:title],
-     wrapper_html: { class: 'form-group' }
-     %>
-    </p>
+      <p>
+        <label style="margin-bottom: 25px;"><%= Answer::QUESTIONS[:q10][:title] %></label>
+      <input type="range" name="answer[q10]" list="tickmarks" min="0" max="5" step="1">
+
+      <datalist id="tickmarks">
+        <option value="0" label="0">
+        <option value="1" label="2">
+        <option value="2" label="2">
+        <option value="3" label="3">
+        <option value="4" label="4">
+        <option value="5" label="5">
+      </datalist>
+      </p>
+      <p>
+        <label style="margin-bottom: 25px;"><%= Answer::QUESTIONS[:q11][:title] %></label>
+      <input type="range" name="answer[q11]" list="tickmarks" min="0" max="5" step="1">
+
+      <datalist id="tickmarks">
+        <option value="0" label="0">
+        <option value="1" label="2">
+        <option value="2" label="2">
+        <option value="3" label="3">
+        <option value="4" label="4">
+        <option value="5" label="5">
+      </datalist>
+      </p>
+      <p>
+        <label style="margin-bottom: 25px;"><%= Answer::QUESTIONS[:q12][:title] %></label>
+      <input type="range" name="answer[q12]" list="tickmarks" min="0" max="5" step="1">
+
+      <datalist id="tickmarks">
+        <option value="0" label="0">
+        <option value="1" label="2">
+        <option value="2" label="2">
+        <option value="3" label="3">
+        <option value="4" label="4">
+        <option value="5" label="5">
+      </datalist>
+      </p>
    </div>
   </div>
 
@@ -121,62 +162,134 @@
     <%= image_tag "question_facilities.png" %>
    </div>
    <div class="answers">
-    <p>
-     <%= f.input :q13, collection: 0..5,
-     :label => Answer::QUESTIONS[:q13][:title],
-     wrapper_html: { class: 'form-group' } %>
-    </p>
-    <p>
-    <%= f.input :q14, collection: 0..5,
-    :label => Answer::QUESTIONS[:q14][:title],
-    wrapper_html: { class: 'form-group' } %>
-   </p>
-   <p>
-    <%= f.input :q15, collection: 0..5,
-    :label => Answer::QUESTIONS[:q15][:title],
-    wrapper_html: { class: 'form-group' } %>
-   </p>
-   <p>
-    <%= f.input :q16, collection: 0..5,
-    :label => Answer::QUESTIONS[:q16][:title],
-    wrapper_html: { class: 'form-group' } %>
-   </p>
-   <p>
-    <%= f.input :q17, collection: 0..5,
-    :label => Answer::QUESTIONS[:q17][:title],
-    wrapper_html: { class: 'form-group' } %>
-   </p>
+     <p>
+       <label style="margin-bottom: 25px;"><%= Answer::QUESTIONS[:q13][:title] %></label>
+     <input type="range" name="answer[q13]" list="tickmarks" min="0" max="5" step="1">
+
+     <datalist id="tickmarks">
+       <option value="0" label="0">
+       <option value="1" label="2">
+       <option value="2" label="2">
+       <option value="3" label="3">
+       <option value="4" label="4">
+       <option value="5" label="5">
+     </datalist>
+     </p>
+     <p>
+       <label style="margin-bottom: 25px;"><%= Answer::QUESTIONS[:q14][:title] %></label>
+     <input type="range" name="answer[q14]" list="tickmarks" min="0" max="5" step="1">
+
+     <datalist id="tickmarks">
+       <option value="0" label="0">
+       <option value="1" label="2">
+       <option value="2" label="2">
+       <option value="3" label="3">
+       <option value="4" label="4">
+       <option value="5" label="5">
+     </datalist>
+     </p>
+     <p>
+       <label style="margin-bottom: 25px;"><%= Answer::QUESTIONS[:q15][:title] %></label>
+     <input type="range" name="answer[q15]" list="tickmarks" min="0" max="5" step="1">
+
+     <datalist id="tickmarks">
+       <option value="0" label="0">
+       <option value="1" label="2">
+       <option value="2" label="2">
+       <option value="3" label="3">
+       <option value="4" label="4">
+       <option value="5" label="5">
+     </datalist>
+     </p>
+     <p>
+       <label style="margin-bottom: 25px;"><%= Answer::QUESTIONS[:q16][:title] %></label>
+     <input type="range" name="answer[q16]" list="tickmarks" min="0" max="5" step="1">
+
+     <datalist id="tickmarks">
+       <option value="0" label="0">
+       <option value="1" label="2">
+       <option value="2" label="2">
+       <option value="3" label="3">
+       <option value="4" label="4">
+       <option value="5" label="5">
+     </datalist>
+     </p>
+     <p>
+       <label style="margin-bottom: 25px;"><%= Answer::QUESTIONS[:q17][:title] %></label>
+     <input type="range" name="answer[q17]" list="tickmarks" min="0" max="5" step="1">
+
+     <datalist id="tickmarks">
+       <option value="0" label="0">
+       <option value="1" label="2">
+       <option value="2" label="2">
+       <option value="3" label="3">
+       <option value="4" label="4">
+       <option value="5" label="5">
+     </datalist>
+     </p>
   </div>
 
  </div>
 
  <!-- Questions on Comfort -->
  <div class="cardComfort">
-  <p>  <%= Answer::QUESTIONS[:q7][:category]  %> </p>
+  <p>  <%= Answer::QUESTIONS[:q21][:category]  %> </p>
   <div class="pictureq18">
    <%= image_tag "question_comfort.png" %>
   </div>
   <div class="answers">
-   <p>
-    <%= f.input :q18, collection: 0..5,
-    :label => Answer::QUESTIONS[:q18][:title],
-    wrapper_html: { class: 'form-group' } %>
-   </p>
-   <p>
-    <%= f.input :q19, collection: 0..5,
-    :label => Answer::QUESTIONS[:q19][:title],
-    wrapper_html: { class: 'form-group' } %>
-   </p>
-   <p>
-    <%= f.input :q20, collection: 0..5,
-    :label => Answer::QUESTIONS[:q20][:title],
-    wrapper_html: { class: 'form-group' } %>
-   </p>
-   <p>
-    <%= f.input :q21, collection: 0..5,
-    :label => Answer::QUESTIONS[:q21][:title],
-    wrapper_html: { class: 'form-group' } %>
-   </p>
+    <p>
+      <label style="margin-bottom: 25px;"><%= Answer::QUESTIONS[:q18][:title] %></label>
+    <input type="range" name="answer[q18]" list="tickmarks" min="0" max="5" step="1">
+
+    <datalist id="tickmarks">
+      <option value="0" label="0">
+      <option value="1" label="2">
+      <option value="2" label="2">
+      <option value="3" label="3">
+      <option value="4" label="4">
+      <option value="5" label="5">
+    </datalist>
+    </p>
+    <p>
+      <label style="margin-bottom: 25px;"><%= Answer::QUESTIONS[:q19][:title] %></label>
+    <input type="range" name="answer[q19]" list="tickmarks" min="0" max="5" step="1">
+
+    <datalist id="tickmarks">
+      <option value="0" label="0">
+      <option value="1" label="2">
+      <option value="2" label="2">
+      <option value="3" label="3">
+      <option value="4" label="4">
+      <option value="5" label="5">
+    </datalist>
+    </p>
+    <p>
+      <label style="margin-bottom: 25px;"><%= Answer::QUESTIONS[:q20][:title] %></label>
+    <input type="range" name="answer[q20]" list="tickmarks" min="0" max="5" step="1">
+
+    <datalist id="tickmarks">
+      <option value="0" label="0">
+      <option value="1" label="2">
+      <option value="2" label="2">
+      <option value="3" label="3">
+      <option value="4" label="4">
+      <option value="5" label="5">
+    </datalist>
+    </p>
+    <p>
+      <label style="margin-bottom: 25px;"><%= Answer::QUESTIONS[:q21][:title] %></label>
+    <input type="range" name="answer[q21]" list="tickmarks" min="0" max="5" step="1">
+
+    <datalist id="tickmarks">
+      <option value="0" label="0">
+      <option value="1" label="2">
+      <option value="2" label="2">
+      <option value="3" label="3">
+      <option value="4" label="4">
+      <option value="5" label="5">
+    </datalist>
+    </p>
   </div>
  </div>
 </div>
