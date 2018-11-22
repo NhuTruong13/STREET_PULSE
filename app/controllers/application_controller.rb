@@ -112,7 +112,7 @@ class ApplicationController < ActionController::Base
       end
     }
     if counter > 0
-      result = ((total/counter).round)*20
+      result = ((total/counter).round(2))*20
       return "#{result} %"
     else
       return "N/A"
