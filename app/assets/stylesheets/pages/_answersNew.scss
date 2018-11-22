@@ -99,7 +99,7 @@
     width: 50%;
     padding: 20px;
     margin: 20px;
-    height: 620px;
+    height: 800px;
     box-shadow: 0 0px 0px rgba(0,0,0,0.6);
     background-size: cover !important;
     position: relative;
@@ -118,7 +118,7 @@
     width: 50%;
     padding: 20px;
     margin: 20px;
-    height: 620px;
+    height: 800px;
     box-shadow: 0 0px 0px rgba(0,0,0,0.6);
     background-size: cover !important;
     position: relative;
@@ -136,4 +136,9 @@
   .buttonSubmitQ {
     padding: 40px;
     margin-left: 730px;
+  }
+
+  datalist {
+    display: flex;
+    justify-content: space-between;
   }

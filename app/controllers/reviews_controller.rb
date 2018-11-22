@@ -29,7 +29,6 @@ class ReviewsController < ApplicationController
     @review.search = @search
     @review.address = @search.address
     @review.user = current_user
-
     if @review.save!
       redirect_to new_search_review_answer_path(review_id: @review.id, search_id: @review.search_id)
     else
@@ -90,6 +89,3 @@ class ReviewsController < ApplicationController
       :photo)
   end
 end
-
-
-
