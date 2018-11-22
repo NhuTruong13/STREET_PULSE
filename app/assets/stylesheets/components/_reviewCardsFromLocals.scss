@@ -8,6 +8,7 @@
   background: #fff;
   border: 0;
   margin-bottom:30px;
+  position: relative; // test
 }
 .card-item .panel-heading {
   font-size: 20px;
@@ -51,4 +52,18 @@
 }
 .collapsed .card-head span::before  {
   transform:rotate(-180deg);
+}
+.card-user {
+  position: absolute; // test (original: absolute)
+  right: 20px;
+  bottom: 31px;
+  width: 60px;
+  border-radius: 50%;
+}
+.card-user-in-modal {
+  position: absolute; // test (original: absolute)
+  right: 55px;
+  top: 25px;
+  width: 80px;
+  border-radius: 50%;
 }

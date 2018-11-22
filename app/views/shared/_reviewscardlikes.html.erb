@@ -14,18 +14,19 @@
     <% @reviews_in_radius.each do |r| %>
 
               <div class="card-item panel">
-                  <div class="card-head panel-heading"><%= r.street_review_title %><span class="pull-right"></spant></span></div>
+                  <div class="card-head panel-heading"><%= r.street_review_title %><span class="pull-right"></spant></span>
+                  </div>
                   <div class="card-body panel-body">
                     <!-- image -->
                     <p><%= cl_image_tag r.photo, :width=>'100%', :alt=>"street photo" %></p>
                     <p><strong>Address:</strong> <%= r.address %> (<%= '%.02f' % r.distance_from(@search.address) %> km away)</p>
                     <p><strong>Post code:</strong> <%= @zip_code %> (<%= r.commune.name %>) </p>
-                    <hr>
                     <p><strong>Street review:</strong> <br> <%= r.street_review_content %></p>
-                    <hr>
                     <p><strong>User:</strong> <%= r.user.email %></p>
+                  <img class="card-user" src="https://kitt.lewagon.com/placeholder/users/tgenaitay">
                   </div>
-                  <div class="card-foot panel-footer"><a href="#" class="btn btn-link">Read more</a></div>
+                  <div class="card-foot panel-footer"><a href="#" class="btn btn-link" data-toggle="modal" data-target="#reviewModal-<%= r.id %>">Read more</a>
+                  </div>
               </div>
 
       <% end %>
@@ -40,7 +41,8 @@
                     <p>Review Street: <%= r.street_review_content %></p>
                     <p>User: <%= r.user.email %></p>
                   </div>
-                  <div class="card-foot panel-footer"><a href="#" class="btn btn-link">Read more</a></div>
+                  <div class="card-foot panel-footer"><a href="#" class="btn btn-link" data-toggle="modal" data-target="#reviewModal-<%= r.id %>">Read more</a>
+                  </div>
               </div>
 
       <% end %>
