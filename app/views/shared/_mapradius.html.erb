@@ -76,6 +76,7 @@
             <strong>Address:</strong>
             <%= r.address %> (<%= '%.02f' % r.distance_from(@search.address) %> km away)
           </p>
+          <p><strong>Rating:</strong> <%= r.street_review_average_rating %>/5</p>
           <p>
             <strong>Review Street:</strong>
             <%= r.street_review_content %>

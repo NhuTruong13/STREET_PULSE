@@ -20,8 +20,9 @@
                   <div class="card-body panel-body">
                     <!-- image -->
                     <p><%= cl_image_tag r.photo, :width=>'100%', :alt=>"street photo" %></p>
-                    <p><strong>From your search:</strong> <%= '%.02f' % r.distance_from(@search.address) %> km away </p>
-                    <p><strong>Street review:</strong> <br> <%= r.street_review_content.truncate_words(25) %></p>
+                    <p><strong>Rating:</strong> <%= r.street_review_average_rating %>/5</p>
+                    <p><strong>From your search:</strong> <%= '%.02f' % r.distance_from(@search.address) %> km away</p>
+                    <p><strong>Street review:</strong> <br> <%= r.street_review_content.truncate_words(40) %></p>
                   <!-- avatar image -->
                   <%= cl_image_tag r.user.photo, class: "card-user" %>
 
@@ -40,8 +41,9 @@
                   <div class="card-body panel-body">
                     <!-- image -->
                     <p><%= cl_image_tag r.photo, :width=>'100%', :alt=>"street photo" %></p>
-                    <p><strong>From your search:</strong> <%= '%.02f' % r.distance_from(@search.address) %> km away </p>
-                    <p><strong>Street review:</strong> <br> <%= r.street_review_content.truncate_words(25) %></p>
+                    <p><strong>Rating:</strong> <%= r.street_review_average_rating %>/5</p>
+                    <p><strong>From your search:</strong> <%= '%.02f' % r.distance_from(@search.address) %> km away</p>
+                    <p><strong>Street review:</strong> <br> <%= r.street_review_content.truncate_words(40) %></p>
                   <!-- avatar image -->
                   <%= cl_image_tag r.user.photo, class: "card-user" %>
 
@@ -49,7 +51,6 @@
                   <div class="card-foot panel-footer"><a href="#" class="btn btn-link" data-toggle="modal" data-target="#reviewModal-<%= r.id %>">Read more</a>
                   </div>
               </div>
-
 
       <% end %>
 
