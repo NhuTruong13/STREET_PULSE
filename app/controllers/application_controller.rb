@@ -17,13 +17,13 @@ class ApplicationController < ActionController::Base
     total = 0.0
     @reviews_in_radius.each { |rating|
       total += rating[:street_review_average_rating]
-      }
-      if counter == 0
-        return "N/A"
-      else
-        result = (total/counter).round(1)
-        return "#{result}/5"
-      end
+    }
+    if counter == 0
+      return "N/A"
+    else
+      result = (total/counter).round(1)
+      return "#{result}/5"
+    end
   end
 
   def commune_average
@@ -31,13 +31,13 @@ class ApplicationController < ActionController::Base
     total = 0.0
     @reviews_in_radius.each { |rating|
       total += rating[:commune_review_average_rating]
-      }
-      if counter == 0
-        return "N/A"
-      else
-        result = (total/counter).round(1)
-        return "#{result}/5"
-      end
+    }
+    if counter == 0
+      return "N/A"
+    else
+      result = (total/counter).round(1)
+      return "#{result}/5"
+    end
   end
 
   def type_of_population
@@ -112,7 +112,7 @@ class ApplicationController < ActionController::Base
       end
     }
     if counter > 0
-      result = ((total/counter).round)*20
+      result = ((total/counter)*20).round
       return "#{result} %"
     else
       return "N/A"
