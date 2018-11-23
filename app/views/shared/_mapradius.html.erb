@@ -69,7 +69,7 @@
           <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
           <h4 class="modal-title" id="myModalLabel"> <%= r.street_review_title %> </h4>
           <!-- avatar image -->
-          <%= cl_image_tag r.user.photo, class: "card-user-in-modal" %>
+          <%= cl_image_tag r.user.photo, width: 150, height: 150, crop: :thumb, gravity: :face, class: "card-user-in-modal" %>
         </div>
         <div class="modal-body">
           <p>
