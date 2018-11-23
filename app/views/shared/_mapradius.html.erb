@@ -40,10 +40,10 @@
           <p><h2 style="display: inline;"><%= @reviews_in_radius.size %></h2> reviews found! </p>
 
           <div class="SaveButton">
-            <%= link_to "Save Search", new_user_session_path, class:"buttonNoFill" , style:"margin-top:15px pading:20px"%>
+            <%= link_to "Save Search", new_user_session_path, class:"buttonNoFill" , style:"margin-top:15px; pading:20px"%>
           </div>
           <div class="AddButton">
-            <%= link_to "Add Review", new_search_review_path(:search_id => @search.id), class:"buttonNoFillGreen" , style:"margin:15px" %>
+            <%= link_to "Add Review", new_search_review_path(:search_id => @search.id), class: "buttonNoFillGreen" %>
           </div>
         </div>
 
