@@ -3,18 +3,17 @@ a.buttonNoFill {
   background-color: white;
   width: 150px;
   font-size: 15px;
-  padding: 15px;
+  padding: 5px 15px;
   border-radius: 3px;
   text-align: center;
   border: 1px solid #FF6968;
   margin-top: 30px;
   box-sizing: border-box;
 }
-
-a.buttonNoFill :visited {
-  color: #49CBA9;
+a.buttonNoFill:visited {
+  // color: #49CBA9;
 }
-a.buttonNoFill :hover {
+a.buttonNoFill:hover {
   background-color: #fff;
   color: #FFBDBD;
   color: inherit;
