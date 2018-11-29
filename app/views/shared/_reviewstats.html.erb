@@ -4,49 +4,53 @@
   </div>
 </div>
 
-<div class="row row-margin">
-  <div class="col-xs-12">
-    <div class="StatTitle">
-      <h3> <strong> What Locals think about: </strong> </h3>
-      <%= link_to "Add Review", new_search_review_path(:search_id => @search.id), class:"buttonNoFillGreen" , style:"margin-left:1210px" %>
-    </div>
-    <!-- button Addreview -->
 
-    <div class="cardStat", style="display: flex">
-      <div class="community">
-        <h3><%= Answer::QUESTIONS[:q7][:category] %></h3>
-        <br>
-        <p> <%= image_tag "main_page_hands.png" %> <strong> <%= @stats[:friendliness] %> </strong> "Friendly neighbours"</p>
-        <p> <%= image_tag "main_page_event.png" %> <strong> <%= @stats[:events] %> </strong> "Activity and events organised" </p>
-        <p> <%= image_tag "main_page_5years.png" %> <strong> <%= @stats[:stay] %> </strong> "Plan to stay >5 years" </p>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="StatTitle">
+        <h3> <strong> What Locals think about: </strong> </h3>
+        <%= link_to "Add Review", new_search_review_path(:search_id => @search.id), class:"buttonNoFillGreen" , style:"margin-left:90%" %>
       </div>
-      <div class="environment">
-       <h3> <%= Answer::QUESTIONS[:q10][:category] %></h3>
-       <br>
-       <p> <%= image_tag "main_page_quiet.png" %> <strong> <%= @stats[:quiet] %> </strong> "Quiet place" </p>
-       <p> <%= image_tag "question_environment.png" %> <strong> <%= @stats[:green] %> </strong> "Green place" </p>
-       <p> <%= image_tag "main_page_clean.png" %> <strong> <%= @stats[:clean] %> </strong> "Clean place" </p>
-     </div>
-     <div class="facilities">
-       <h3> <%= Answer::QUESTIONS[:q13][:category] %></h3>
-       <br>
-       <p> <%= image_tag "main_page_car.png" %> <strong> <%= @stats[:parking] %> </strong> "Easy to park" </p>
-       <p> <%= image_tag "main_page_parking.png" %> <strong> <%= @stats[:cars] %> </strong> "Parking for cars" </p>
-       <p> <%= image_tag "main_page_bike.png" %> <strong> <%= @stats[:bikes] %> </strong> "Parking for bikes" </p>
-       <p> <%= image_tag "main_page_tram.png" %> <strong> <%= @stats[:transportation] %> </strong> "Public transport" </p>
-       <p> <%= image_tag "main_page_bikepath.png" %> <strong> <%= @stats[:bike_lanes] %> </strong> "Bike lanes" </p>
-     </div>
-     <div class="comfort">
-       <h3> <%= Answer::QUESTIONS[:q21][:category] %></h3>
-       <br>
-       <p> <%= image_tag "main_page_street.png" %> <strong> <%= @stats[:pavement] %></strong> "Pavement well maintained" </p>
-       <p> <%= image_tag "main_page_light.png" %> <strong> <%= @stats[:lightened] %> </strong> "Street well illuminated" </p>
-       <p> <%= image_tag "main_page_playground.png" %> <strong> <%= @stats[:playgrounds] %> </strong> "Nice playground" </p>
-       <p> <%= image_tag "main_page_dog.png" %> <strong> <%= @stats[:dog_friendly] %> </strong> "Dog friendly" </p>
+      <!-- button Addreview -->
+
+      <div class="cardStat", style="display: flex">
+        <div class="community">
+          <h3><%= Answer::QUESTIONS[:q7][:category] %></h3>
+          <br>
+          <p> <%= image_tag "main_page_hands.png" %> <strong> <%= @stats[:friendliness] %> </strong> "Friendly neighbours"</p>
+          <p> <%= image_tag "main_page_event.png" %> <strong> <%= @stats[:events] %> </strong> "Activity and events organised" </p>
+          <p> <%= image_tag "main_page_5years.png" %> <strong> <%= @stats[:stay] %> </strong> "Plan to stay >5 years" </p>
+        </div>
+        <div class="environment">
+         <h3> <%= Answer::QUESTIONS[:q10][:category] %></h3>
+         <br>
+         <p> <%= image_tag "main_page_quiet.png" %> <strong> <%= @stats[:quiet] %> </strong> "Quiet place" </p>
+         <p> <%= image_tag "question_environment.png" %> <strong> <%= @stats[:green] %> </strong> "Green place" </p>
+         <p> <%= image_tag "main_page_clean.png" %> <strong> <%= @stats[:clean] %> </strong> "Clean place" </p>
+       </div>
+       <div class="facilities">
+         <h3> <%= Answer::QUESTIONS[:q13][:category] %></h3>
+         <br>
+         <p> <%= image_tag "main_page_car.png" %> <strong> <%= @stats[:parking] %> </strong> "Easy to park" </p>
+         <p> <%= image_tag "main_page_parking.png" %> <strong> <%= @stats[:cars] %> </strong> "Parking for cars" </p>
+         <p> <%= image_tag "main_page_bike.png" %> <strong> <%= @stats[:bikes] %> </strong> "Parking for bikes" </p>
+         <p> <%= image_tag "main_page_tram.png" %> <strong> <%= @stats[:transportation] %> </strong> "Public transport" </p>
+         <p> <%= image_tag "main_page_bikepath.png" %> <strong> <%= @stats[:bike_lanes] %> </strong> "Bike lanes" </p>
+       </div>
+       <div class="comfort">
+         <h3> <%= Answer::QUESTIONS[:q21][:category] %></h3>
+         <br>
+         <p> <%= image_tag "main_page_street.png" %> <strong> <%= @stats[:pavement] %></strong> "Pavement well maintained" </p>
+         <p> <%= image_tag "main_page_light.png" %> <strong> <%= @stats[:lightened] %> </strong> "Street well illuminated" </p>
+         <p> <%= image_tag "main_page_playground.png" %> <strong> <%= @stats[:playgrounds] %> </strong> "Nice playground" </p>
+         <p> <%= image_tag "main_page_dog.png" %> <strong> <%= @stats[:dog_friendly] %> </strong> "Dog friendly" </p>
+       </div>
      </div>
    </div>
  </div>
 </div>
+
 <br><br><br><br>
 <div class="main_page-hero-image3">
   <div class="main_page-title">
